@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&amp;display=swap');
+    .mono { font-family: 'Outfit', sans-serif; font-weight: 300; font-size: 48px; letter-spacing: 0.08em; fill: #f5f0eb; }
+  </style>
+  <rect width="120" height="120" rx="8" fill="#0a0a0a"/>
+  <text class="mono" x="50%" y="70" text-anchor="middle">VO</text>
+</svg>

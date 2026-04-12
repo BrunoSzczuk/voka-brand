@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VÖKA — Brand Identity System</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --voka-black: #0a0a0a;
+  --voka-offwhite: #f5f0eb;
+  --voka-stone: #8c8579;
+  --voka-sand: #c4b5a2;
+  --voka-charcoal: #2d2926;
+  --voka-cream: #e8e0d6;
+  --voka-warm-gray: #b5ada3;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--voka-offwhite);
+  color: var(--voka-black);
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--voka-stone);
+  margin-bottom: 40px;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--voka-black);
+  color: var(--voka-offwhite);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(140,133,121,0.08) 0%, transparent 50%);
+  animation: drift 20s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -20px); }
+}
+
+.hero-logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: clamp(72px, 15vw, 180px);
+  letter-spacing: 0.15em;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 1.2s ease-out;
+}
+
+.hero-tagline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--voka-stone);
+  margin-top: 24px;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 1.2s ease-out 0.3s both;
+}
+
+.hero-sub {
+  font-size: 12px;
+  color: var(--voka-stone);
+  position: absolute;
+  bottom: 40px;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+  animation: fadeUp 1.2s ease-out 0.6s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* LOGO VARIATIONS */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.logo-card {
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.logo-card:hover { transform: scale(1.02); }
+
+.logo-card.dark {
+  background: var(--voka-black);
+  color: var(--voka-offwhite);
+}
+
+.logo-card.light {
+  background: var(--voka-offwhite);
+  color: var(--voka-black);
+  border: 1px solid var(--voka-cream);
+}
+
+.logo-card.stone {
+  background: var(--voka-stone);
+  color: var(--voka-offwhite);
+}
+
+.logo-card.charcoal {
+  background: var(--voka-charcoal);
+  color: var(--voka-sand);
+}
+
+.logo-card .logo-text {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 48px;
+  letter-spacing: 0.15em;
+}
+
+.logo-card .logo-text.bold {
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.logo-card .logo-text.mono {
+  font-size: 56px;
+  font-weight: 200;
+  letter-spacing: 0.08em;
+}
+
+.logo-card .logo-text.compact {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+}
+
+.logo-card-label {
+  position: absolute;
+  bottom: 16px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.4;
+}
+
+/* MONOGRAM */
+.monogram-section {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+  align-items: center;
+}
+
+.monogram-card {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: 0.08em;
+  transition: transform 0.3s ease;
+}
+
+.monogram-card:hover { transform: scale(1.05); }
+
+/* PALETTE */
+.palette-row {
+  display: flex;
+  gap: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 32px;
+  height: 160px;
+}
+
+.palette-swatch {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  transition: flex 0.4s ease;
+  cursor: default;
+}
+
+.palette-swatch:hover { flex: 1.8; }
+
+.palette-swatch .swatch-name {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.palette-swatch .swatch-hex {
+  opacity: 0.6;
+  font-family: 'Outfit', monospace;
+  font-size: 10px;
+}
+
+/* TYPOGRAPHY */
+.type-showcase {
+  margin-top: 32px;
+}
+
+.type-row {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--voka-cream);
+}
+
+.type-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--voka-stone);
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.type-sample-display {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 48px;
+  letter-spacing: 0.1em;
+  color: var(--voka-black);
+}
+
+.type-sample-heading {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.06em;
+}
+
+.type-sample-body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--voka-charcoal);
+  max-width: 500px;
+}
+
+.type-sample-caption {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--voka-stone);
+}
+
+/* MOCKUPS */
+.mockup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.mockup-card {
+  background: var(--voka-black);
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  position: relative;
+}
+
+/* Woven label mockup */
+.woven-label {
+  width: 60px;
+  height: 80px;
+  background: var(--voka-offwhite);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 2px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.woven-label::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--voka-offwhite) 0px,
+    var(--voka-offwhite) 2px,
+    transparent 2px,
+    transparent 3px
+  );
+  border-radius: 2px 2px 0 0;
+}
+
+.woven-label .wl-text {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--voka-black);
+}
+
+.woven-label .wl-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 6px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--voka-stone);
+  margin-top: 4px;
+}
+
+/* Hang tag mockup */
+.hang-tag {
+  width: 80px;
+  height: 120px;
+  background: var(--voka-charcoal);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hang-tag::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--voka-stone);
+}
+
+.hang-tag .ht-logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  color: var(--voka-offwhite);
+  margin-top: 12px;
+}
+
+.hang-tag .ht-line {
+  width: 30px;
+  height: 0.5px;
+  background: var(--voka-stone);
+  margin: 10px 0;
+}
+
+.hang-tag .ht-size {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  color: var(--voka-sand);
+  letter-spacing: 0.1em;
+}
+
+/* T-shirt mockup */
+.tshirt-mockup {
+  width: 200px;
+  height: 240px;
+  position: relative;
+}
+
+.tshirt-body {
+  width: 160px;
+  height: 180px;
+  background: var(--voka-offwhite);
+  border-radius: 4px 4px 8px 8px;
+  margin: 40px auto 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.tshirt-neck {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 20px;
+  border: 3px solid var(--voka-cream);
+  border-bottom: none;
+  border-radius: 25px 25px 0 0;
+  background: transparent;
+}
+
+.tshirt-sleeve-l, .tshirt-sleeve-r {
+  position: absolute;
+  top: 50px;
+  width: 40px;
+  height: 50px;
+  background: var(--voka-offwhite);
+  border-radius: 0 0 8px 8px;
+}
+
+.tshirt-sleeve-l { left: -10px; transform: rotate(-15deg); }
+.tshirt-sleeve-r { right: -10px; transform: rotate(15deg); }
+
+.tshirt-logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: var(--voka-black);
+}
+
+/* Zip bag mockup */
+.zip-bag {
+  width: 140px;
+  height: 180px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  backdrop-filter: blur(2px);
+}
+
+.zip-bag::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.2);
+}
+
+.zip-bag .zb-logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.7);
+}
+
+.zip-bag .zb-sub {
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.3);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.mockup-label {
+  position: absolute;
+  bottom: 16px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--voka-stone);
+}
+
+/* BRAND RULES */
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.rule-card {
+  padding: 24px;
+  border: 1px solid var(--voka-cream);
+  border-radius: 12px;
+}
+
+.rule-card h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.rule-card p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--voka-charcoal);
+}
+
+.rule-card .do { color: #4a7c59; font-weight: 500; }
+.rule-card .dont { color: #9c4040; font-weight: 500; }
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 60px 40px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--voka-stone);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 60px 24px; }
+  .type-row { flex-direction: column; gap: 8px; }
+  .type-label { min-width: auto; }
+  .palette-row { height: 120px; }
+  .palette-swatch { padding: 8px; }
+  .logo-card .logo-text { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-logo">VÖKA</div>
+  <div class="hero-tagline">Wear less. Mean more.</div>
+  <div class="hero-sub">Brand Identity System — 2026</div>
+</section>
+
+<!-- LOGO VARIATIONS -->
+<section class="section">
+  <div class="section-label">01 — Logo variations</div>
+  <div class="logo-grid">
+    <div class="logo-card dark">
+      <div class="logo-text">VÖKA</div>
+      <div class="logo-card-label">Primary — dark</div>
+    </div>
+    <div class="logo-card light">
+      <div class="logo-text">VÖKA</div>
+      <div class="logo-card-label" style="color:var(--voka-stone)">Primary — light</div>
+    </div>
+    <div class="logo-card dark">
+      <div class="logo-text bold">VÖKA</div>
+      <div class="logo-card-label">Bold weight</div>
+    </div>
+    <div class="logo-card stone">
+      <div class="logo-text mono">vöka</div>
+      <div class="logo-card-label">Lowercase — social</div>
+    </div>
+    <div class="logo-card charcoal">
+      <div class="logo-text compact">VÖKA®</div>
+      <div class="logo-card-label">Registered mark</div>
+    </div>
+    <div class="logo-card light">
+      <div class="logo-text compact" style="color:var(--voka-charcoal)">VÖKA<span style="font-weight:200;opacity:0.4;margin-left:8px">essentials</span></div>
+      <div class="logo-card-label" style="color:var(--voka-stone)">Sub-brand</div>
+    </div>
+  </div>
+</section>
+
+<!-- MONOGRAM -->
+<section class="section">
+  <div class="section-label">02 — Monogram / icon</div>
+  <div class="monogram-section">
+    <div class="monogram-card" style="background:var(--voka-black);color:var(--voka-offwhite)">VO</div>
+    <div class="monogram-card" style="background:var(--voka-offwhite);color:var(--voka-black);border:1px solid var(--voka-cream)">VO</div>
+    <div class="monogram-card" style="background:var(--voka-charcoal);color:var(--voka-sand)">VO</div>
+    <div class="monogram-card" style="background:var(--voka-stone);color:var(--voka-offwhite);border-radius:50%">VO</div>
+    <div style="max-width:400px">
+      <p style="font-size:13px;line-height:1.7;color:var(--voka-charcoal)">
+        O monograma <strong style="font-family:'Outfit';letter-spacing:0.08em">VO</strong> funciona como ícone para redes sociais, favicon, etiqueta bordada reduzida, e selo de autenticidade na embalagem. Use o formato quadrado para digital e circular para bordados.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PALETTE -->
+<section class="section">
+  <div class="section-label">03 — Color palette</div>
+  <div class="palette-row">
+    <div class="palette-swatch" style="background:var(--voka-black);color:var(--voka-offwhite)">
+      <div class="swatch-name">Preto profundo</div>
+      <div class="swatch-hex">#0A0A0A</div>
+    </div>
+    <div class="palette-swatch" style="background:var(--voka-charcoal);color:var(--voka-sand)">
+      <div class="swatch-name">Carvão</div>
+      <div class="swatch-hex">#2D2926</div>
+    </div>
+    <div class="palette-swatch" style="background:var(--voka-stone);color:var(--voka-offwhite)">
+      <div class="swatch-name">Stone</div>
+      <div class="swatch-hex">#8C8579</div>
+    </div>
+    <div class="palette-swatch" style="background:var(--voka-sand);color:var(--voka-charcoal)">
+      <div class="swatch-name">Areia</div>
+      <div class="swatch-hex">#C4B5A2</div>
+    </div>
+    <div class="palette-swatch" style="background:var(--voka-cream);color:var(--voka-charcoal)">
+      <div class="swatch-name">Creme</div>
+      <div class="swatch-hex">#E8E0D6</div>
+    </div>
+    <div class="palette-swatch" style="background:var(--voka-offwhite);color:var(--voka-charcoal)">
+      <div class="swatch-name">Off-white</div>
+      <div class="swatch-hex">#F5F0EB</div>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--voka-stone);margin-top:16px;line-height:1.7">
+    Paleta monocromática quente. Sem cores vibrantes. A marca se diferencia pelo silêncio visual, não pelo barulho cromático. Para destaque pontual em campanhas, use um acento mínimo em terracota (#A0522D) ou verde musgo (#4A5B3C).
+  </p>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section class="section">
+  <div class="section-label">04 — Typography</div>
+  <div class="type-showcase">
+    <div class="type-row">
+      <div class="type-label">Display</div>
+      <div class="type-sample-display">VÖKA</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Heading</div>
+      <div class="type-sample-heading">Wear less. Mean more.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Body</div>
+      <div class="type-sample-body">Peças essenciais pensadas para durar. Algodão pesado, corte contemporâneo, sem logos desnecessários. Streetwear que fala baixo e carrega peso.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label">Caption</div>
+      <div class="type-sample-caption">100% algodão penteado — 300gsm — made for the streets</div>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--voka-stone);margin-top:24px;line-height:1.7">
+    <strong style="color:var(--voka-charcoal)">Display & Headings:</strong> Outfit (weight 200-500, tracking largo)<br>
+    <strong style="color:var(--voka-charcoal)">Body & Captions:</strong> DM Sans (weight 300-400)
+  </p>
+</section>
+
+<!-- MOCKUPS -->
+<section class="section">
+  <div class="section-label">05 — Applications (tag, etiqueta, embalagem, camiseta)</div>
+  <div class="mockup-grid">
+    <div class="mockup-card">
+      <div class="woven-label">
+        <div class="wl-text">VÖKA</div>
+        <div class="wl-sub">essentials</div>
+      </div>
+      <div class="mockup-label">Etiqueta tecida interna</div>
+    </div>
+    <div class="mockup-card">
+      <div class="hang-tag">
+        <div class="ht-logo">VÖKA</div>
+        <div class="ht-line"></div>
+        <div class="ht-size">M</div>
+      </div>
+      <div class="mockup-label">Hang tag</div>
+    </div>
+    <div class="mockup-card">
+      <div class="tshirt-mockup">
+        <div class="tshirt-neck"></div>
+        <div class="tshirt-sleeve-l"></div>
+        <div class="tshirt-sleeve-r"></div>
+        <div class="tshirt-body">
+          <div class="tshirt-logo">VÖKA</div>
+        </div>
+      </div>
+      <div class="mockup-label">Impressão peito — centralizada</div>
+    </div>
+    <div class="mockup-card">
+      <div class="zip-bag">
+        <div class="zb-logo">VÖKA</div>
+        <div class="zb-sub">essentials</div>
+      </div>
+      <div class="mockup-label">Embalagem zip bag</div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND RULES -->
+<section class="section">
+  <div class="section-label">06 — Brand guidelines</div>
+  <div class="rules-grid">
+    <div class="rule-card">
+      <h4>Área de proteção</h4>
+      <p>Manter espaço mínimo equivalente à altura da letra "V" ao redor do logo em todas as direções. Nunca encostar texto ou imagens no logo.</p>
+    </div>
+    <div class="rule-card">
+      <h4>Cores permitidas</h4>
+      <p><span class="do">Sim:</span> Logo preto sobre fundo claro, logo off-white sobre fundo escuro. Monocromático sempre.<br><br><span class="dont">Não:</span> Logo colorido, gradientes, sombras, outline, ou efeitos 3D.</p>
+    </div>
+    <div class="rule-card">
+      <h4>Tipografia</h4>
+      <p><span class="do">Sim:</span> Tracking mínimo de 0.08em no logo. Weight 200-500 apenas.<br><br><span class="dont">Não:</span> Condensar ou esticar o logo. Nunca usar bold (700+) no wordmark principal.</p>
+    </div>
+    <div class="rule-card">
+      <h4>Tom de voz</h4>
+      <p>Frases curtas. Sem exclamação. Confiança silenciosa. A marca não explica, mostra. Inspiração: COS, Axel Arigato, Essentials.</p>
+    </div>
+    <div class="rule-card">
+      <h4>Fotografia</h4>
+      <p>Luz natural, tons neutros, enquadramento limpo. Modelos com expressão neutra. Fundo urbano desfocado ou estúdio minimal. Sem filtros vibrantes.</p>
+    </div>
+    <div class="rule-card">
+      <h4>Para o fornecedor chinês</h4>
+      <p>Enviar logo em formato <strong>AI</strong> ou <strong>PNG transparente 300dpi</strong>. Solicitar impressão em <strong>serigrafia</strong> (丝网印刷) para durabilidade. Cor da impressão: preto (#0A0A0A) ou off-white (#F5F0EB).</p>
+    </div>
+  </div>
+</section>
+
+<!-- FILES NEEDED -->
+<section class="section">
+  <div class="section-label">07 — Arquivos para produção</div>
+  <div class="rules-grid">
+    <div class="rule-card">
+      <h4>Logo principal</h4>
+      <p>VÖKA em Outfit Light (300), tracking 0.15em. Exportar em SVG, AI, PNG @300dpi (fundo transparente). Versões: preto e branco.</p>
+    </div>
+    <div class="rule-card">
+      <h4>Monograma VO</h4>
+      <p>Outfit Light (300), tracking 0.08em. Exportar quadrado e circular. Para favicon: 32x32px e 180x180px.</p>
+    </div>
+    <div class="rule-card">
+      <h4>Para etiqueta tecida</h4>
+      <p>Enviar ao fornecedor: "VÖKA" + "essentials" abaixo. Tamanho: 3cm × 4cm. Fundo off-white, texto preto. Dobra central.</p>
+    </div>
+    <div class="rule-card">
+      <h4>Para hang tag</h4>
+      <p>Cartão 300g, cor carvão (#2D2926). Logo em hot stamping off-white. Tamanho: 4cm × 6cm. Furo superior + cordão de algodão cru.</p>
+    </div>
+  </div>
+</section>
+
+<div class="footer">
+  VÖKA® — Brand Identity System — 2026<br>
+  <span style="opacity:0.5">Streetwear minimalista unissex</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&amp;display=swap');
+    .logo { font-family: 'Outfit', sans-serif; font-weight: 300; font-size: 72px; letter-spacing: 0.15em; fill: #0a0a0a; }
+  </style>
+  <text class="logo" x="50%" y="72" text-anchor="middle">VÖKA</text>
+</svg>
