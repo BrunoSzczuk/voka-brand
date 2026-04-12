@@ -6,24 +6,49 @@
 <title>VÖKA — Wear less. Mean more.</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-:root{--black:#0a0a0a;--offwhite:#f5f0eb;--stone:#8c8579;--sand:#c4b5a2;--charcoal:#2d2926;--cream:#e8e0d6;--warm-gray:#b5ada3}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--black);overflow-x:hidden}.nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,backdrop-filter .4s}.nav.scrolled{background:rgba(10,10,10,.85);backdrop-filter:blur(20px)}.nav-logo{font-family:'Outfit',sans-serif;font-weight:300;font-size:22px;letter-spacing:.15em;color:var(--offwhite);text-decoration:none}.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .3s}.nav-links a:hover{color:var(--offwhite)}.nav-cta{font-size:12px;letter-spacing:.15em;text-transform:uppercase;padding:10px 24px;border:1px solid var(--stone);color:var(--offwhite);text-decoration:none;transition:all .3s}.nav-cta:hover{background:var(--offwhite);color:var(--black);border-color:var(--offwhite)}.hero{min-height:100vh;background:var(--black);display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(196,181,162,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 30%,rgba(140,133,121,.04) 0%,transparent 40%)}.hero-content{text-align:center;position:relative;z-index:1}.hero-logo{font-family:'Outfit',sans-serif;font-weight:200;font-size:clamp(64px,14vw,160px);letter-spacing:.18em;color:var(--offwhite);animation:heroIn 1.5s cubic-bezier(.16,1,.3,1)}.hero-tagline{font-family:'DM Sans',sans-serif;font-size:14px;letter-spacing:.4em;text-transform:uppercase;color:var(--stone);margin-top:20px;animation:heroIn 1.5s cubic-bezier(.16,1,.3,1) .2s both}.hero-scroll{position:absolute;bottom:40px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);opacity:.4;animation:heroIn 1.5s cubic-bezier(.16,1,.3,1) .6s both}.hero-scroll::after{content:'';display:block;width:1px;height:40px;background:var(--stone);margin:12px auto 0;animation:scrollLine 2s ease-in-out infinite}@keyframes heroIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}@keyframes scrollLine{0%,100%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}}.statement{padding:120px 40px;max-width:900px;margin:0 auto;text-align:center}.statement-text{font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(24px,4vw,42px);line-height:1.5;color:var(--charcoal);letter-spacing:.02em}.statement-text em{font-style:normal;color:var(--stone)}.products{padding:80px 40px;max-width:1200px;margin:0 auto}.products-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);text-align:center;margin-bottom:60px}.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}.product-card{background:var(--black);border-radius:16px;overflow:hidden;position:relative;transition:transform .4s cubic-bezier(.16,1,.3,1);cursor:pointer}.product-card:hover{transform:translateY(-4px)}.product-visual{height:400px;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden}.tshirt-svg{width:220px;height:260px;position:relative}.tshirt-shape{fill:var(--offwhite);transition:fill .4s}.product-card.black-tee .tshirt-shape{fill:#1a1a1a}.product-card.stone-tee .tshirt-shape{fill:var(--stone)}.tshirt-logo-text{font-family:'Outfit',sans-serif;font-weight:300;font-size:11px;letter-spacing:.15em}.product-card.black-tee .tshirt-logo-text{fill:var(--offwhite)}.product-card.stone-tee .tshirt-logo-text{fill:var(--offwhite)}.product-info{padding:24px}.product-name{font-family:'Outfit',sans-serif;font-weight:400;font-size:16px;letter-spacing:.06em;color:var(--offwhite);margin-bottom:4px}.product-detail{font-size:12px;color:var(--stone);letter-spacing:.1em}.product-price{font-family:'Outfit',sans-serif;font-weight:500;font-size:18px;color:var(--offwhite);margin-top:12px}.product-colors{display:flex;gap:6px;margin-top:12px}.color-dot{width:14px;height:14px;border-radius:50%;border:1px solid rgba(255,255,255,.2)}.features{padding:100px 40px;max-width:1000px;margin:0 auto}.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:48px}.feature{text-align:center}.feature-number{font-family:'Outfit',sans-serif;font-weight:200;font-size:48px;color:var(--sand);margin-bottom:16px}.feature-title{font-family:'Outfit',sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;margin-bottom:8px}.feature-desc{font-size:13px;color:var(--stone);line-height:1.7}.banner{background:var(--charcoal);padding:80px 40px;text-align:center;margin:60px 0}.banner-text{font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(28px,5vw,56px);letter-spacing:.12em;color:var(--offwhite)}.banner-sub{font-size:13px;color:var(--stone);letter-spacing:.2em;text-transform:uppercase;margin-top:16px}.cta-section{padding:100px 40px;max-width:600px;margin:0 auto;text-align:center}.cta-title{font-family:'Outfit',sans-serif;font-weight:300;font-size:28px;letter-spacing:.06em;margin-bottom:12px}.cta-desc{font-size:14px;color:var(--stone);line-height:1.7;margin-bottom:32px}.social-strip{display:flex;justify-content:center;gap:48px;padding:40px;border-top:1px solid var(--cream);border-bottom:1px solid var(--cream)}.social-item{text-align:center}.social-number{font-family:'Outfit',sans-serif;font-weight:300;font-size:28px;color:var(--black)}.social-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-top:4px}.footer{background:var(--black);padding:60px 40px;color:var(--stone)}.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px}.footer-logo{font-family:'Outfit',sans-serif;font-weight:300;font-size:24px;letter-spacing:.15em;color:var(--offwhite);margin-bottom:12px}.footer-tagline{font-size:12px;color:var(--stone);letter-spacing:.15em}.footer-col h4{font-family:'Outfit',sans-serif;font-weight:500;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--warm-gray);margin-bottom:16px}.footer-col a{display:block;font-size:13px;color:var(--stone);text-decoration:none;margin-bottom:8px;transition:color .3s}.footer-col a:hover{color:var(--offwhite)}.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;font-size:11px;color:var(--stone);opacity:.5}.whatsapp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;justify-content:center;align-items:center;z-index:999;box-shadow:0 4px 20px rgba(37,211,102,.3);cursor:pointer;transition:transform .3s;text-decoration:none}.whatsapp-float:hover{transform:scale(1.1)}.whatsapp-float svg{width:28px;height:28px;fill:#fff}@media(max-width:768px){.nav{padding:16px 20px}.nav-links{display:none}.statement,.products,.features,.cta-section{padding-left:20px;padding-right:20px}.product-grid{grid-template-columns:1fr}.features-grid{grid-template-columns:1fr;gap:32px}.footer-inner{grid-template-columns:1fr;gap:24px}.social-strip{flex-wrap:wrap;gap:24px}.footer-bottom{flex-direction:column;gap:8px}}
+:root{--black:#0a0a0a;--offwhite:#f5f0eb;--stone:#8c8579;--sand:#c4b5a2;--charcoal:#2d2926;--cream:#e8e0d6;--warm-gray:#b5ada3}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--black);overflow-x:hidden}
+.nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,backdrop-filter .4s}.nav.scrolled{background:rgba(10,10,10,.85);backdrop-filter:blur(20px)}.nav-logo{font-family:'Outfit',sans-serif;font-weight:300;font-size:22px;letter-spacing:.15em;color:var(--offwhite);text-decoration:none}.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .3s}.nav-links a:hover{color:var(--offwhite)}.nav-cta{font-size:12px;letter-spacing:.15em;text-transform:uppercase;padding:10px 24px;border:1px solid var(--stone);color:var(--offwhite);text-decoration:none;transition:all .3s}.nav-cta:hover{background:var(--offwhite);color:var(--black);border-color:var(--offwhite)}
+.hero{min-height:100vh;background:var(--black);display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(196,181,162,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 30%,rgba(140,133,121,.04) 0%,transparent 40%)}.hero-content{text-align:center;position:relative;z-index:1}.hero-logo{font-family:'Outfit',sans-serif;font-weight:200;font-size:clamp(64px,14vw,160px);letter-spacing:.18em;color:var(--offwhite);animation:heroIn 1.5s cubic-bezier(.16,1,.3,1)}.hero-tagline{font-family:'DM Sans',sans-serif;font-size:14px;letter-spacing:.4em;text-transform:uppercase;color:var(--stone);margin-top:20px;animation:heroIn 1.5s cubic-bezier(.16,1,.3,1) .2s both}.hero-scroll{position:absolute;bottom:40px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);opacity:.4;animation:heroIn 1.5s cubic-bezier(.16,1,.3,1) .6s both}.hero-scroll::after{content:'';display:block;width:1px;height:40px;background:var(--stone);margin:12px auto 0;animation:scrollLine 2s ease-in-out infinite}@keyframes heroIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}@keyframes scrollLine{0%,100%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}}
+.statement{padding:120px 40px;max-width:900px;margin:0 auto;text-align:center}.statement-text{font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(24px,4vw,42px);line-height:1.5;color:var(--charcoal);letter-spacing:.02em}.statement-text em{font-style:normal;color:var(--stone)}
+.products{padding:80px 40px;max-width:1200px;margin:0 auto}.products-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);text-align:center;margin-bottom:60px}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.product-card{background:var(--black);border-radius:16px;overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1)}.product-card:hover{transform:translateY(-4px)}
+.product-visual{height:380px;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 60%,rgba(255,255,255,.03) 0%,transparent 70%)}
+.tee-svg{transition:all .4s ease}
+.product-info{padding:20px 24px 24px}
+.product-name{font-family:'Outfit',sans-serif;font-weight:400;font-size:16px;letter-spacing:.06em;color:var(--offwhite);margin-bottom:2px}
+.product-detail{font-size:12px;color:var(--stone);letter-spacing:.08em}
+.product-price{font-family:'Outfit',sans-serif;font-weight:500;font-size:18px;color:var(--offwhite);margin-top:10px}
+.color-selector{display:flex;gap:8px;margin-top:14px;align-items:center}
+.color-opt{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .25s;position:relative}
+.color-opt:hover{transform:scale(1.15)}
+.color-opt.active{border-color:var(--offwhite);box-shadow:0 0 0 2px rgba(255,255,255,.15)}
+.color-opt::after{content:attr(data-name);position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--stone);white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}
+.color-opt:hover::after,.color-opt.active::after{opacity:1}
+.size-selector{display:flex;gap:6px;margin-top:14px}
+.size-opt{width:36px;height:30px;border:1px solid rgba(255,255,255,.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:12px;color:var(--stone);cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.size-opt:hover{border-color:rgba(255,255,255,.4);color:var(--offwhite)}
+.size-opt.active{border-color:var(--offwhite);color:var(--offwhite);background:rgba(255,255,255,.08)}
+.buy-btn{display:block;width:100%;margin-top:16px;padding:12px;background:transparent;border:1px solid rgba(255,255,255,.15);border-radius:8px;color:var(--offwhite);font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-align:center;text-decoration:none}
+.buy-btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3)}
+.features{padding:100px 40px;max-width:1000px;margin:0 auto}.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:48px}.feature{text-align:center}.feature-number{font-family:'Outfit',sans-serif;font-weight:200;font-size:48px;color:var(--sand);margin-bottom:16px}.feature-title{font-family:'Outfit',sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;margin-bottom:8px}.feature-desc{font-size:13px;color:var(--stone);line-height:1.7}
+.banner{background:var(--charcoal);padding:80px 40px;text-align:center;margin:60px 0}.banner-text{font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(28px,5vw,56px);letter-spacing:.12em;color:var(--offwhite)}.banner-sub{font-size:13px;color:var(--stone);letter-spacing:.2em;text-transform:uppercase;margin-top:16px}
+.social-strip{display:flex;justify-content:center;gap:48px;padding:40px;border-top:1px solid var(--cream);border-bottom:1px solid var(--cream)}.social-item{text-align:center}.social-number{font-family:'Outfit',sans-serif;font-weight:300;font-size:28px;color:var(--black)}.social-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-top:4px}
+.cta-section{padding:100px 40px;max-width:600px;margin:0 auto;text-align:center}.cta-title{font-family:'Outfit',sans-serif;font-weight:300;font-size:28px;letter-spacing:.06em;margin-bottom:12px}.cta-desc{font-size:14px;color:var(--stone);line-height:1.7;margin-bottom:32px}
+.footer{background:var(--black);padding:60px 40px;color:var(--stone)}.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px}.footer-logo{font-family:'Outfit',sans-serif;font-weight:300;font-size:24px;letter-spacing:.15em;color:var(--offwhite);margin-bottom:12px}.footer-tagline{font-size:12px;color:var(--stone);letter-spacing:.15em}.footer-col h4{font-family:'Outfit',sans-serif;font-weight:500;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--warm-gray);margin-bottom:16px}.footer-col a{display:block;font-size:13px;color:var(--stone);text-decoration:none;margin-bottom:8px;transition:color .3s}.footer-col a:hover{color:var(--offwhite)}.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;font-size:11px;color:var(--stone);opacity:.5}
+.whatsapp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;justify-content:center;align-items:center;z-index:999;box-shadow:0 4px 20px rgba(37,211,102,.3);cursor:pointer;transition:transform .3s;text-decoration:none}.whatsapp-float:hover{transform:scale(1.1)}.whatsapp-float svg{width:28px;height:28px;fill:#fff}
+@media(max-width:768px){.nav{padding:16px 20px}.nav-links{display:none}.statement,.products,.features,.cta-section{padding-left:20px;padding-right:20px}.product-grid{grid-template-columns:1fr 1fr;gap:16px}.product-visual{height:280px}.features-grid{grid-template-columns:1fr;gap:32px}.footer-inner{grid-template-columns:1fr;gap:24px}.social-strip{flex-wrap:wrap;gap:24px}.footer-bottom{flex-direction:column;gap:8px}}
+@media(max-width:480px){.product-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">VÖKA</a>
-  <ul class="nav-links">
-    <li><a href="#products">Produtos</a></li>
-    <li><a href="#about">Sobre</a></li>
-    <li><a href="#contact">Contato</a></li>
-  </ul>
+  <ul class="nav-links"><li><a href="#products">Produtos</a></li><li><a href="#about">Sobre</a></li><li><a href="#contact">Contato</a></li></ul>
   <a href="https://wa.me/5545998468877" class="nav-cta">Comprar</a>
 </nav>
 <section class="hero">
-  <div class="hero-content">
-    <div class="hero-logo">VÖKA</div>
-    <div class="hero-tagline">Wear less. Mean more.</div>
-  </div>
+  <div class="hero-content"><div class="hero-logo">VÖKA</div><div class="hero-tagline">Wear less. Mean more.</div></div>
   <div class="hero-scroll">Scroll</div>
 </section>
 <section class="statement" id="about">
@@ -31,94 +56,22 @@
 </section>
 <section class="products" id="products">
   <div class="products-label">Coleção Essentials — Drop 01</div>
-  <div class="product-grid">
-    <div class="product-card">
-      <div class="product-visual">
-        <svg class="tshirt-svg" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
-          <path class="tshirt-shape" d="M60,40 Q60,20 110,18 Q160,20 160,40 L190,55 L175,90 L155,80 L155,240 Q155,245 150,245 L70,245 Q65,245 65,240 L65,80 L45,90 L30,55 Z" />
-          <text class="tshirt-logo-text" x="110" y="115" text-anchor="middle" fill="#0a0a0a">VÖKA</text>
-        </svg>
-      </div>
-      <div class="product-info">
-        <div class="product-name">Essential Tee — 300gsm</div>
-        <div class="product-detail">100% algodão penteado</div>
-        <div class="product-price">R$ 79</div>
-        <div class="product-colors">
-          <div class="color-dot" style="background:#f5f0eb"></div>
-          <div class="color-dot" style="background:#1a1a1a"></div>
-          <div class="color-dot" style="background:#8c8579"></div>
-          <div class="color-dot" style="background:#c4b5a2"></div>
-          <div class="color-dot" style="background:#2d2926"></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card black-tee">
-      <div class="product-visual">
-        <svg class="tshirt-svg" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
-          <path class="tshirt-shape" d="M60,40 Q60,20 110,18 Q160,20 160,40 L190,55 L175,90 L155,80 L155,240 Q155,245 150,245 L70,245 Q65,245 65,240 L65,80 L45,90 L30,55 Z" />
-          <text class="tshirt-logo-text" x="110" y="115" text-anchor="middle" fill="#f5f0eb">VÖKA</text>
-        </svg>
-      </div>
-      <div class="product-info">
-        <div class="product-name">Essential Tee — Black</div>
-        <div class="product-detail">300gsm heavyweight cotton</div>
-        <div class="product-price">R$ 79</div>
-        <div class="product-colors">
-          <div class="color-dot" style="background:#1a1a1a;border-color:rgba(255,255,255,.4)"></div>
-          <div class="color-dot" style="background:#f5f0eb"></div>
-          <div class="color-dot" style="background:#8c8579"></div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card stone-tee">
-      <div class="product-visual">
-        <svg class="tshirt-svg" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
-          <path class="tshirt-shape" d="M60,40 Q60,20 110,18 Q160,20 160,40 L190,55 L175,90 L155,80 L155,240 Q155,245 150,245 L70,245 Q65,245 65,240 L65,80 L45,90 L30,55 Z" />
-          <text class="tshirt-logo-text" x="110" y="115" text-anchor="middle" fill="#f5f0eb">VÖKA</text>
-        </svg>
-      </div>
-      <div class="product-info">
-        <div class="product-name">Essential Tee — Stone</div>
-        <div class="product-detail">200gsm pure cotton blank</div>
-        <div class="product-price">R$ 69</div>
-        <div class="product-colors">
-          <div class="color-dot" style="background:#8c8579;border-color:rgba(255,255,255,.4)"></div>
-          <div class="color-dot" style="background:#c4b5a2"></div>
-          <div class="color-dot" style="background:#2d2926"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="product-grid" id="product-grid"></div>
 </section>
 <section class="features">
   <div class="products-label">Por que VÖKA</div>
   <div class="features-grid">
-    <div class="feature">
-      <div class="feature-number">300</div>
-      <div class="feature-title">Gramatura premium</div>
-      <div class="feature-desc">Algodão heavyweight que não transparece, não deforma e melhora a cada lavagem.</div>
-    </div>
-    <div class="feature">
-      <div class="feature-number">0</div>
-      <div class="feature-title">Logos desnecessários</div>
-      <div class="feature-desc">Minimalismo real. A marca está no corte, no peso do tecido e na sensação na pele.</div>
-    </div>
-    <div class="feature">
-      <div class="feature-number">1</div>
-      <div class="feature-title">Propósito</div>
-      <div class="feature-desc">Cada peça pensada para durar e combinar com tudo. Guarda-roupa inteligente.</div>
-    </div>
+    <div class="feature"><div class="feature-number">320</div><div class="feature-title">Gramas de algodão puro</div><div class="feature-desc">Heavyweight que não transparece, não deforma e melhora a cada lavagem.</div></div>
+    <div class="feature"><div class="feature-number">15+</div><div class="feature-title">Cores no Drop 01</div><div class="feature-desc">Do preto clássico ao tiffany blue. Paleta pensada para combinar entre si.</div></div>
+    <div class="feature"><div class="feature-number">1</div><div class="feature-title">Propósito</div><div class="feature-desc">Cada peça pensada para durar e combinar com tudo. Guarda-roupa inteligente.</div></div>
   </div>
 </section>
-<div class="banner">
-  <div class="banner-text">Menos é o suficiente.</div>
-  <div class="banner-sub">Streetwear essencial — Maringá, PR</div>
-</div>
+<div class="banner"><div class="banner-text">Menos é o suficiente.</div><div class="banner-sub">Streetwear essencial — Maringá, PR</div></div>
 <div class="social-strip">
-  <div class="social-item"><div class="social-number">300gsm</div><div class="social-label">Algodão pesado</div></div>
-  <div class="social-item"><div class="social-number">5</div><div class="social-label">Cores essenciais</div></div>
+  <div class="social-item"><div class="social-number">320g</div><div class="social-label">Algodão pesado</div></div>
+  <div class="social-item"><div class="social-number">15+</div><div class="social-label">Cores disponíveis</div></div>
   <div class="social-item"><div class="social-number">100%</div><div class="social-label">Algodão puro</div></div>
-  <div class="social-item"><div class="social-number">M-XL</div><div class="social-label">Unissex oversized</div></div>
+  <div class="social-item"><div class="social-number">M — L</div><div class="social-label">Unissex oversized</div></div>
 </div>
 <section class="cta-section" id="contact">
   <div class="cta-title">Seja o primeiro a vestir.</div>
@@ -128,22 +81,175 @@
 <footer class="footer">
   <div class="footer-inner">
     <div><div class="footer-logo">VÖKA</div><div class="footer-tagline">Wear less. Mean more.</div></div>
-    <div class="footer-col">
-      <h4>Navegação</h4>
-      <a href="#products">Produtos</a><a href="#about">Sobre</a><a href="#contact">Contato</a><a href="https://wa.me/5545998468877">WhatsApp</a>
-    </div>
-    <div class="footer-col">
-      <h4>Redes</h4>
-      <a href="#">Instagram</a><a href="#">TikTok</a>
-    </div>
+    <div class="footer-col"><h4>Navegação</h4><a href="#products">Produtos</a><a href="#about">Sobre</a><a href="#contact">Contato</a><a href="https://wa.me/5545998468877">WhatsApp</a></div>
+    <div class="footer-col"><h4>Redes</h4><a href="#">Instagram</a><a href="#">TikTok</a></div>
   </div>
   <div class="footer-bottom"><span>© 2026 VÖKA. Todos os direitos reservados.</span><span>Maringá, PR — Brasil</span></div>
 </footer>
-<a href="https://wa.me/5545998468877?text=Oi!%20Quero%20conhecer%20a%20VÖKA" class="whatsapp-float" target="_blank">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+<a href="https://wa.me/5545998468877?text=Oi!%20Quero%20conhecer%20a%20VÖKA" class="whatsapp-float" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
 <script>
-const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>80)});
+const PRODUCTS = [
+  {
+    name: "Essential Tee",
+    detail: "300 gramas · algodão penteado",
+    price: 79,
+    type: "classic",
+    colors: [
+      {name:"Branco",hex:"#f0ebe5",body:"#f0ebe5",stroke:"#d8d0c6",logo:"#0a0a0a",shadow:"rgba(0,0,0,.08)"},
+      {name:"Preto",hex:"#1a1a1a",body:"#1a1a1a",stroke:"#2a2a2a",logo:"#e8e0d6",shadow:"rgba(0,0,0,.3)"},
+      {name:"Cinza",hex:"#8a8580",body:"#8a8580",stroke:"#7a7570",logo:"#f0ebe5",shadow:"rgba(0,0,0,.15)"},
+      {name:"Marrom",hex:"#4a3728",body:"#4a3728",stroke:"#3a2a1e",logo:"#d4ccc0",shadow:"rgba(0,0,0,.2)"}
+    ]
+  },
+  {
+    name: "Dropped Shoulder Tee",
+    detail: "Algodão premium · ombro caído",
+    price: 89,
+    type: "dropped",
+    colors: [
+      {name:"Preto",hex:"#1a1a1a",body:"#1a1a1a",stroke:"#2a2a2a",logo:"#e8e0d6",shadow:"rgba(0,0,0,.3)"},
+      {name:"Iron gray",hex:"#6a6560",body:"#6a6560",stroke:"#5a5550",logo:"#e8e0d6",shadow:"rgba(0,0,0,.15)"},
+      {name:"Apricot",hex:"#d4ccc0",body:"#d4ccc0",stroke:"#c0b8ac",logo:"#3a3530",shadow:"rgba(0,0,0,.08)"},
+      {name:"Khaki",hex:"#9a8a6a",body:"#9a8a6a",stroke:"#8a7a5a",logo:"#f0ebe5",shadow:"rgba(0,0,0,.12)"}
+    ]
+  },
+  {
+    name: "Color Tee — 320g",
+    detail: "Algodão Xinjiang · 15 cores",
+    price: 79,
+    type: "dropped",
+    colors: [
+      {name:"Preto",hex:"#1a1a1a",body:"#1a1a1a",stroke:"#2a2a2a",logo:"#e8e0d6",shadow:"rgba(0,0,0,.3)"},
+      {name:"Dark gray",hex:"#4a4540",body:"#4a4540",stroke:"#3a3530",logo:"#d4ccc0",shadow:"rgba(0,0,0,.2)"},
+      {name:"Burgundy",hex:"#6b2a3a",body:"#6b2a3a",stroke:"#5a2030",logo:"#e8d0d0",shadow:"rgba(0,0,0,.2)"},
+      {name:"Forest green",hex:"#3a5a3a",body:"#3a5a3a",stroke:"#2a4a2a",logo:"#c8e0c8",shadow:"rgba(0,0,0,.15)"},
+      {name:"Navy",hex:"#1a2a4a",body:"#1a2a4a",stroke:"#0a1a3a",logo:"#c0d0e8",shadow:"rgba(0,0,0,.2)"},
+      {name:"Tiffany",hex:"#6abcbc",body:"#6abcbc",stroke:"#5aacac",logo:"#1a3a3a",shadow:"rgba(0,0,0,.1)"},
+      {name:"Coffee",hex:"#6a4a3a",body:"#6a4a3a",stroke:"#5a3a2a",logo:"#e0d0c0",shadow:"rgba(0,0,0,.15)"},
+      {name:"Pink",hex:"#d4a0a0",body:"#d4a0a0",stroke:"#c49090",logo:"#3a2020",shadow:"rgba(0,0,0,.08)"},
+      {name:"Apricot",hex:"#d4c8b0",body:"#d4c8b0",stroke:"#c4b8a0",logo:"#3a3020",shadow:"rgba(0,0,0,.08)"},
+      {name:"Taro purple",hex:"#8a7098",body:"#8a7098",stroke:"#7a6088",logo:"#e0d8e8",shadow:"rgba(0,0,0,.12)"},
+      {name:"Sky blue",hex:"#7aaad0",body:"#7aaad0",stroke:"#6a9ac0",logo:"#1a2a3a",shadow:"rgba(0,0,0,.1)"},
+      {name:"Branco",hex:"#e8e4de",body:"#e8e4de",stroke:"#d0ccc6",logo:"#0a0a0a",shadow:"rgba(0,0,0,.06)"}
+    ]
+  },
+  {
+    name: "Logo Tee — VÖKA",
+    detail: "Dropped shoulder · com logo",
+    price: 89,
+    type: "dropped",
+    colors: [
+      {name:"Apricot",hex:"#d4ccc0",body:"#d4ccc0",stroke:"#c0b8ac",logo:"#3a3530",shadow:"rgba(0,0,0,.08)"},
+      {name:"Khaki",hex:"#9a8a6a",body:"#9a8a6a",stroke:"#8a7a5a",logo:"#f0ebe5",shadow:"rgba(0,0,0,.12)"}
+    ],
+    hasLogo: true
+  }
+];
+
+function makeSVG(type, c, hasLogo) {
+  const isDropped = type === 'dropped';
+  const w = isDropped ? 260 : 240;
+  const bodyPath = isDropped
+    ? `M34,72 C34,46 68,26 130,22 C192,26 226,46 226,72 L248,88 L232,118 L196,102 L196,256 C196,260 192,264 188,264 L72,264 C68,264 64,260 64,256 L64,102 L28,118 L12,88 Z`
+    : `M48,62 C48,40 80,24 120,22 C160,24 192,40 192,62 L214,78 L200,108 L178,98 L178,254 C178,258 174,262 170,262 L70,262 C66,262 62,258 62,254 L62,98 L40,108 L26,78 Z`;
+  const cx = isDropped ? 130 : 120;
+  const neckRx = isDropped ? 30 : 26;
+  const neckCy = isDropped ? 50 : 48;
+  const logoY = isDropped ? 146 : 140;
+  const seamL = isDropped ? 64 : 62;
+  const seamR = isDropped ? 196 : 178;
+  const seamBot = isDropped ? 256 : 254;
+  const hl = c.body === '#1a1a1a' ? 'rgba(255,255,255,.04)' : 'rgba(255,255,255,.25)';
+  const hlStroke = c.body === '#1a1a1a' ? 'rgba(255,255,255,.06)' : 'rgba(255,255,255,.35)';
+  const shadow = c.shadow;
+  return `<svg viewBox="0 0 ${w} 290" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:${isDropped?220:200}px;filter:drop-shadow(0 8px 24px ${shadow}) drop-shadow(0 2px 8px ${shadow})">
+    <defs>
+      <linearGradient id="fabric-${c.hex.slice(1)}" x1="0" y1="0" x2=".3" y2="1">
+        <stop offset="0%" stop-color="${hl}"/>
+        <stop offset="50%" stop-color="transparent"/>
+        <stop offset="100%" stop-color="${shadow}"/>
+      </linearGradient>
+    </defs>
+    <path d="${bodyPath}" fill="${c.body}"/>
+    <path d="${bodyPath}" fill="url(#fabric-${c.hex.slice(1)})"/>
+    <ellipse cx="${cx}" cy="${neckCy}" rx="${neckRx}" ry="12" fill="none" stroke="${c.stroke}" stroke-width="2"/>
+    <ellipse cx="${cx}" cy="${neckCy}" rx="${neckRx-3}" ry="9" fill="none" stroke="${hlStroke}" stroke-width=".5"/>
+    <line x1="${seamL}" y1="102" x2="${seamL}" y2="${seamBot}" stroke="${c.stroke}" stroke-width=".5" opacity=".25"/>
+    <line x1="${seamR}" y1="102" x2="${seamR}" y2="${seamBot}" stroke="${c.stroke}" stroke-width=".5" opacity=".25"/>
+    <line x1="${seamL}" y1="${seamBot}" x2="${seamR}" y2="${seamBot}" stroke="${c.stroke}" stroke-width=".5" opacity=".2"/>
+    ${hasLogo!==false ? `<text x="${cx}" y="${logoY}" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="300" font-size="13" letter-spacing="3" fill="${c.logo}">VÖKA</text>` : ''}
+  </svg>`;
+}
+
+function renderProducts() {
+  const grid = document.getElementById('product-grid');
+  grid.innerHTML = '';
+  PRODUCTS.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    const c0 = p.colors[0];
+    card.innerHTML = `
+      <div class="product-visual" id="vis-${i}">${makeSVG(p.type, c0, p.hasLogo)}</div>
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <div class="product-detail">${p.detail}</div>
+        <div class="product-price">R$ ${p.price}</div>
+        <div class="color-selector" id="colors-${i}">
+          ${p.colors.map((c,j) => `<div class="color-opt ${j===0?'active':''}" data-product="${i}" data-color="${j}" data-name="${c.name}" style="background:${c.hex}" onclick="selectColor(${i},${j})"></div>`).join('')}
+        </div>
+        <div class="size-selector">
+          <div class="size-opt active" data-size="M" onclick="selectSize(this)">M</div>
+          <div class="size-opt" data-size="L" onclick="selectSize(this)">L</div>
+        </div>
+        <a class="buy-btn" id="buy-${i}" href="https://wa.me/5545998468877?text=${encodeURIComponent(`Oi! Quero comprar: ${p.name} — cor ${c0.name}, tamanho M. (VÖKA Drop 01)`)}" target="_blank">Comprar via WhatsApp</a>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function selectColor(prodIdx, colorIdx) {
+  const p = PRODUCTS[prodIdx];
+  const c = p.colors[colorIdx];
+  const vis = document.getElementById(`vis-${prodIdx}`);
+  vis.style.opacity = '0';
+  vis.style.transform = 'scale(0.95)';
+  vis.style.transition = 'opacity .25s, transform .25s';
+  setTimeout(() => {
+    vis.innerHTML = makeSVG(p.type, c, p.hasLogo);
+    vis.style.opacity = '1';
+    vis.style.transform = 'scale(1)';
+  }, 250);
+  document.querySelectorAll(`#colors-${prodIdx} .color-opt`).forEach((el,j) => {
+    el.classList.toggle('active', j === colorIdx);
+  });
+  updateBuyLink(prodIdx);
+}
+
+function selectSize(el) {
+  el.parentElement.querySelectorAll('.size-opt').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  const card = el.closest('.product-card');
+  const prodIdx = Array.from(card.parentElement.children).indexOf(card);
+  updateBuyLink(prodIdx);
+}
+
+function updateBuyLink(prodIdx) {
+  const p = PRODUCTS[prodIdx];
+  const card = document.querySelectorAll('.product-card')[prodIdx];
+  const activeColor = card.querySelector('.color-opt.active');
+  const activeSize = card.querySelector('.size-opt.active');
+  const colorName = activeColor ? activeColor.getAttribute('data-name') : p.colors[0].name;
+  const size = activeSize ? activeSize.getAttribute('data-size') : 'M';
+  const btn = document.getElementById(`buy-${prodIdx}`);
+  btn.href = `https://wa.me/5545998468877?text=${encodeURIComponent(`Oi! Quero comprar: ${p.name} — cor ${colorName}, tamanho ${size}. (VÖKA Drop 01)`)}`;
+}
+
+renderProducts();
+
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>80)});
 const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.1});
 document.querySelectorAll('.product-card,.feature,.statement-text').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='opacity .8s ease,transform .8s ease';observer.observe(el)});
 </script>
