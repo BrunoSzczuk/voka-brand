@@ -210,34 +210,55 @@ function teeSVG(type, c, showLogo) {
 }
 
 function render() {
-  // Render heavyweight premium product
+  // Render heavyweight premium product with real photos
   const hg = document.getElementById('heavyweight-grid');
   hg.innerHTML = '';
   const hwCard = document.createElement('div');
   hwCard.className = 'product-card premium';
+  
+  const hwImages = {
+    'Black': 'pedido%2012:abril/sem%20logo%20-%20320g/output_premium/premium_black.jpg',
+    'Charcoal': 'pedido%2012:abril/sem%20logo%20-%20320g/output_premium/premium_dark%20gray.jpg',
+    'Sand': 'pedido%2012:abril/sem%20logo%20-%20320g/output_premium/premium_apricot.jpg',
+    'Olive': 'pedido%2012:abril/sem%20logo%20-%20320g/output_premium/premium_forest%20green.jpg'
+  };
+  
   const hw0 = HEAVYWEIGHT.colors[0];
   hwCard.innerHTML = `
-    <div class="product-visual" id="vis-hw">${teeSVG(HEAVYWEIGHT.type, hw0, true)}</div>
+    <div class="product-visual" id="vis-hw" style="background:linear-gradient(180deg,#1a1816 0%,#0f0e0d 100%)">
+      <img src="${hwImages[hw0.name]}" alt="${hw0.name}" style="width:100%;height:100%;object-fit:cover;transition:opacity .4s" id="hw-img" />
+    </div>
     <div class="product-info">
       <div class="product-name">${HEAVYWEIGHT.name}</div>
       <div class="product-detail">${HEAVYWEIGHT.detail}</div>
       <div class="product-price">R$ ${HEAVYWEIGHT.price}</div>
       <div class="premium-tag">Edição Limitada · 320g</div>
-      <div class="color-selector">${HEAVYWEIGHT.colors.map((c,j) => `<div class="color-opt${j===0?' active':''}" data-name="${c.name}" style="background:${c.hex}" onclick="pickHW(${j})"></div>`).join('')}</div>
+      <div class="color-selector">${HEAVYWEIGHT.colors.map((c,j) => `<div class="color-opt${j===0?' active':''}" data-name="${c.name}" data-img="${hwImages[c.name] || ''}" style="background:${c.hex}" onclick="pickHW(${j})"></div>`).join('')}</div>
       <div class="size-selector"><div class="size-opt active" onclick="szHW(this)" data-size="M">M</div><div class="size-opt" onclick="szHW(this)" data-size="L">L</div></div>
       <a class="buy-btn" id="buy-hw" href="${buyURL(HEAVYWEIGHT.name,hw0.name,'M')}" target="_blank">Comprar via WhatsApp</a>
     </div>`;
   hg.appendChild(hwCard);
 
-  // Render regular products
+  // Render regular products with real photos
   const g = document.getElementById('product-grid');
   g.innerHTML = '';
+  
+  const regImages = {
+    'Preto': 'pedido%2012:abril/com%20logo/output/logo_black.jpg',
+    'Iron gray': 'pedido%2012:abril/com%20logo/output/logo_iron%20gray.jpg',
+    'Apricot': 'pedido%2012:abril/com%20logo/output/logo_apricot.jpg',
+    'Khaki': 'pedido%2012:abril/com%20logo/output/logo_khaki.jpg'
+  };
+  
   PRODUCTS.forEach((p, i) => {
     const c0 = p.colors[0];
     const card = document.createElement('div');
     card.className = 'product-card';
+    const imgSrc = regImages[c0.name] || '';
     card.innerHTML = `
-      <div class="product-visual" id="vis-${i}">${teeSVG(p.type, c0, p.hasLogo)}</div>
+      <div class="product-visual" id="vis-${i}" style="background:linear-gradient(180deg,rgba(30,28,26,1) 0%,rgba(20,18,16,1) 100%)">
+        ${imgSrc ? `<img src="${imgSrc}" alt="${c0.name}" style="width:100%;height:100%;object-fit:cover;transition:opacity .4s" class="prod-img" />` : teeSVG(p.type, c0, p.hasLogo)}
+      </div>
       <div class="product-info">
         <div class="product-name">${p.name}</div>
         <div class="product-detail">${p.detail}</div>
@@ -252,11 +273,21 @@ function render() {
 
 function pickHW(ci) {
   const c = HEAVYWEIGHT.colors[ci];
-  const v = document.getElementById('vis-hw');
-  v.children[0].style.opacity='0';
-  v.children[0].style.transform='scale(.96)';
-  setTimeout(() => { v.innerHTML = teeSVG(HEAVYWEIGHT.type, c, true); }, 280);
-  v.parentElement.querySelectorAll('.color-opt').forEach((e,j) => e.classList.toggle('active', j===ci));
+  const img = document.getElementById('hw-img');
+  if (img) {
+    img.style.opacity = '0';
+    setTimeout(() => {
+      const hwImages = {
+        'Black': 'pedido%2012:abril/sem%20logo%20-%20320g/output_premium/premium_black.jpg',
+        'Charcoal': 'pedido%2012:abril/sem%20logo%20-%20320g/output_premium/premium_dark%20gray.jpg',
+        'Sand': 'pedido%2012:abril/sem%20logo%20-%20320g/output_premium/premium_apricot.jpg',
+        'Olive': 'pedido%2012:abril/sem%20logo%20-%20320g/output_premium/premium_forest%20green.jpg'
+      };
+      img.src = hwImages[c.name] || hwImages['Black'];
+      img.style.opacity = '1';
+    }, 400);
+  }
+  document.querySelectorAll('#heavyweight-grid .color-opt').forEach((e,j) => e.classList.toggle('active', j===ci));
   updBuyHW();
 }
 
