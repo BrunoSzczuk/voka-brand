@@ -6,30 +6,40 @@
 <title>VÖKA — Wear less. Mean more.</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-:root{--black:#0a0a0a;--offwhite:#f5f0eb;--stone:#8c8579;--sand:#c4b5a2;--charcoal:#2d2926;--cream:#e8e0d6;--warm-gray:#b5ada3}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--black);overflow-x:hidden}
+:root{--black:#0a0a0a;--offwhite:#f5f0eb;--stone:#8c8579;--sand:#c4b5a2;--charcoal:#2d2926;--cream:#e8e0d6;--warm-gray:#b5ada3;--premium-gold:#c9a961}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--black);overflow-x:hidden}
 .nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,backdrop-filter .4s}.nav.scrolled{background:rgba(10,10,10,.85);backdrop-filter:blur(20px)}.nav-logo{font-family:'Outfit',sans-serif;font-weight:300;font-size:22px;letter-spacing:.15em;color:var(--offwhite);text-decoration:none}.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .3s}.nav-links a:hover{color:var(--offwhite)}.nav-cta{font-size:12px;letter-spacing:.15em;text-transform:uppercase;padding:10px 24px;border:1px solid var(--stone);color:var(--offwhite);text-decoration:none;transition:all .3s}.nav-cta:hover{background:var(--offwhite);color:var(--black);border-color:var(--offwhite)}
 .hero{min-height:100vh;background:var(--black);display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(196,181,162,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 30%,rgba(140,133,121,.04) 0%,transparent 40%)}.hero-content{text-align:center;position:relative;z-index:1}.hero-logo{font-family:'Outfit',sans-serif;font-weight:200;font-size:clamp(64px,14vw,160px);letter-spacing:.18em;color:var(--offwhite);animation:heroIn 1.5s cubic-bezier(.16,1,.3,1)}.hero-tagline{font-family:'DM Sans',sans-serif;font-size:14px;letter-spacing:.4em;text-transform:uppercase;color:var(--stone);margin-top:20px;animation:heroIn 1.5s cubic-bezier(.16,1,.3,1) .2s both}.hero-scroll{position:absolute;bottom:40px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);opacity:.4;animation:heroIn 1.5s cubic-bezier(.16,1,.3,1) .6s both}.hero-scroll::after{content:'';display:block;width:1px;height:40px;background:var(--stone);margin:12px auto 0;animation:scrollLine 2s ease-in-out infinite}@keyframes heroIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}@keyframes scrollLine{0%,100%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}}
 .statement{padding:120px 40px;max-width:900px;margin:0 auto;text-align:center}.statement-text{font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(24px,4vw,42px);line-height:1.5;color:var(--charcoal);letter-spacing:.02em}.statement-text em{font-style:normal;color:var(--stone)}
+.heavyweight-section{padding:100px 40px;background:var(--black);position:relative;overflow:hidden}.heavyweight-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(201,169,97,.08) 0%,transparent 40%)}.heavyweight-label{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--premium-gold);text-align:center;margin-bottom:20px;font-weight:500}.heavyweight-title{font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(32px,6vw,64px);letter-spacing:.15em;color:var(--offwhite);text-align:center;margin-bottom:16px}.heavyweight-desc{font-size:14px;color:var(--stone);text-align:center;max-width:600px;margin:0 auto 60px;line-height:1.8}.heavyweight-badge{display:inline-block;padding:6px 16px;border:1px solid var(--premium-gold);color:var(--premium-gold);font-size:10px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px}
 .products{padding:80px 40px;max-width:1200px;margin:0 auto}.products-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);text-align:center;margin-bottom:60px}
 .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
 .product-card{background:var(--black);border-radius:16px;overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1)}.product-card:hover{transform:translateY(-4px)}
+.product-card.premium{background:linear-gradient(180deg,#1a1816 0%,#0f0e0d 100%);border:1px solid rgba(201,169,97,.2);box-shadow:0 8px 32px rgba(201,169,97,.08)}.product-card.premium:hover{transform:translateY(-8px);box-shadow:0 12px 48px rgba(201,169,97,.12)}
 .product-visual{height:400px;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(30,28,26,1) 0%,rgba(20,18,16,1) 100%)}
+.product-card.premium .product-visual{background:linear-gradient(180deg,rgba(26,24,22,1) 0%,rgba(15,14,13,1) 100%);position:relative}.product-card.premium .product-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(201,169,97,.06) 0%,transparent 60%);pointer-events:none}
 .product-info{padding:20px 24px 24px}
 .product-name{font-family:'Outfit',sans-serif;font-weight:400;font-size:16px;letter-spacing:.06em;color:var(--offwhite);margin-bottom:2px}
+.product-card.premium .product-name{font-weight:500;letter-spacing:.08em;color:var(--offwhite)}
 .product-detail{font-size:12px;color:var(--stone);letter-spacing:.08em}
+.product-card.premium .product-detail{color:var(--warm-gray);letter-spacing:.06em}
 .product-price{font-family:'Outfit',sans-serif;font-weight:500;font-size:18px;color:var(--offwhite);margin-top:10px}
+.product-card.premium .product-price{font-weight:600;font-size:20px;color:var(--premium-gold)}
+.premium-tag{display:inline-block;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--premium-gold);margin-top:8px;padding:4px 0;border-top:1px solid rgba(201,169,97,.3)}
 .color-selector{display:flex;gap:8px;margin-top:14px;align-items:center;flex-wrap:wrap}
 .color-opt{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .25s;position:relative}
 .color-opt:hover{transform:scale(1.2)}
 .color-opt.active{border-color:var(--offwhite);box-shadow:0 0 0 2px rgba(255,255,255,.15)}
+.product-card.premium .color-opt.active{border-color:var(--premium-gold);box-shadow:0 0 0 2px rgba(201,169,97,.25)}
 .color-opt::after{content:attr(data-name);position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--warm-gray);white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;font-family:'DM Sans',sans-serif}
 .color-opt:hover::after,.color-opt.active::after{opacity:1}
 .size-selector{display:flex;gap:6px;margin-top:16px}
 .size-opt{width:40px;height:32px;border:1px solid rgba(255,255,255,.12);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:12px;color:var(--stone);cursor:pointer;transition:all .2s;letter-spacing:.05em}
 .size-opt:hover{border-color:rgba(255,255,255,.35);color:var(--offwhite)}
 .size-opt.active{border-color:var(--offwhite);color:var(--offwhite);background:rgba(255,255,255,.06)}
+.product-card.premium .size-opt.active{border-color:var(--premium-gold);color:var(--premium-gold);background:rgba(201,169,97,.08)}
 .buy-btn{display:block;width:100%;margin-top:16px;padding:13px;background:transparent;border:1px solid rgba(255,255,255,.12);border-radius:8px;color:var(--offwhite);font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-align:center;text-decoration:none}
 .buy-btn:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.25)}
+.product-card.premium .buy-btn{border-color:var(--premium-gold);color:var(--premium-gold)}.product-card.premium .buy-btn:hover{background:rgba(201,169,97,.1);border-color:var(--premium-gold)}
 .features{padding:100px 40px;max-width:1000px;margin:0 auto}.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:48px}.feature{text-align:center}.feature-number{font-family:'Outfit',sans-serif;font-weight:200;font-size:48px;color:var(--sand);margin-bottom:16px}.feature-title{font-family:'Outfit',sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;margin-bottom:8px}.feature-desc{font-size:13px;color:var(--stone);line-height:1.7}
 .banner{background:var(--charcoal);padding:80px 40px;text-align:center;margin:60px 0}.banner-text{font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(28px,5vw,56px);letter-spacing:.12em;color:var(--offwhite)}.banner-sub{font-size:13px;color:var(--stone);letter-spacing:.2em;text-transform:uppercase;margin-top:16px}
 .social-strip{display:flex;justify-content:center;gap:48px;padding:40px;border-top:1px solid var(--cream);border-bottom:1px solid var(--cream)}.social-item{text-align:center}.social-number{font-family:'Outfit',sans-serif;font-weight:300;font-size:28px;color:var(--black)}.social-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-top:4px}
@@ -37,7 +47,7 @@
 .cta-btn{display:inline-block;padding:16px 40px;background:var(--black);color:var(--offwhite);text-decoration:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;transition:background .3s}.cta-btn:hover{background:var(--charcoal)}
 .footer{background:var(--black);padding:60px 40px;color:var(--stone)}.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px}.footer-logo{font-family:'Outfit',sans-serif;font-weight:300;font-size:24px;letter-spacing:.15em;color:var(--offwhite);margin-bottom:12px}.footer-tagline{font-size:12px;color:var(--stone);letter-spacing:.15em}.footer-col h4{font-family:'Outfit',sans-serif;font-weight:500;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--warm-gray);margin-bottom:16px}.footer-col a{display:block;font-size:13px;color:var(--stone);text-decoration:none;margin-bottom:8px;transition:color .3s}.footer-col a:hover{color:var(--offwhite)}.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;font-size:11px;color:var(--stone);opacity:.5}
 .whatsapp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;justify-content:center;align-items:center;z-index:999;box-shadow:0 4px 20px rgba(37,211,102,.3);cursor:pointer;transition:transform .3s;text-decoration:none}.whatsapp-float:hover{transform:scale(1.1)}.whatsapp-float svg{width:28px;height:28px;fill:#fff}
-@media(max-width:768px){.nav{padding:16px 20px}.nav-links{display:none}.statement,.products,.features,.cta-section{padding-left:20px;padding-right:20px}.product-grid{grid-template-columns:1fr 1fr;gap:16px}.product-visual{height:260px}.features-grid{grid-template-columns:1fr;gap:32px}.footer-inner{grid-template-columns:1fr;gap:24px}.social-strip{flex-wrap:wrap;gap:24px}.footer-bottom{flex-direction:column;gap:8px}}
+@media(max-width:768px){.nav{padding:16px 20px}.nav-links{display:none}.statement,.products,.features,.cta-section,.heavyweight-section{padding-left:20px;padding-right:20px}.product-grid{grid-template-columns:1fr 1fr;gap:16px}.product-visual{height:260px}.features-grid{grid-template-columns:1fr;gap:32px}.footer-inner{grid-template-columns:1fr;gap:24px}.social-strip{flex-wrap:wrap;gap:24px}.footer-bottom{flex-direction:column;gap:8px}}
 @media(max-width:480px){.product-grid{grid-template-columns:1fr}.product-visual{height:340px}}
 </style>
 </head>
@@ -54,6 +64,15 @@
 <section class="statement" id="about">
   <p class="statement-text">Peças essenciais que falam por você. <em>Algodão pesado, corte contemporâneo, sem logos desnecessários.</em> Streetwear que carrega peso e fala baixo.</p>
 </section>
+
+<section class="heavyweight-section" id="heavyweight">
+  <div class="heavyweight-badge">Edição Limitada</div>
+  <div class="heavyweight-label">Heavyweight Collection</div>
+  <h2 class="heavyweight-title">Signature 320g</h2>
+  <p class="heavyweight-desc">Nossa peça mais exclusiva. Algodão Xinjiang de altíssima gramatura, estrutura encorpada que não transparece e caimento perfeito. Para quem busca qualidade superior e está disposto a pagar por isso.</p>
+  <div class="product-grid" id="heavyweight-grid" style="max-width:900px;margin:60px auto 0"></div>
+</section>
+
 <section class="products" id="products">
   <div class="products-label">Coleção Essentials — Drop 01</div>
   <div class="product-grid" id="product-grid"></div>
@@ -138,6 +157,20 @@ const PRODUCTS = [
   }
 ];
 
+const HEAVYWEIGHT = {
+  name: "Signature 320g — Heavyweight",
+  detail: "Algodão Xinjiang 320g · Edição Limitada · Premium",
+  price: 109,
+  type: "dropped",
+  isPremium: true,
+  colors: [
+    {name:"Black",hex:"#1a1a1a",body:"#1a1a1a",accent:"#2d2d2d",logo:"#c9a961",dark:true},
+    {name:"Charcoal",hex:"#3a3530",body:"#3a3530",accent:"#4a4540",logo:"#c9a961",dark:true},
+    {name:"Sand",hex:"#c4b5a2",body:"#c4b5a2",accent:"#b4a592",logo:"#1a1a1a",dark:false},
+    {name:"Olive",hex:"#4a5040",body:"#4a5040",accent:"#5a6050",logo:"#d4c8b0",dark:true}
+  ]
+};
+
 function teeSVG(type, c, showLogo) {
   const dr = type === 'dropped';
   const vw = dr ? 300 : 280;
@@ -177,6 +210,26 @@ function teeSVG(type, c, showLogo) {
 }
 
 function render() {
+  // Render heavyweight premium product
+  const hg = document.getElementById('heavyweight-grid');
+  hg.innerHTML = '';
+  const hwCard = document.createElement('div');
+  hwCard.className = 'product-card premium';
+  const hw0 = HEAVYWEIGHT.colors[0];
+  hwCard.innerHTML = `
+    <div class="product-visual" id="vis-hw">${teeSVG(HEAVYWEIGHT.type, hw0, true)}</div>
+    <div class="product-info">
+      <div class="product-name">${HEAVYWEIGHT.name}</div>
+      <div class="product-detail">${HEAVYWEIGHT.detail}</div>
+      <div class="product-price">R$ ${HEAVYWEIGHT.price}</div>
+      <div class="premium-tag">Edição Limitada · 320g</div>
+      <div class="color-selector">${HEAVYWEIGHT.colors.map((c,j) => `<div class="color-opt${j===0?' active':''}" data-name="${c.name}" style="background:${c.hex}" onclick="pickHW(${j})"></div>`).join('')}</div>
+      <div class="size-selector"><div class="size-opt active" onclick="szHW(this)" data-size="M">M</div><div class="size-opt" onclick="szHW(this)" data-size="L">L</div></div>
+      <a class="buy-btn" id="buy-hw" href="${buyURL(HEAVYWEIGHT.name,hw0.name,'M')}" target="_blank">Comprar via WhatsApp</a>
+    </div>`;
+  hg.appendChild(hwCard);
+
+  // Render regular products
   const g = document.getElementById('product-grid');
   g.innerHTML = '';
   PRODUCTS.forEach((p, i) => {
@@ -195,6 +248,29 @@ function render() {
       </div>`;
     g.appendChild(card);
   });
+}
+
+function pickHW(ci) {
+  const c = HEAVYWEIGHT.colors[ci];
+  const v = document.getElementById('vis-hw');
+  v.children[0].style.opacity='0';
+  v.children[0].style.transform='scale(.96)';
+  setTimeout(() => { v.innerHTML = teeSVG(HEAVYWEIGHT.type, c, true); }, 280);
+  v.parentElement.querySelectorAll('.color-opt').forEach((e,j) => e.classList.toggle('active', j===ci));
+  updBuyHW();
+}
+
+function szHW(el) {
+  el.parentElement.querySelectorAll('.size-opt').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  updBuyHW();
+}
+
+function updBuyHW() {
+  const card = document.querySelector('.product-card.premium');
+  const cn = card.querySelector('.color-opt.active')?.getAttribute('data-name') || '';
+  const sz = card.querySelector('.size-opt.active')?.getAttribute('data-size') || 'M';
+  document.getElementById('buy-hw').href = buyURL(HEAVYWEIGHT.name, cn, sz);
 }
 
 function pick(pi, ci) {
