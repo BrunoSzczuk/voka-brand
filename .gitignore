@@ -1,5 +1,1 @@
-.DS_Store
-Thumbs.db
-*.log
-node_modules/
-.env
+Nothing should be ignored based on the provided file changes, as they only include source/config files (.gitignore, index.html) and a documentation file (README.md).
