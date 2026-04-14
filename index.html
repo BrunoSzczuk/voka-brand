@@ -217,14 +217,15 @@ function pickColor(prefix, idx, colorIdx) {
   const c = p.colors[colorIdx];
   
   const img = document.getElementById(`img-${prefix}-${idx}`);
-  img.classList.add('fade-out');
   
+  // Troca a imagem primeiro, depois aplica o fade para transição suave
+  img.src = c.img;
+  img.alt = p.name + " — " + c.name;
+  img.classList.add("fade-out");
+
   setTimeout(() => {
-    img.src = c.img;
-    img.alt = p.name + ' — ' + c.name;
-    img.classList.remove('fade-out');
-  }, 350);
-  
+    img.classList.remove("fade-out");
+  }, 50);
   // Update logo color if product has logo
   if (p.hasLogo && c.logoColor) {
     const logo = document.getElementById(`logo-${prefix}-${idx}`);
