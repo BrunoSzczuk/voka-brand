@@ -6,55 +6,51 @@
 <title>VÖKA — Wear less. Mean more.</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-:root{--black:#0a0a0a;--offwhite:#f5f0eb;--stone:#8c8579;--sand:#c4b5a2;--charcoal:#2d2926;--cream:#e8e0d6;--warm-gray:#b5ada3;--premium-gold:#c9a961}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--black);overflow-x:hidden}
+:root{--black:#0a0a0a;--offwhite:#f5f0eb;--stone:#8c8579;--sand:#c4b5a2;--charcoal:#2d2926;--cream:#e8e0d6;--warm-gray:#b5ada3;--gold:#c9a961}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--black);overflow-x:hidden}
 .nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,backdrop-filter .4s}.nav.scrolled{background:rgba(10,10,10,.85);backdrop-filter:blur(20px)}.nav-logo{font-family:'Outfit',sans-serif;font-weight:300;font-size:22px;letter-spacing:.15em;color:var(--offwhite);text-decoration:none}.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .3s}.nav-links a:hover{color:var(--offwhite)}.nav-cta{font-size:12px;letter-spacing:.15em;text-transform:uppercase;padding:10px 24px;border:1px solid var(--stone);color:var(--offwhite);text-decoration:none;transition:all .3s}.nav-cta:hover{background:var(--offwhite);color:var(--black);border-color:var(--offwhite)}
 .hero{min-height:100vh;background:var(--black);display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(196,181,162,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 30%,rgba(140,133,121,.04) 0%,transparent 40%)}.hero-content{text-align:center;position:relative;z-index:1}.hero-logo{font-family:'Outfit',sans-serif;font-weight:200;font-size:clamp(64px,14vw,160px);letter-spacing:.18em;color:var(--offwhite);animation:heroIn 1.5s cubic-bezier(.16,1,.3,1)}.hero-tagline{font-family:'DM Sans',sans-serif;font-size:14px;letter-spacing:.4em;text-transform:uppercase;color:var(--stone);margin-top:20px;animation:heroIn 1.5s cubic-bezier(.16,1,.3,1) .2s both}.hero-scroll{position:absolute;bottom:40px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);opacity:.4;animation:heroIn 1.5s cubic-bezier(.16,1,.3,1) .6s both}.hero-scroll::after{content:'';display:block;width:1px;height:40px;background:var(--stone);margin:12px auto 0;animation:scrollLine 2s ease-in-out infinite}@keyframes heroIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}@keyframes scrollLine{0%,100%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}}
 .statement{padding:120px 40px;max-width:900px;margin:0 auto;text-align:center}.statement-text{font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(24px,4vw,42px);line-height:1.5;color:var(--charcoal);letter-spacing:.02em}.statement-text em{font-style:normal;color:var(--stone)}
-.heavyweight-section{padding:100px 40px;background:var(--black);position:relative;overflow:hidden}.heavyweight-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(201,169,97,.08) 0%,transparent 40%)}.heavyweight-label{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--premium-gold);text-align:center;margin-bottom:20px;font-weight:500}.heavyweight-title{font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(32px,6vw,64px);letter-spacing:.15em;color:var(--offwhite);text-align:center;margin-bottom:16px}.heavyweight-desc{font-size:14px;color:var(--stone);text-align:center;max-width:600px;margin:0 auto 60px;line-height:1.8}.heavyweight-badge{display:inline-block;padding:6px 16px;border:1px solid var(--premium-gold);color:var(--premium-gold);font-size:10px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px}
+.heavyweight-section{padding:100px 40px;background:var(--black);position:relative;overflow:hidden}.heavyweight-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(201,169,97,.08) 0%,transparent 40%)}.heavyweight-label{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:20px;font-weight:500}.heavyweight-title{font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(32px,6vw,64px);letter-spacing:.15em;color:var(--offwhite);text-align:center;margin-bottom:16px}.heavyweight-desc{font-size:14px;color:var(--stone);text-align:center;max-width:600px;margin:0 auto 60px;line-height:1.8}.heavyweight-badge{display:inline-block;padding:6px 16px;border:1px solid var(--gold);color:var(--gold);font-size:10px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;text-align:center}
 .products{padding:80px 40px;max-width:1200px;margin:0 auto}.products-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);text-align:center;margin-bottom:60px}
 .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
 .product-card{background:var(--black);border-radius:16px;overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1)}.product-card:hover{transform:translateY(-4px)}
 .product-card.premium{background:linear-gradient(180deg,#1a1816 0%,#0f0e0d 100%);border:1px solid rgba(201,169,97,.2);box-shadow:0 8px 32px rgba(201,169,97,.08)}.product-card.premium:hover{transform:translateY(-8px);box-shadow:0 12px 48px rgba(201,169,97,.12)}
 .product-visual{height:400px;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(30,28,26,1) 0%,rgba(20,18,16,1) 100%)}
-.product-card.premium .product-visual{background:linear-gradient(180deg,rgba(26,24,22,1) 0%,rgba(15,14,13,1) 100%);position:relative}.product-card.premium .product-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(201,169,97,.06) 0%,transparent 60%);pointer-events:none}
+.product-visual img{max-width:90%;max-height:90%;object-fit:contain;transition:opacity .35s ease}
+.product-visual img.fade-out{opacity:0}
+.product-visual.detail-shot{align-items:flex-start}
+.product-visual.detail-shot img{max-width:100%;max-height:100%;object-fit:cover;object-position:top center}
+.product-card.premium .product-visual{background:linear-gradient(180deg,rgba(26,24,22,1) 0%,rgba(15,14,13,1) 100%)}.product-card.premium .product-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(201,169,97,.06) 0%,transparent 60%);pointer-events:none}
+.logo-overlay{position:absolute;top:28%;left:32%;font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(14px,2.5vw,18px);letter-spacing:.15em;pointer-events:none;transition:color .35s,opacity .35s}
 .product-info{padding:20px 24px 24px}
 .product-name{font-family:'Outfit',sans-serif;font-weight:400;font-size:16px;letter-spacing:.06em;color:var(--offwhite);margin-bottom:2px}
-.product-card.premium .product-name{font-weight:500;letter-spacing:.08em;color:var(--offwhite)}
+.product-card.premium .product-name{font-weight:500;letter-spacing:.08em}
 .product-detail{font-size:12px;color:var(--stone);letter-spacing:.08em}
-.product-card.premium .product-detail{color:var(--warm-gray);letter-spacing:.06em}
 .product-price{font-family:'Outfit',sans-serif;font-weight:500;font-size:18px;color:var(--offwhite);margin-top:10px}
-.product-card.premium .product-price{font-weight:600;font-size:20px;color:var(--premium-gold)}
-.premium-tag{display:inline-block;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--premium-gold);margin-top:8px;padding:4px 0;border-top:1px solid rgba(201,169,97,.3)}
+.product-card.premium .product-price{font-weight:600;font-size:20px;color:var(--gold)}
+.premium-tag{display:inline-block;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-top:8px;padding:4px 0;border-top:1px solid rgba(201,169,97,.3)}
 .color-selector{display:flex;gap:8px;margin-top:14px;align-items:center;flex-wrap:wrap}
-.color-opt{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .25s;position:relative}
-.color-opt:hover{transform:scale(1.2)}
-.color-opt.active{border-color:var(--offwhite);box-shadow:0 0 0 2px rgba(255,255,255,.15)}
-.product-card.premium .color-opt.active{border-color:var(--premium-gold);box-shadow:0 0 0 2px rgba(201,169,97,.25)}
-.color-opt::after{content:attr(data-name);position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--warm-gray);white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;font-family:'DM Sans',sans-serif}
-.color-opt:hover::after,.color-opt.active::after{opacity:1}
-.size-selector{display:flex;gap:6px;margin-top:16px}
-.size-opt{width:40px;height:32px;border:1px solid rgba(255,255,255,.12);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:12px;color:var(--stone);cursor:pointer;transition:all .2s;letter-spacing:.05em}
-.size-opt:hover{border-color:rgba(255,255,255,.35);color:var(--offwhite)}
-.size-opt.active{border-color:var(--offwhite);color:var(--offwhite);background:rgba(255,255,255,.06)}
-.product-card.premium .size-opt.active{border-color:var(--premium-gold);color:var(--premium-gold);background:rgba(201,169,97,.08)}
-.buy-btn{display:block;width:100%;margin-top:16px;padding:13px;background:transparent;border:1px solid rgba(255,255,255,.12);border-radius:8px;color:var(--offwhite);font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-align:center;text-decoration:none}
-.buy-btn:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.25)}
-.product-card.premium .buy-btn{border-color:var(--premium-gold);color:var(--premium-gold)}.product-card.premium .buy-btn:hover{background:rgba(201,169,97,.1);border-color:var(--premium-gold)}
+.color-opt{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .25s;position:relative}.color-opt:hover{transform:scale(1.2)}.color-opt.active{border-color:var(--offwhite);box-shadow:0 0 0 2px rgba(255,255,255,.15)}
+.product-card.premium .color-opt.active{border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,169,97,.25)}
+.color-opt::after{content:attr(data-name);position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--warm-gray);white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}.color-opt:hover::after,.color-opt.active::after{opacity:1}
+.size-selector{display:flex;gap:6px;margin-top:16px}.size-opt{width:40px;height:32px;border:1px solid rgba(255,255,255,.12);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:12px;color:var(--stone);cursor:pointer;transition:all .2s}.size-opt:hover{border-color:rgba(255,255,255,.35);color:var(--offwhite)}.size-opt.active{border-color:var(--offwhite);color:var(--offwhite);background:rgba(255,255,255,.06)}
+.product-card.premium .size-opt.active{border-color:var(--gold);color:var(--gold);background:rgba(201,169,97,.08)}
+.buy-btn{display:block;width:100%;margin-top:16px;padding:13px;background:transparent;border:1px solid rgba(255,255,255,.12);border-radius:8px;color:var(--offwhite);font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-align:center;text-decoration:none}.buy-btn:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.25)}
+.product-card.premium .buy-btn{border-color:var(--gold);color:var(--gold)}.product-card.premium .buy-btn:hover{background:rgba(201,169,97,.1)}
 .features{padding:100px 40px;max-width:1000px;margin:0 auto}.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:48px}.feature{text-align:center}.feature-number{font-family:'Outfit',sans-serif;font-weight:200;font-size:48px;color:var(--sand);margin-bottom:16px}.feature-title{font-family:'Outfit',sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;margin-bottom:8px}.feature-desc{font-size:13px;color:var(--stone);line-height:1.7}
 .banner{background:var(--charcoal);padding:80px 40px;text-align:center;margin:60px 0}.banner-text{font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(28px,5vw,56px);letter-spacing:.12em;color:var(--offwhite)}.banner-sub{font-size:13px;color:var(--stone);letter-spacing:.2em;text-transform:uppercase;margin-top:16px}
 .social-strip{display:flex;justify-content:center;gap:48px;padding:40px;border-top:1px solid var(--cream);border-bottom:1px solid var(--cream)}.social-item{text-align:center}.social-number{font-family:'Outfit',sans-serif;font-weight:300;font-size:28px;color:var(--black)}.social-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-top:4px}
-.cta-section{padding:100px 40px;max-width:600px;margin:0 auto;text-align:center}.cta-title{font-family:'Outfit',sans-serif;font-weight:300;font-size:28px;letter-spacing:.06em;margin-bottom:12px}.cta-desc{font-size:14px;color:var(--stone);line-height:1.7;margin-bottom:32px}
-.cta-btn{display:inline-block;padding:16px 40px;background:var(--black);color:var(--offwhite);text-decoration:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;transition:background .3s}.cta-btn:hover{background:var(--charcoal)}
+.cta-section{padding:100px 40px;max-width:600px;margin:0 auto;text-align:center}.cta-title{font-family:'Outfit',sans-serif;font-weight:300;font-size:28px;letter-spacing:.06em;margin-bottom:12px}.cta-desc{font-size:14px;color:var(--stone);line-height:1.7;margin-bottom:32px}.cta-btn{display:inline-block;padding:16px 40px;background:var(--black);color:var(--offwhite);text-decoration:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;transition:background .3s;border-radius:8px}.cta-btn:hover{background:var(--charcoal)}
 .footer{background:var(--black);padding:60px 40px;color:var(--stone)}.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px}.footer-logo{font-family:'Outfit',sans-serif;font-weight:300;font-size:24px;letter-spacing:.15em;color:var(--offwhite);margin-bottom:12px}.footer-tagline{font-size:12px;color:var(--stone);letter-spacing:.15em}.footer-col h4{font-family:'Outfit',sans-serif;font-weight:500;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--warm-gray);margin-bottom:16px}.footer-col a{display:block;font-size:13px;color:var(--stone);text-decoration:none;margin-bottom:8px;transition:color .3s}.footer-col a:hover{color:var(--offwhite)}.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;font-size:11px;color:var(--stone);opacity:.5}
 .whatsapp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;justify-content:center;align-items:center;z-index:999;box-shadow:0 4px 20px rgba(37,211,102,.3);cursor:pointer;transition:transform .3s;text-decoration:none}.whatsapp-float:hover{transform:scale(1.1)}.whatsapp-float svg{width:28px;height:28px;fill:#fff}
-@media(max-width:768px){.nav{padding:16px 20px}.nav-links{display:none}.statement,.products,.features,.cta-section,.heavyweight-section{padding-left:20px;padding-right:20px}.product-grid{grid-template-columns:1fr 1fr;gap:16px}.product-visual{height:260px}.features-grid{grid-template-columns:1fr;gap:32px}.footer-inner{grid-template-columns:1fr;gap:24px}.social-strip{flex-wrap:wrap;gap:24px}.footer-bottom{flex-direction:column;gap:8px}}
+@media(max-width:768px){.nav{padding:16px 20px}.nav-links{display:none}.statement,.products,.features,.cta-section,.heavyweight-section{padding-left:20px;padding-right:20px}.product-grid{grid-template-columns:1fr 1fr;gap:16px}.product-visual{height:260px}.features-grid{grid-template-columns:1fr;gap:32px}.footer-inner{grid-template-columns:1fr;gap:24px}.social-strip{flex-wrap:wrap;gap:24px}.footer-bottom{flex-direction:column;gap:8px}.logo-overlay{font-size:11px}}
 @media(max-width:480px){.product-grid{grid-template-columns:1fr}.product-visual{height:340px}}
 </style>
 </head>
 <body>
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">VÖKA</a>
-  <ul class="nav-links"><li><a href="#products">Produtos</a></li><li><a href="#about">Sobre</a></li><li><a href="#contact">Contato</a></li></ul>
+  <ul class="nav-links"><li><a href="#products">Produtos</a></li><li><a href="#heavyweight">VÖKA Heavy</a></li><li><a href="#about">Sobre</a></li><li><a href="#contact">Contato</a></li></ul>
   <a href="https://wa.me/5545998468877" class="nav-cta">Comprar</a>
 </nav>
 <section class="hero">
@@ -66,10 +62,12 @@
 </section>
 
 <section class="heavyweight-section" id="heavyweight">
-  <div class="heavyweight-badge">Edição Limitada</div>
+  <div style="text-align:center">
+    <div class="heavyweight-badge">VÖKA Heavy</div>
+  </div>
   <div class="heavyweight-label">Heavyweight Collection</div>
-  <h2 class="heavyweight-title">Signature 320g</h2>
-  <p class="heavyweight-desc">Nossa peça mais exclusiva. Algodão Xinjiang de altíssima gramatura, estrutura encorpada que não transparece e caimento perfeito. Para quem busca qualidade superior e está disposto a pagar por isso.</p>
+  <h2 class="heavyweight-title">VÖKA Heavy — 320g</h2>
+  <p class="heavyweight-desc">Nossa peça de maior gramatura. Algodão Xinjiang de fibra longa, estrutura encorpada que não transparece e caimento perfeito. Feita para quem valoriza o que veste.</p>
   <div class="product-grid" id="heavyweight-grid" style="max-width:900px;margin:60px auto 0"></div>
 </section>
 
@@ -100,201 +98,163 @@
 <footer class="footer">
   <div class="footer-inner">
     <div><div class="footer-logo">VÖKA</div><div class="footer-tagline">Wear less. Mean more.</div></div>
-    <div class="footer-col"><h4>Navegação</h4><a href="#products">Produtos</a><a href="#about">Sobre</a><a href="#contact">Contato</a><a href="https://wa.me/5545998468877">WhatsApp</a></div>
-    <div class="footer-col"><h4>Redes</h4><a href="#">Instagram</a><a href="#">TikTok</a></div>
+    <div class="footer-col"><h4>Navegação</h4><a href="#products">Produtos</a><a href="#heavyweight">VÖKA Heavy</a><a href="#about">Sobre</a><a href="#contact">Contato</a></div>
+    <div class="footer-col"><h4>Contato</h4><a href="https://wa.me/5545998468877">WhatsApp</a><a href="#">Instagram</a></div>
   </div>
   <div class="footer-bottom"><span>© 2026 VÖKA. Todos os direitos reservados.</span><span>Maringá, PR — Brasil</span></div>
 </footer>
 <a href="https://wa.me/5545998468877?text=Oi!%20Quero%20conhecer%20a%20VÖKA" class="whatsapp-float" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-<script>
-const PRODUCTS = [
-  {
-    name: "Essential Tee — VÖKA",
-    detail: "300 gramas · algodão penteado · com logo",
-    price: 79,
-    type: "classic",
-    hasLogo: true,
-    colors: [
-      {name:"Branco",hex:"#f0ebe5",body:"#f0ebe5",accent:"#ddd6cc",logo:"#0a0a0a",dark:false},
-      {name:"Preto",hex:"#1a1a1a",body:"#1a1a1a",accent:"#2d2d2d",logo:"#e0d8ce",dark:true},
-      {name:"Cinza",hex:"#8a8580",body:"#8a8580",accent:"#7a7570",logo:"#f0ebe5",dark:true},
-      {name:"Marrom",hex:"#4a3728",body:"#4a3728",accent:"#5a4738",logo:"#d4ccc0",dark:true}
-    ]
-  },
-  {
-    name: "Dropped Shoulder Tee",
-    detail: "Algodão premium · ombro caído · sem logo",
-    price: 89,
-    type: "dropped",
-    hasLogo: false,
-    colors: [
-      {name:"Preto",hex:"#1a1a1a",body:"#1a1a1a",accent:"#2d2d2d",logo:"#e0d8ce",dark:true},
-      {name:"Iron gray",hex:"#6a6560",body:"#6a6560",accent:"#7a7570",logo:"#e0d8ce",dark:true},
-      {name:"Apricot",hex:"#d4ccc0",body:"#d4ccc0",accent:"#c4bcb0",logo:"#3a3530",dark:false},
-      {name:"Khaki",hex:"#9a8a6a",body:"#9a8a6a",accent:"#aa9a7a",logo:"#f0ebe5",dark:true}
-    ]
-  },
-  {
-    name: "Color Tee — 320g",
-    detail: "Algodão Xinjiang · 15 cores · sem logo",
-    price: 79,
-    type: "dropped",
-    hasLogo: false,
-    colors: [
-      {name:"Dark gray",hex:"#4a4540",body:"#4a4540",accent:"#5a5550",logo:"#d4ccc0",dark:true},
-      {name:"Burgundy",hex:"#6b2a3a",body:"#6b2a3a",accent:"#7b3a4a",logo:"#e8d0d0",dark:true},
-      {name:"Forest green",hex:"#3a5a3a",body:"#3a5a3a",accent:"#4a6a4a",logo:"#c8e0c8",dark:true},
-      {name:"Navy",hex:"#1a2a4a",body:"#1a2a4a",accent:"#2a3a5a",logo:"#c0d0e8",dark:true},
-      {name:"Tiffany",hex:"#6abcbc",body:"#6abcbc",accent:"#7accc8",logo:"#1a3a3a",dark:false},
-      {name:"Coffee",hex:"#6a4a3a",body:"#6a4a3a",accent:"#7a5a4a",logo:"#e0d0c0",dark:true},
-      {name:"Pink",hex:"#d4a0a0",body:"#d4a0a0",accent:"#c49494",logo:"#3a2020",dark:false},
-      {name:"Apricot",hex:"#d4c8b0",body:"#d4c8b0",accent:"#c4b8a0",logo:"#3a3020",dark:false},
-      {name:"Taro purple",hex:"#8a7098",body:"#8a7098",accent:"#9a80a8",logo:"#e0d8e8",dark:true},
-      {name:"Sky blue",hex:"#7aaad0",body:"#7aaad0",accent:"#8abae0",logo:"#1a2a3a",dark:false},
-      {name:"Preto",hex:"#1a1a1a",body:"#1a1a1a",accent:"#2d2d2d",logo:"#e0d8ce",dark:true},
-      {name:"Branco",hex:"#e8e4de",body:"#e8e4de",accent:"#d8d4ce",logo:"#0a0a0a",dark:false}
-    ]
-  }
-];
 
-const HEAVYWEIGHT = {
-  name: "Signature 320g — Heavyweight",
-  detail: "Algodão Xinjiang 320g · Edição Limitada · Premium",
-  price: 109,
-  type: "dropped",
-  isPremium: true,
+<script>
+// Image base paths (referencing pedido folder directly)
+const IMG = {
+  american: "pedido%2012%3Aabril/sem%20logo%20-%20american%20300g/",
+  comlogo: "pedido%2012%3Aabril/com%20logo%20-%20200g/",
+  heavy: "pedido%2012%3Aabril/sem%20logo%20-%20320g/"
+};
+
+// DO26741249794 — Dropped shoulder 200g — COM LOGO VÖKA
+const LOGO_PRODUCT = {
+  name: "VÖKA Tee — Dropped Shoulder",
+  detail: "200 gramas · ombro caído · com logo VÖKA",
+  price: 89,
+  hasLogo: false,
   colors: [
-    {name:"Black",hex:"#1a1a1a",body:"#1a1a1a",accent:"#2d2d2d",logo:"#c9a961",dark:true},
-    {name:"Charcoal",hex:"#3a3530",body:"#3a3530",accent:"#4a4540",logo:"#c9a961",dark:true},
-    {name:"Sand",hex:"#c4b5a2",body:"#c4b5a2",accent:"#b4a592",logo:"#1a1a1a",dark:false},
-    {name:"Olive",hex:"#4a5040",body:"#4a5040",accent:"#5a6050",logo:"#d4c8b0",dark:true}
+    {name:"Preto", hex:"#1a1a1a", img:IMG.comlogo+"black.jpg", logoColor:"#f5f0eb"},
+    {name:"Iron gray", hex:"#6a6560", img:IMG.comlogo+"iron%20gray.jpg", logoColor:"#f5f0eb"},
+    {name:"Apricot", hex:"#d4ccc0", img:IMG.comlogo+"apricot.jpg", logoColor:"#0a0a0a"},
+    {name:"Khaki", hex:"#9a8a6a", img:IMG.comlogo+"khaki.jpg", logoColor:"#f5f0eb"}
   ]
 };
 
-function teeSVG(type, c, showLogo) {
-  const dr = type === 'dropped';
-  const vw = dr ? 300 : 280;
-  const cx = vw / 2;
-  const bodyD = dr
-    ? `M40,80 C42,50 75,28 ${cx},24 C${vw-75},28 ${vw-42},50 ${vw-40},80 L${vw-12},98 L${vw-28},132 L${vw-60},116 C${vw-58},120 ${vw-56},200 ${vw-56},260 C${vw-56},268 ${vw-60},272 ${vw-66},272 L66,272 C60,272 56,268 56,260 C56,200 58,120 60,116 L28,132 L12,98 Z`
-    : `M54,72 C54,46 82,28 ${cx},24 C${vw-82},28 ${vw-54},46 ${vw-54},72 L${vw-22},90 L${vw-36},122 L${vw-58},110 C${vw-56},114 ${vw-54},200 ${vw-54},258 C${vw-54},264 ${vw-58},268 ${vw-64},268 L64,268 C58,268 54,264 54,258 C54,200 56,114 58,110 L36,122 L22,90 Z`;
-  const nRx = dr ? 34 : 28;
-  const nCy = dr ? 54 : 50;
-  const seamL = dr ? 56 : 54;
-  const seamR = dr ? vw-56 : vw-54;
-  const botY = dr ? 272 : 268;
-  const logoY = dr ? 158 : 150;
-  const hlA = c.dark ? .03 : .18;
-  const shA = c.dark ? .12 : .06;
-  const uid = Math.random().toString(36).slice(2,8);
-  return `<svg viewBox="0 0 ${vw} 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:${dr?210:195}px;transition:opacity .3s,transform .3s">
-  <defs>
-    <filter id="tx-${uid}" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="n"/><feColorMatrix type="saturate" values="0" in="n" result="gn"/><feBlend in="SourceGraphic" in2="gn" mode="multiply" result="b"/><feComponentTransfer in="b"><feFuncA type="linear" slope="1"/></feComponentTransfer></filter>
-    <linearGradient id="hl-${uid}" x1="0.2" y1="0" x2="0.8" y2="1"><stop offset="0%" stop-color="white" stop-opacity="${hlA}"/><stop offset="40%" stop-color="white" stop-opacity="0"/><stop offset="100%" stop-color="black" stop-opacity="${shA}"/></linearGradient>
-    <radialGradient id="sp-${uid}" cx="0.35" cy="0.25" r="0.7"><stop offset="0%" stop-color="white" stop-opacity="${c.dark?.06:.12}"/><stop offset="100%" stop-color="black" stop-opacity="0"/></radialGradient>
-  </defs>
-  <g filter="url(#tx-${uid})">
-    <path d="${bodyD}" fill="${c.body}"/>
-  </g>
-  <path d="${bodyD}" fill="url(#hl-${uid})"/>
-  <path d="${bodyD}" fill="url(#sp-${uid})"/>
-  <ellipse cx="${cx}" cy="${nCy}" rx="${nRx}" ry="13" fill="none" stroke="${c.accent}" stroke-width="2.5"/>
-  <ellipse cx="${cx}" cy="${nCy}" rx="${nRx-4}" ry="9" fill="${c.body}" stroke="${c.accent}" stroke-width=".6" opacity=".5"/>
-  <line x1="${seamL}" y1="118" x2="${seamL}" y2="${botY}" stroke="${c.accent}" stroke-width=".6" opacity=".18"/>
-  <line x1="${seamR}" y1="118" x2="${seamR}" y2="${botY}" stroke="${c.accent}" stroke-width=".6" opacity=".18"/>
-  <line x1="${seamL+4}" y1="${botY}" x2="${seamR-4}" y2="${botY}" stroke="${c.accent}" stroke-width=".8" opacity=".15"/>
-  <line x1="${seamL}" y1="${botY-1}" x2="${seamL}" y2="${botY+2}" stroke="${c.accent}" stroke-width="1.5" opacity=".1"/>
-  <line x1="${seamR}" y1="${botY-1}" x2="${seamR}" y2="${botY+2}" stroke="${c.accent}" stroke-width="1.5" opacity=".1"/>
-  ${showLogo ? `<text x="${cx}" y="${logoY}" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="300" font-size="14" letter-spacing="3.5" fill="${c.logo}" opacity=".9">VÖKA</text>` : ''}
-</svg>`;
+// DO26741249795 — American 300g — SEM LOGO
+const BASIC_PRODUCT = {
+  name: "Essential Tee — 300g",
+  detail: "300 gramas · algodão penteado americano · sem logo",
+  price: 79,
+  hasLogo: false,
+  colors: [
+    {name:"Branco", hex:"#f0ebe5", img:IMG.american+"branca.jpg"},
+    {name:"Preto", hex:"#1a1a1a", img:IMG.american+"black.jpg"},
+    {name:"Senior gray", hex:"#8a8580", img:IMG.american+"senior%20gray.jpg"},
+    {name:"Dark brown", hex:"#4a3728", img:IMG.american+"dark%20brown.jpg"}
+  ]
+};
+
+const PRODUCTS = [LOGO_PRODUCT, BASIC_PRODUCT];
+
+// DO26741249793 — Xinjiang 320g — SEM LOGO — PREMIUM
+const HEAVYWEIGHT = {
+  name: "VÖKA Heavy — 320g",
+  detail: "Algodão Xinjiang 320g · edição limitada",
+  price: 109,
+  isPremium: true,
+  hasLogo: false,
+  colors: [
+    {name:"Burgundy", hex:"#6b2a3a", img:IMG.heavy+"burgundy_cleanup.jpg"},
+    {name:"Forest green", hex:"#3a5a3a", img:IMG.heavy+"forest%20green_cleanup.jpg"},
+    {name:"Dark gray", hex:"#4a4540", img:IMG.heavy+"dark%20gray_cleanup.jpg"},
+    {name:"Tiffany blue", hex:"#6abcbc", img:IMG.heavy+"tiffany%20blue_cleanup.jpg"},
+    {name:"Navy blue", hex:"#1a2a4a", img:IMG.heavy+"navy%20blue_cleanup.jpg"},
+    {name:"Klein blue", hex:"#2050a0", img:IMG.heavy+"klein%20blue_cleanup.jpg"},
+    {name:"Light blue", hex:"#7aaad0", img:IMG.heavy+"light%20blue_cleanup.jpg"},
+    {name:"Coffee", hex:"#6a4a3a", img:IMG.heavy+"cofee_cleanup.jpg"},
+    {name:"Pink", hex:"#d4a0a0", img:IMG.heavy+"pink_cleanup.jpg"},
+    {name:"Taro purple", hex:"#8a7098", img:IMG.heavy+"taro%20purple_cleanup.jpg"},
+    {name:"Apricot", hex:"#d4c8b0", img:IMG.heavy+"apricot_cleanup.jpg"},
+    {name:"White gray", hex:"#c8c4be", img:IMG.heavy+"white%20gray_cleanup.jpg"},
+    {name:"Preto", hex:"#1a1a1a", img:IMG.heavy+"black_cleanup.jpg"}
+  ]
+};
+
+function buildCard(p, idx, prefix, container, isPremium) {
+  const c0 = p.colors[0];
+  const card = document.createElement('div');
+  card.className = 'product-card' + (isPremium ? ' premium' : '');
+  
+  const logoHTML = p.hasLogo 
+    ? `<span class="logo-overlay" id="logo-${prefix}-${idx}" style="color:${c0.logoColor || '#f5f0eb'}">VÖKA</span>` 
+    : '';
+  
+  const detailClass = isPremium ? ' detail-shot' : '';
+  const tagHTML = isPremium ? `<div class="premium-tag">320g · Algodão Xinjiang · Premium</div>` : '';
+  
+  card.innerHTML = `
+    <div class="product-visual${detailClass}">
+      <img id="img-${prefix}-${idx}" src="${c0.img}" alt="${p.name} — ${c0.name}" loading="lazy">
+      ${logoHTML}
+    </div>
+    <div class="product-info">
+      <div class="product-name">${p.name}</div>
+      <div class="product-detail">${p.detail}</div>
+      ${tagHTML}
+      <div class="product-price">R$ ${p.price}</div>
+      <div class="color-selector">${p.colors.map((c,j) => 
+        `<div class="color-opt${j===0?' active':''}" data-name="${c.name}" style="background:${c.hex}" onclick="pickColor('${prefix}',${idx},${j})"></div>`
+      ).join('')}</div>
+      <div class="size-selector">
+        <div class="size-opt active" onclick="pickSize(this)" data-size="M">M</div>
+        <div class="size-opt" onclick="pickSize(this)" data-size="L">L</div>
+      </div>
+      <a class="buy-btn" id="buy-${prefix}-${idx}" href="${buyURL(p.name,c0.name,'M')}" target="_blank">Comprar via WhatsApp</a>
+    </div>`;
+  container.appendChild(card);
 }
 
 function render() {
-  // Render heavyweight premium product
-  const hg = document.getElementById('heavyweight-grid');
-  hg.innerHTML = '';
-  const hwCard = document.createElement('div');
-  hwCard.className = 'product-card premium';
-  const hw0 = HEAVYWEIGHT.colors[0];
-  hwCard.innerHTML = `
-    <div class="product-visual" id="vis-hw">${teeSVG(HEAVYWEIGHT.type, hw0, true)}</div>
-    <div class="product-info">
-      <div class="product-name">${HEAVYWEIGHT.name}</div>
-      <div class="product-detail">${HEAVYWEIGHT.detail}</div>
-      <div class="product-price">R$ ${HEAVYWEIGHT.price}</div>
-      <div class="premium-tag">Edição Limitada · 320g</div>
-      <div class="color-selector">${HEAVYWEIGHT.colors.map((c,j) => `<div class="color-opt${j===0?' active':''}" data-name="${c.name}" style="background:${c.hex}" onclick="pickHW(${j})"></div>`).join('')}</div>
-      <div class="size-selector"><div class="size-opt active" onclick="szHW(this)" data-size="M">M</div><div class="size-opt" onclick="szHW(this)" data-size="L">L</div></div>
-      <a class="buy-btn" id="buy-hw" href="${buyURL(HEAVYWEIGHT.name,hw0.name,'M')}" target="_blank">Comprar via WhatsApp</a>
-    </div>`;
-  hg.appendChild(hwCard);
-
-  // Render regular products
-  const g = document.getElementById('product-grid');
-  g.innerHTML = '';
-  PRODUCTS.forEach((p, i) => {
-    const c0 = p.colors[0];
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.innerHTML = `
-      <div class="product-visual" id="vis-${i}">${teeSVG(p.type, c0, p.hasLogo)}</div>
-      <div class="product-info">
-        <div class="product-name">${p.name}</div>
-        <div class="product-detail">${p.detail}</div>
-        <div class="product-price">R$ ${p.price}</div>
-        <div class="color-selector">${p.colors.map((c,j) => `<div class="color-opt${j===0?' active':''}" data-name="${c.name}" style="background:${c.hex}" onclick="pick(${i},${j})"></div>`).join('')}</div>
-        <div class="size-selector"><div class="size-opt active" onclick="sz(this)" data-size="M">M</div><div class="size-opt" onclick="sz(this)" data-size="L">L</div></div>
-        <a class="buy-btn" id="buy-${i}" href="${buyURL(p.name,c0.name,'M')}" target="_blank">Comprar via WhatsApp</a>
-      </div>`;
-    g.appendChild(card);
-  });
+  // Heavyweight (premium) section
+  const hwGrid = document.getElementById('heavyweight-grid');
+  buildCard(HEAVYWEIGHT, 0, 'hw', hwGrid, true);
+  
+  // Essentials section
+  const grid = document.getElementById('product-grid');
+  PRODUCTS.forEach((p, i) => buildCard(p, i, 'prod', grid, false));
 }
 
-function pickHW(ci) {
-  const c = HEAVYWEIGHT.colors[ci];
-  const v = document.getElementById('vis-hw');
-  v.children[0].style.opacity='0';
-  v.children[0].style.transform='scale(.96)';
-  setTimeout(() => { v.innerHTML = teeSVG(HEAVYWEIGHT.type, c, true); }, 280);
-  v.parentElement.querySelectorAll('.color-opt').forEach((e,j) => e.classList.toggle('active', j===ci));
-  updBuyHW();
+function pickColor(prefix, idx, colorIdx) {
+  const allProducts = prefix === 'hw' ? [HEAVYWEIGHT] : PRODUCTS;
+  const p = allProducts[idx];
+  const c = p.colors[colorIdx];
+  
+  const img = document.getElementById(`img-${prefix}-${idx}`);
+  img.classList.add('fade-out');
+  
+  setTimeout(() => {
+    img.src = c.img;
+    img.alt = p.name + ' — ' + c.name;
+    img.classList.remove('fade-out');
+  }, 350);
+  
+  // Update logo color if product has logo
+  if (p.hasLogo && c.logoColor) {
+    const logo = document.getElementById(`logo-${prefix}-${idx}`);
+    if (logo) logo.style.color = c.logoColor;
+  }
+  
+  // Update active color dot
+  const card = img.closest('.product-card');
+  card.querySelectorAll('.color-opt').forEach((e,j) => e.classList.toggle('active', j===colorIdx));
+  
+  updateBuyLink(prefix, idx);
 }
 
-function szHW(el) {
+function pickSize(el) {
   el.parentElement.querySelectorAll('.size-opt').forEach(s => s.classList.remove('active'));
   el.classList.add('active');
-  updBuyHW();
+  const card = el.closest('.product-card');
+  const btn = card.querySelector('.buy-btn');
+  const prefix = btn.id.split('-')[1];
+  const idx = parseInt(btn.id.split('-')[2]);
+  updateBuyLink(prefix, idx);
 }
 
-function updBuyHW() {
-  const card = document.querySelector('.product-card.premium');
-  const cn = card.querySelector('.color-opt.active')?.getAttribute('data-name') || '';
-  const sz = card.querySelector('.size-opt.active')?.getAttribute('data-size') || 'M';
-  document.getElementById('buy-hw').href = buyURL(HEAVYWEIGHT.name, cn, sz);
-}
-
-function pick(pi, ci) {
-  const p = PRODUCTS[pi], c = p.colors[ci];
-  const v = document.getElementById('vis-'+pi);
-  v.children[0].style.opacity='0';
-  v.children[0].style.transform='scale(.96)';
-  setTimeout(() => { v.innerHTML = teeSVG(p.type, c, p.hasLogo); }, 280);
-  v.parentElement.querySelectorAll('.color-opt').forEach((e,j) => e.classList.toggle('active', j===ci));
-  updBuy(pi);
-}
-
-function sz(el) {
-  el.parentElement.querySelectorAll('.size-opt').forEach(s => s.classList.remove('active'));
-  el.classList.add('active');
-  const pi = [...el.closest('.product-card').parentElement.children].indexOf(el.closest('.product-card'));
-  updBuy(pi);
-}
-
-function updBuy(pi) {
-  const card = document.querySelectorAll('.product-card')[pi];
-  const cn = card.querySelector('.color-opt.active')?.getAttribute('data-name') || '';
-  const sz = card.querySelector('.size-opt.active')?.getAttribute('data-size') || 'M';
-  document.getElementById('buy-'+pi).href = buyURL(PRODUCTS[pi].name, cn, sz);
+function updateBuyLink(prefix, idx) {
+  const allProducts = prefix === 'hw' ? [HEAVYWEIGHT] : PRODUCTS;
+  const p = allProducts[idx];
+  const card = document.getElementById(`buy-${prefix}-${idx}`).closest('.product-card');
+  const colorName = card.querySelector('.color-opt.active')?.getAttribute('data-name') || '';
+  const size = card.querySelector('.size-opt.active')?.getAttribute('data-size') || 'M';
+  document.getElementById(`buy-${prefix}-${idx}`).href = buyURL(p.name, colorName, size);
 }
 
 function buyURL(name, color, size) {
@@ -302,10 +262,18 @@ function buyURL(name, color, size) {
 }
 
 render();
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>80)});
-const obs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.1});
-document.querySelectorAll('.product-card,.feature,.statement-text').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='opacity .8s ease,transform .8s ease';obs.observe(el)});
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 80));
+
+// Fade-in on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }});
+}, {threshold:.1});
+document.querySelectorAll('.product-card,.feature,.statement-text').forEach(el => {
+  el.style.opacity='0'; el.style.transform='translateY(20px)'; el.style.transition='opacity .6s ease,transform .6s ease'; obs.observe(el);
+});
 </script>
 </body>
 </html>
