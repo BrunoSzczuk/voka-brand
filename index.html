@@ -16,10 +16,9 @@
 .product-card{background:var(--black);border-radius:16px;overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1)}.product-card:hover{transform:translateY(-4px)}
 .product-card.premium{background:linear-gradient(180deg,#1a1816 0%,#0f0e0d 100%);border:1px solid rgba(201,169,97,.2);box-shadow:0 8px 32px rgba(201,169,97,.08)}.product-card.premium:hover{transform:translateY(-8px);box-shadow:0 12px 48px rgba(201,169,97,.12)}
 .product-visual{height:400px;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(30,28,26,1) 0%,rgba(20,18,16,1) 100%)}
-.product-visual img{max-width:90%;max-height:90%;object-fit:contain;transition:opacity .2s ease}
-.product-visual img.fade-out{opacity:0}
-.product-visual.detail-shot{align-items:flex-start}
-.product-visual.detail-shot img{max-width:100%;max-height:100%;object-fit:cover;object-position:top center}
+.product-visual img.product-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .3s ease}
+.product-visual img.product-img.active{opacity:1}
+.product-visual.detail-shot img.product-img{object-fit:cover;object-position:top center}
 .product-card.premium .product-visual{background:linear-gradient(180deg,rgba(26,24,22,1) 0%,rgba(15,14,13,1) 100%)}.product-card.premium .product-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(201,169,97,.06) 0%,transparent 60%);pointer-events:none}
 .logo-overlay{position:absolute;top:28%;left:32%;font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(14px,2.5vw,18px);letter-spacing:.15em;pointer-events:none;transition:color .35s,opacity .35s}
 .product-info{padding:20px 24px 24px}
@@ -106,13 +105,6 @@
 <a href="https://wa.me/5545998468877?text=Oi!%20Quero%20conhecer%20a%20VÖKA" class="whatsapp-float" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
 <script>
-// Image base paths (referencing pedido folder directly)
-const IMG = {
-  american: "pedido%2012%3Aabril/sem%20logo%20-%20american%20300g/",
-  comlogo: "pedido%2012%3Aabril/com%20logo%20-%20200g/",
-  heavy: "pedido%2012%3Aabril/sem%20logo%20-%20320g/"
-};
-
 // DO26741249794 — Dropped shoulder 200g — COM LOGO VÖKA
 const LOGO_PRODUCT = {
   name: "VÖKA Tee — Dropped Shoulder",
@@ -120,10 +112,10 @@ const LOGO_PRODUCT = {
   price: 89,
   hasLogo: false,
   colors: [
-    {name:"Preto", hex:"#1a1a1a", img:IMG.comlogo+"black.jpg", logoColor:"#f5f0eb"},
-    {name:"Iron gray", hex:"#6a6560", img:IMG.comlogo+"iron%20gray.jpg", logoColor:"#f5f0eb"},
-    {name:"Apricot", hex:"#d4ccc0", img:IMG.comlogo+"apricot.jpg", logoColor:"#0a0a0a"},
-    {name:"Khaki", hex:"#9a8a6a", img:IMG.comlogo+"khaki.jpg", logoColor:"#f5f0eb"}
+    {name:"Preto", hex:"#1a1a1a", img:"images/dropped-black.jpg"},
+    {name:"Iron gray", hex:"#6a6560", img:"images/dropped-irongray.jpg"},
+    {name:"Apricot", hex:"#d4ccc0", img:"images/dropped-apricot.jpg"},
+    {name:"Khaki", hex:"#9a8a6a", img:"images/dropped-khaki.jpg"}
   ]
 };
 
@@ -134,10 +126,10 @@ const BASIC_PRODUCT = {
   price: 79,
   hasLogo: false,
   colors: [
-    {name:"Branco", hex:"#f0ebe5", img:IMG.american+"branca.jpg"},
-    {name:"Preto", hex:"#1a1a1a", img:IMG.american+"black.jpg"},
-    {name:"Senior gray", hex:"#8a8580", img:IMG.american+"senior%20gray.jpg"},
-    {name:"Dark brown", hex:"#4a3728", img:IMG.american+"dark%20brown.jpg"}
+    {name:"Branco", hex:"#f0ebe5", img:"images/american-branco.jpg"},
+    {name:"Preto", hex:"#1a1a1a", img:"images/american-preto.jpg"},
+    {name:"Senior gray", hex:"#8a8580", img:"images/american-cinza.jpg"},
+    {name:"Dark brown", hex:"#4a3728", img:"images/american-marrom.jpg"}
   ]
 };
 
@@ -151,19 +143,19 @@ const HEAVYWEIGHT = {
   isPremium: true,
   hasLogo: false,
   colors: [
-    {name:"Burgundy", hex:"#6b2a3a", img:IMG.heavy+"burgundy_cleanup.jpg"},
-    {name:"Forest green", hex:"#3a5a3a", img:IMG.heavy+"forest%20green_cleanup.jpg"},
-    {name:"Dark gray", hex:"#4a4540", img:IMG.heavy+"dark%20gray_cleanup.jpg"},
-    {name:"Tiffany blue", hex:"#6abcbc", img:IMG.heavy+"tiffany%20blue_cleanup.jpg"},
-    {name:"Navy blue", hex:"#1a2a4a", img:IMG.heavy+"navy%20blue_cleanup.jpg"},
-    {name:"Klein blue", hex:"#2050a0", img:IMG.heavy+"klein%20blue_cleanup.jpg"},
-    {name:"Light blue", hex:"#7aaad0", img:IMG.heavy+"light%20blue_cleanup.jpg"},
-    {name:"Coffee", hex:"#6a4a3a", img:IMG.heavy+"cofee_cleanup.jpg"},
-    {name:"Pink", hex:"#d4a0a0", img:IMG.heavy+"pink_cleanup.jpg"},
-    {name:"Taro purple", hex:"#8a7098", img:IMG.heavy+"taro%20purple_cleanup.jpg"},
-    {name:"Apricot", hex:"#d4c8b0", img:IMG.heavy+"apricot_cleanup.jpg"},
-    {name:"White gray", hex:"#c8c4be", img:IMG.heavy+"white%20gray_cleanup.jpg"},
-    {name:"Preto", hex:"#1a1a1a", img:IMG.heavy+"black_cleanup.jpg"}
+    {name:"Burgundy", hex:"#6b2a3a", img:"images/heavy-burgundy.jpg"},
+    {name:"Forest green", hex:"#3a5a3a", img:"images/heavy-forestgreen.jpg"},
+    {name:"Dark gray", hex:"#4a4540", img:"images/heavy-darkgray.jpg"},
+    {name:"Tiffany blue", hex:"#6abcbc", img:"images/heavy-tiffany.jpg"},
+    {name:"Navy blue", hex:"#1a2a4a", img:"images/heavy-navy.jpg"},
+    {name:"Klein blue", hex:"#2050a0", img:"images/heavy-kleinblue.jpg"},
+    {name:"Light blue", hex:"#7aaad0", img:"images/heavy-lightblue.jpg"},
+    {name:"Coffee", hex:"#6a4a3a", img:"images/heavy-coffee.jpg"},
+    {name:"Pink", hex:"#d4a0a0", img:"images/heavy-pink.jpg"},
+    {name:"Taro purple", hex:"#8a7098", img:"images/heavy-taropurple.jpg"},
+    {name:"Apricot", hex:"#d4c8b0", img:"images/heavy-apricot.jpg"},
+    {name:"White gray", hex:"#c8c4be", img:"images/heavy-whitegray.jpg"},
+    {name:"Preto", hex:"#1a1a1a", img:"images/heavy-preto.jpg"}
   ]
 };
 
@@ -171,6 +163,7 @@ function buildCard(p, idx, prefix, container, isPremium) {
   const c0 = p.colors[0];
   const card = document.createElement('div');
   card.className = 'product-card' + (isPremium ? ' premium' : '');
+  card.setAttribute('data-prefix', prefix);
   
   const logoHTML = p.hasLogo 
     ? `<span class="logo-overlay" id="logo-${prefix}-${idx}" style="color:${c0.logoColor || '#f5f0eb'}">VÖKA</span>` 
@@ -181,7 +174,7 @@ function buildCard(p, idx, prefix, container, isPremium) {
   
   card.innerHTML = `
     <div class="product-visual${detailClass}">
-      <img id="img-${prefix}-${idx}" src="${c0.img}" alt="${p.name} — ${c0.name}" loading="lazy">
+      ${p.colors.map((c,j) => `<img class="product-img${j===0?' active':''}" data-color="${j}" src="${c.img}" alt="${p.name} — ${c.name}">`).join('')}
       ${logoHTML}
     </div>
     <div class="product-info">
@@ -215,38 +208,9 @@ function pickColor(prefix, idx, colorIdx) {
   const allProducts = prefix === 'hw' ? [HEAVYWEIGHT] : PRODUCTS;
   const p = allProducts[idx];
   const c = p.colors[colorIdx];
-  
-  const img = document.getElementById(`img-${prefix}-${idx}`);
-  
-  // Preload the new image, then swap instantly
-  const preload = new Image();
-  preload.src = c.img;
-  
-  const doSwap = () => {
-    img.classList.add('fade-out');
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        img.src = c.img;
-        img.alt = p.name + ' — ' + c.name;
-        // Wait for paint then fade in
-        requestAnimationFrame(() => img.classList.remove('fade-out'));
-      }, 200);
-    });
-  };
-  
-  // If already cached, swap immediately; otherwise wait for load
-  if (preload.complete) { doSwap(); } else { preload.onload = doSwap; }
-  
-  // Update logo color if product has logo
-  if (p.hasLogo && c.logoColor) {
-    const logo = document.getElementById(`logo-${prefix}-${idx}`);
-    if (logo) logo.style.color = c.logoColor;
-  }
-  
-  // Update active color dot
-  const card = img.closest('.product-card');
+  const card = document.querySelectorAll(`[data-prefix="${prefix}"]`)[idx];
+  card.querySelectorAll('.product-img').forEach((img,j) => img.classList.toggle('active', j===colorIdx));
   card.querySelectorAll('.color-opt').forEach((e,j) => e.classList.toggle('active', j===colorIdx));
-  
   updateBuyLink(prefix, idx);
 }
 
@@ -254,19 +218,18 @@ function pickSize(el) {
   el.parentElement.querySelectorAll('.size-opt').forEach(s => s.classList.remove('active'));
   el.classList.add('active');
   const card = el.closest('.product-card');
-  const btn = card.querySelector('.buy-btn');
-  const prefix = btn.id.split('-')[1];
-  const idx = parseInt(btn.id.split('-')[2]);
+  const prefix = card.getAttribute('data-prefix');
+  const idx = [...document.querySelectorAll(`[data-prefix="${prefix}"]`)].indexOf(card);
   updateBuyLink(prefix, idx);
 }
 
 function updateBuyLink(prefix, idx) {
   const allProducts = prefix === 'hw' ? [HEAVYWEIGHT] : PRODUCTS;
   const p = allProducts[idx];
-  const card = document.getElementById(`buy-${prefix}-${idx}`).closest('.product-card');
+  const card = document.querySelectorAll(`[data-prefix="${prefix}"]`)[idx];
   const colorName = card.querySelector('.color-opt.active')?.getAttribute('data-name') || '';
   const size = card.querySelector('.size-opt.active')?.getAttribute('data-size') || 'M';
-  document.getElementById(`buy-${prefix}-${idx}`).href = buyURL(p.name, colorName, size);
+  card.querySelector('.buy-btn').href = buyURL(p.name, colorName, size);
 }
 
 function buyURL(name, color, size) {
@@ -274,12 +237,6 @@ function buyURL(name, color, size) {
 }
 
 render();
-
-// Preload all product images so color switching is instant
-(function preloadAllImages() {
-  const allSets = [HEAVYWEIGHT, ...PRODUCTS];
-  allSets.forEach(p => p.colors.forEach(c => { const i = new Image(); i.src = c.img; }));
-})();
 
 // Nav scroll
 const nav = document.getElementById('nav');
