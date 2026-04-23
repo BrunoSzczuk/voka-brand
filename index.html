@@ -18,7 +18,6 @@
 .product-visual{height:400px;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(30,28,26,1) 0%,rgba(20,18,16,1) 100%)}
 .product-visual img.product-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .3s ease}
 .product-visual img.product-img.active{opacity:1}
-.product-visual.detail-shot img.product-img{object-fit:cover;object-position:top center}
 .product-card.premium .product-visual{background:linear-gradient(180deg,rgba(26,24,22,1) 0%,rgba(15,14,13,1) 100%)}.product-card.premium .product-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(201,169,97,.06) 0%,transparent 60%);pointer-events:none}
 .logo-overlay{position:absolute;top:28%;left:32%;font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(14px,2.5vw,18px);letter-spacing:.15em;pointer-events:none;transition:color .35s,opacity .35s}
 .product-info{padding:20px 24px 24px}
@@ -169,7 +168,7 @@ function buildCard(p, idx, prefix, container, isPremium) {
     ? `<span class="logo-overlay" id="logo-${prefix}-${idx}" style="color:${c0.logoColor || '#f5f0eb'}">VÖKA</span>` 
     : '';
   
-  const detailClass = isPremium ? ' detail-shot' : '';
+  const detailClass = '';
   const tagHTML = isPremium ? `<div class="premium-tag">320g · Algodão Xinjiang · Premium</div>` : '';
   
   card.innerHTML = `
