@@ -3,251 +3,891 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VÖKA — Wear less. Mean more.</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<title>VÖKA — Essentials</title>
+<meta name="description" content="Streetwear de algodão pesado. 300–320g, algodão penteado, sem logos desnecessários. Maringá, PR.">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--black:#0a0a0a;--offwhite:#f5f0eb;--stone:#8c8579;--sand:#c4b5a2;--charcoal:#2d2926;--cream:#e8e0d6;--warm-gray:#b5ada3;--gold:#c9a961}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--offwhite);color:var(--black);overflow-x:hidden}
-.nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,backdrop-filter .4s}.nav.scrolled{background:rgba(10,10,10,.85);backdrop-filter:blur(20px)}.nav-logo{font-family:'Outfit',sans-serif;font-weight:300;font-size:22px;letter-spacing:.15em;color:var(--offwhite);text-decoration:none}.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);text-decoration:none;transition:color .3s}.nav-links a:hover{color:var(--offwhite)}.nav-cta{font-size:12px;letter-spacing:.15em;text-transform:uppercase;padding:10px 24px;border:1px solid var(--stone);color:var(--offwhite);text-decoration:none;transition:all .3s}.nav-cta:hover{background:var(--offwhite);color:var(--black);border-color:var(--offwhite)}
-.hero{min-height:100vh;background:var(--black);display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(196,181,162,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 30%,rgba(140,133,121,.04) 0%,transparent 40%)}.hero-content{text-align:center;position:relative;z-index:1}.hero-logo{font-family:'Outfit',sans-serif;font-weight:200;font-size:clamp(64px,14vw,160px);letter-spacing:.18em;color:var(--offwhite);animation:heroIn 1.5s cubic-bezier(.16,1,.3,1)}.hero-tagline{font-family:'DM Sans',sans-serif;font-size:14px;letter-spacing:.4em;text-transform:uppercase;color:var(--stone);margin-top:20px;animation:heroIn 1.5s cubic-bezier(.16,1,.3,1) .2s both}.hero-scroll{position:absolute;bottom:40px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);opacity:.4;animation:heroIn 1.5s cubic-bezier(.16,1,.3,1) .6s both}.hero-scroll::after{content:'';display:block;width:1px;height:40px;background:var(--stone);margin:12px auto 0;animation:scrollLine 2s ease-in-out infinite}@keyframes heroIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}@keyframes scrollLine{0%,100%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}}
-.statement{padding:120px 40px;max-width:900px;margin:0 auto;text-align:center}.statement-text{font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(24px,4vw,42px);line-height:1.5;color:var(--charcoal);letter-spacing:.02em}.statement-text em{font-style:normal;color:var(--stone)}
-.heavyweight-section{padding:100px 40px;background:var(--black);position:relative;overflow:hidden}.heavyweight-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(201,169,97,.08) 0%,transparent 40%)}.heavyweight-label{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:20px;font-weight:500}.heavyweight-title{font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(32px,6vw,64px);letter-spacing:.15em;color:var(--offwhite);text-align:center;margin-bottom:16px}.heavyweight-desc{font-size:14px;color:var(--stone);text-align:center;max-width:600px;margin:0 auto 60px;line-height:1.8}.heavyweight-badge{display:inline-block;padding:6px 16px;border:1px solid var(--gold);color:var(--gold);font-size:10px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;text-align:center}
-.products{padding:80px 40px;max-width:1200px;margin:0 auto}.products-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--stone);text-align:center;margin-bottom:60px}
-.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.product-card{background:var(--black);border-radius:16px;overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1)}.product-card:hover{transform:translateY(-4px)}
-.product-card.premium{background:linear-gradient(180deg,#1a1816 0%,#0f0e0d 100%);border:1px solid rgba(201,169,97,.2);box-shadow:0 8px 32px rgba(201,169,97,.08)}.product-card.premium:hover{transform:translateY(-8px);box-shadow:0 12px 48px rgba(201,169,97,.12)}
-.product-visual{height:400px;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(30,28,26,1) 0%,rgba(20,18,16,1) 100%)}
-.product-visual img.product-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .3s ease}
-.product-visual img.product-img.active{opacity:1}
-.product-card.premium .product-visual{background:linear-gradient(180deg,rgba(26,24,22,1) 0%,rgba(15,14,13,1) 100%)}.product-card.premium .product-visual::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(201,169,97,.06) 0%,transparent 60%);pointer-events:none}
-.logo-overlay{position:absolute;top:28%;left:32%;font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(14px,2.5vw,18px);letter-spacing:.15em;pointer-events:none;transition:color .35s,opacity .35s}
-.product-info{padding:20px 24px 24px}
-.product-name{font-family:'Outfit',sans-serif;font-weight:400;font-size:16px;letter-spacing:.06em;color:var(--offwhite);margin-bottom:2px}
-.product-card.premium .product-name{font-weight:500;letter-spacing:.08em}
-.product-detail{font-size:12px;color:var(--stone);letter-spacing:.08em}
-.product-price{font-family:'Outfit',sans-serif;font-weight:500;font-size:18px;color:var(--offwhite);margin-top:10px}
-.product-card.premium .product-price{font-weight:600;font-size:20px;color:var(--gold)}
-.premium-tag{display:inline-block;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-top:8px;padding:4px 0;border-top:1px solid rgba(201,169,97,.3)}
-.color-selector{display:flex;gap:8px;margin-top:14px;align-items:center;flex-wrap:wrap}
-.color-opt{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .25s;position:relative}.color-opt:hover{transform:scale(1.2)}.color-opt.active{border-color:var(--offwhite);box-shadow:0 0 0 2px rgba(255,255,255,.15)}
-.product-card.premium .color-opt.active{border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,169,97,.25)}
-.color-opt::after{content:attr(data-name);position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--warm-gray);white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}.color-opt:hover::after,.color-opt.active::after{opacity:1}
-.size-selector{display:flex;gap:6px;margin-top:16px}.size-opt{width:40px;height:32px;border:1px solid rgba(255,255,255,.12);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:12px;color:var(--stone);cursor:pointer;transition:all .2s}.size-opt:hover{border-color:rgba(255,255,255,.35);color:var(--offwhite)}.size-opt.active{border-color:var(--offwhite);color:var(--offwhite);background:rgba(255,255,255,.06)}
-.product-card.premium .size-opt.active{border-color:var(--gold);color:var(--gold);background:rgba(201,169,97,.08)}
-.buy-btn{display:block;width:100%;margin-top:16px;padding:13px;background:transparent;border:1px solid rgba(255,255,255,.12);border-radius:8px;color:var(--offwhite);font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-align:center;text-decoration:none}.buy-btn:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.25)}
-.product-card.premium .buy-btn{border-color:var(--gold);color:var(--gold)}.product-card.premium .buy-btn:hover{background:rgba(201,169,97,.1)}
-.features{padding:100px 40px;max-width:1000px;margin:0 auto}.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:48px}.feature{text-align:center}.feature-number{font-family:'Outfit',sans-serif;font-weight:200;font-size:48px;color:var(--sand);margin-bottom:16px}.feature-title{font-family:'Outfit',sans-serif;font-weight:500;font-size:14px;letter-spacing:.08em;margin-bottom:8px}.feature-desc{font-size:13px;color:var(--stone);line-height:1.7}
-.banner{background:var(--charcoal);padding:80px 40px;text-align:center;margin:60px 0}.banner-text{font-family:'Outfit',sans-serif;font-weight:300;font-size:clamp(28px,5vw,56px);letter-spacing:.12em;color:var(--offwhite)}.banner-sub{font-size:13px;color:var(--stone);letter-spacing:.2em;text-transform:uppercase;margin-top:16px}
-.social-strip{display:flex;justify-content:center;gap:48px;padding:40px;border-top:1px solid var(--cream);border-bottom:1px solid var(--cream)}.social-item{text-align:center}.social-number{font-family:'Outfit',sans-serif;font-weight:300;font-size:28px;color:var(--black)}.social-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-top:4px}
-.cta-section{padding:100px 40px;max-width:600px;margin:0 auto;text-align:center}.cta-title{font-family:'Outfit',sans-serif;font-weight:300;font-size:28px;letter-spacing:.06em;margin-bottom:12px}.cta-desc{font-size:14px;color:var(--stone);line-height:1.7;margin-bottom:32px}.cta-btn{display:inline-block;padding:16px 40px;background:var(--black);color:var(--offwhite);text-decoration:none;font-size:12px;letter-spacing:.2em;text-transform:uppercase;transition:background .3s;border-radius:8px}.cta-btn:hover{background:var(--charcoal)}
-.footer{background:var(--black);padding:60px 40px;color:var(--stone)}.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px}.footer-logo{font-family:'Outfit',sans-serif;font-weight:300;font-size:24px;letter-spacing:.15em;color:var(--offwhite);margin-bottom:12px}.footer-tagline{font-size:12px;color:var(--stone);letter-spacing:.15em}.footer-col h4{font-family:'Outfit',sans-serif;font-weight:500;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--warm-gray);margin-bottom:16px}.footer-col a{display:block;font-size:13px;color:var(--stone);text-decoration:none;margin-bottom:8px;transition:color .3s}.footer-col a:hover{color:var(--offwhite)}.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;font-size:11px;color:var(--stone);opacity:.5}
-.whatsapp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;justify-content:center;align-items:center;z-index:999;box-shadow:0 4px 20px rgba(37,211,102,.3);cursor:pointer;transition:transform .3s;text-decoration:none}.whatsapp-float:hover{transform:scale(1.1)}.whatsapp-float svg{width:28px;height:28px;fill:#fff}
-@media(max-width:768px){.nav{padding:16px 20px}.nav-links{display:none}.statement,.products,.features,.cta-section,.heavyweight-section{padding-left:20px;padding-right:20px}.product-grid{grid-template-columns:1fr 1fr;gap:16px}.product-visual{height:260px}.features-grid{grid-template-columns:1fr;gap:32px}.footer-inner{grid-template-columns:1fr;gap:24px}.social-strip{flex-wrap:wrap;gap:24px}.footer-bottom{flex-direction:column;gap:8px}.logo-overlay{font-size:11px}}
-@media(max-width:480px){.product-grid{grid-template-columns:1fr}.product-visual{height:340px}}
+:root {
+  --ink:     #1a100a;
+  --bg:      #f0e8da;
+  --cream:   #e6ddd0;
+  --card:    #e9e0d2;
+  --warm:    #b89660;
+  --mid:     #7a6a5a;
+  --faint:   #d4c8b8;
+  --accent:  #6b3a1f;
+  --green:   #25D366;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* Grain */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: .028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+
+/* ---- NAV ---- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(240,232,218,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--faint);
+  padding: 0 56px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.n-logo {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 19px;
+  letter-spacing: .08em;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color .3s;
+}
+.n-logo:hover { color: var(--accent); }
+.n-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+.n-links a {
+  font-size: 12px;
+  letter-spacing: .1em;
+  color: var(--mid);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .3s;
+}
+.n-links a:hover { color: var(--ink); }
+.n-cta {
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 9px 24px;
+  background: var(--ink);
+  color: var(--bg);
+  text-decoration: none;
+  transition: background .3s;
+}
+.n-cta:hover { background: var(--accent); }
+
+/* ---- HERO ---- */
+.hero {
+  display: grid;
+  grid-template-columns: 56% 1fr;
+  min-height: calc(100vh - 60px);
+}
+.h-photo {
+  overflow: hidden;
+  position: relative;
+  background: var(--cream);
+}
+.h-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0;
+  transform: scale(1.04);
+  animation: photoIn 1.4s cubic-bezier(.16,1,.3,1) .1s forwards;
+}
+.h-badge {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  background: var(--bg);
+  color: var(--mid);
+  padding: 5px 14px;
+  opacity: 0;
+  animation: fadeIn .6s ease .9s forwards;
+}
+.h-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 56px 48px;
+  background: var(--bg);
+}
+.h-label {
+  font-size: 10px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--warm);
+  opacity: 0;
+  animation: riseUp .8s ease .3s forwards;
+}
+.h-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(60px, 9vw, 108px);
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  margin-top: 16px;
+  opacity: 0;
+  animation: riseUp 1s cubic-bezier(.16,1,.3,1) .1s forwards;
+}
+.h-sub {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--mid);
+  margin-top: 28px;
+  max-width: 320px;
+  opacity: 0;
+  animation: riseUp .8s ease .45s forwards;
+}
+.h-bottom {
+  opacity: 0;
+  animation: riseUp .8s ease .6s forwards;
+}
+.h-quote {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--mid);
+  line-height: 1.45;
+  margin-bottom: 36px;
+}
+.h-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-bottom: 1px solid var(--warm);
+  padding-bottom: 4px;
+  transition: border-color .3s, gap .3s;
+}
+.h-cta:hover { gap: 22px; border-color: var(--ink); }
+.h-cta-arrow {
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--warm);
+  position: relative;
+  transition: width .3s;
+}
+.h-cta-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid var(--warm);
+  border-top: 1px solid var(--warm);
+  transform: rotate(45deg);
+}
+.h-cta:hover .h-cta-arrow { width: 32px; }
+
+@keyframes photoIn { to { opacity: 1; transform: scale(1); } }
+@keyframes riseUp  { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn  { to { opacity: 1; } }
+
+/* ---- ATTRIBUTES BAR ---- */
+.attrbar {
+  background: var(--ink);
+  padding: 15px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.attrbar-item {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(240,232,218,.5);
+}
+.attrbar-item strong { color: var(--warm); font-weight: 400; }
+
+/* ---- PRODUCTS ---- */
+.products { padding: 80px 56px 120px; }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--faint);
+  padding-bottom: 20px;
+  margin-bottom: 64px;
+}
+.section-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 400;
+  letter-spacing: .02em;
+}
+.section-meta {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* Product card — horizontal */
+.pcard {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  background: var(--card);
+  margin-bottom: 4px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+}
+.pcard.vis { opacity: 1; transform: translateY(0); }
+.pcard:hover { background: var(--cream); }
+
+.pc-img {
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: var(--cream);
+  position: relative;
+}
+.pc-img img.pimg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 36px;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.pc-img img.pimg.active { opacity: 1; }
+.pc-img:hover img.pimg.active { transform: scale(1.02); transition: opacity .35s ease, transform .8s ease; }
+
+.pc-body {
+  padding: 44px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pc-top {}
+.pc-num {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 11px;
+  letter-spacing: .2em;
+  color: var(--faint);
+  margin-bottom: 12px;
+}
+.pc-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(26px, 3.5vw, 44px);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+.pc-spec {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 6px;
+}
+.pc-badge {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  background: var(--ink);
+  color: var(--bg);
+  margin-bottom: 24px;
+}
+.pc-badge.premium { background: var(--accent); }
+.pc-desc {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--mid);
+  max-width: 420px;
+  margin-bottom: 32px;
+}
+/* Color selector */
+.pc-colors { margin-bottom: 10px; }
+.pc-colors-label {
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pc-colors-label span { color: var(--ink); font-weight: 400; }
+.swatches { display: flex; gap: 8px; flex-wrap: wrap; }
+.sw {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform .25s, border-color .25s;
+  position: relative;
+}
+.sw:hover { transform: scale(1.3); }
+.sw.active { border-color: var(--ink); }
+.sw::after {
+  content: attr(data-c);
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 9px;
+  letter-spacing: .08em;
+  white-space: nowrap;
+  padding: 3px 7px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+.sw:hover::after { opacity: 1; }
+/* Size selector */
+.sizes { display: flex; gap: 6px; margin-top: 16px; }
+.sz {
+  font-size: 12px;
+  letter-spacing: .1em;
+  padding: 7px 20px;
+  border: 1px solid var(--faint);
+  background: var(--bg);
+  color: var(--mid);
+  cursor: pointer;
+  transition: all .2s;
+  font-family: 'Work Sans', sans-serif;
+}
+.sz:hover, .sz.active {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: var(--bg);
+}
+/* Bottom */
+.pc-bot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--faint);
+}
+.pc-price {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+}
+.pc-buy {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  background: var(--ink);
+  color: var(--bg);
+  transition: background .3s;
+}
+.pc-buy:hover { background: var(--accent); }
+
+/* ---- QUALITY ---- */
+.quality {
+  background: var(--ink);
+  padding: 96px 56px;
+}
+.quality .section-title { color: var(--bg); }
+.quality .section-head { border-color: rgba(240,232,218,.12); margin-bottom: 72px; }
+.quality .section-meta { color: rgba(240,232,218,.35); }
+.q-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.q-cell {
+  background: rgba(255,255,255,.04);
+  padding: 48px 40px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.q-cell.vis { opacity: 1; transform: translateY(0); }
+.q-num {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 11px;
+  letter-spacing: .2em;
+  color: rgba(240,232,218,.2);
+  margin-bottom: 20px;
+}
+.q-big {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400;
+  color: var(--warm);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.q-title {
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(240,232,218,.5);
+  margin-bottom: 12px;
+}
+.q-text {
+  font-size: 13px;
+  line-height: 1.9;
+  color: rgba(240,232,218,.45);
+  letter-spacing: .02em;
+}
+.q-text strong { color: rgba(240,232,218,.8); font-weight: 400; }
+
+/* ---- CTA SECTION ---- */
+.cta-section {
+  padding: 100px 56px;
+  text-align: center;
+}
+.cta-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.cta-sub {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 16px 48px;
+  background: var(--ink);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  transition: background .3s;
+}
+.cta-btn:hover { background: var(--accent); }
+
+/* ---- FOOTER ---- */
+footer {
+  background: var(--cream);
+  border-top: 1px solid var(--faint);
+  padding: 64px 56px 40px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--faint);
+}
+.fl-brand {}
+.fl-logo {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 28px;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.fl-tagline {
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--mid);
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+.fl-col h4 {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 18px;
+}
+.fl-col p, .fl-col a {
+  font-size: 13px;
+  color: var(--ink);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+  transition: color .3s;
+}
+.fl-col a:hover { color: var(--accent); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* ---- WHATSAPP FLOAT ---- */
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 56px;
+  height: 56px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 24px rgba(37,211,102,.3);
+  z-index: 300;
+  transition: transform .3s, box-shadow .3s;
+}
+.wa-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(37,211,102,.4);
+}
+.wa-float svg { width: 28px; height: 28px; fill: #fff; }
+
+/* ---- RESPONSIVE ---- */
+@media(max-width: 1024px) {
+  .pcard { grid-template-columns: 320px 1fr; }
+}
+@media(max-width: 768px) {
+  nav { padding: 0 20px; }
+  .n-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .h-photo { height: 70vw; }
+  .h-text { padding: 36px 24px; }
+  .h-title { font-size: 64px; }
+  .attrbar { padding: 12px 24px; gap: 8px; }
+  .products { padding: 56px 24px 80px; }
+  .pcard { grid-template-columns: 1fr; grid-template-rows: 70vw auto; }
+  .pc-img { aspect-ratio: auto; height: 100%; }
+  .pc-body { padding: 28px 24px; }
+  .pc-bot { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .pc-buy { width: 100%; justify-content: center; }
+  .quality { padding: 64px 24px; }
+  .q-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 72px 24px; }
+  footer { padding: 48px 24px 32px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .fl-brand { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+@media(max-width: 480px) {
+  .footer-top { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
-<nav class="nav" id="nav">
-  <a href="#" class="nav-logo">VÖKA</a>
-  <ul class="nav-links"><li><a href="#products">Produtos</a></li><li><a href="#heavyweight">VÖKA Heavy</a></li><li><a href="#about">Sobre</a></li><li><a href="#contact">Contato</a></li></ul>
-  <a href="https://wa.me/5545998468877" class="nav-cta">Comprar</a>
+
+<nav>
+  <a href="#" class="n-logo">VÖKA</a>
+  <ul class="n-links">
+    <li><a href="#products">Coleção</a></li>
+    <li><a href="#quality">Qualidade</a></li>
+    <li><a href="https://wa.me/5545998468877">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5545998468877" class="n-cta" target="_blank">Comprar</a>
 </nav>
+
 <section class="hero">
-  <div class="hero-content"><div class="hero-logo">VÖKA</div><div class="hero-tagline">Wear less. Mean more.</div></div>
-  <div class="hero-scroll">Scroll</div>
-</section>
-<section class="statement" id="about">
-  <p class="statement-text">Peças essenciais que falam por você. <em>Algodão pesado, corte contemporâneo, sem logos desnecessários.</em> Streetwear que carrega peso e fala baixo.</p>
+  <div class="h-photo">
+    <img src="images/heavy-forestgreen.jpg" alt="VÖKA Heavy — Forest Green">
+    <span class="h-badge">Drop 01 — Disponível agora</span>
+  </div>
+  <div class="h-text">
+    <div>
+      <div class="h-label">Essentials · 2026</div>
+      <h1 class="h-title">VÖKA</h1>
+      <p class="h-sub">Algodão pesado que fala por si. Sem logos desnecessários. Streetwear que carrega peso e fala baixo.</p>
+    </div>
+    <div class="h-bottom">
+      <p class="h-quote">"Wear less.<br>Mean more."</p>
+      <a href="#products" class="h-cta">
+        Ver a coleção
+        <span class="h-cta-arrow"></span>
+      </a>
+    </div>
+  </div>
 </section>
 
-<section class="heavyweight-section" id="heavyweight">
-  <div style="text-align:center">
-    <div class="heavyweight-badge">VÖKA Heavy</div>
-  </div>
-  <div class="heavyweight-label">Heavyweight Collection</div>
-  <h2 class="heavyweight-title">VÖKA Heavy — 320g</h2>
-  <p class="heavyweight-desc">Nossa peça de maior gramatura. Algodão Xinjiang de fibra longa, estrutura encorpada que não transparece e caimento perfeito. Feita para quem valoriza o que veste.</p>
-  <div class="product-grid" id="heavyweight-grid" style="max-width:900px;margin:60px auto 0"></div>
-</section>
+<div class="attrbar">
+  <span class="attrbar-item"><strong>100%</strong> Algodão penteado</span>
+  <span class="attrbar-item"><strong>300–320g</strong> gramatura pesada</span>
+  <span class="attrbar-item">Tamanhos <strong>M e G</strong></span>
+  <span class="attrbar-item"><strong>15+</strong> cores disponíveis</span>
+  <span class="attrbar-item">Maringá, <strong>PR</strong></span>
+</div>
 
 <section class="products" id="products">
-  <div class="products-label">Coleção Essentials — Drop 01</div>
-  <div class="product-grid" id="product-grid"></div>
-</section>
-<section class="features">
-  <div class="products-label">Por que VÖKA</div>
-  <div class="features-grid">
-    <div class="feature"><div class="feature-number">320</div><div class="feature-title">Gramas de algodão puro</div><div class="feature-desc">Heavyweight que não transparece, não deforma e melhora a cada lavagem.</div></div>
-    <div class="feature"><div class="feature-number">15+</div><div class="feature-title">Cores no Drop 01</div><div class="feature-desc">Do preto clássico ao tiffany blue. Paleta pensada para combinar entre si.</div></div>
-    <div class="feature"><div class="feature-number">1</div><div class="feature-title">Propósito</div><div class="feature-desc">Cada peça pensada para durar e combinar com tudo. Guarda-roupa inteligente.</div></div>
+  <div class="section-head">
+    <h2 class="section-title">Coleção Essentials</h2>
+    <span class="section-meta">03 modelos · Drop 01</span>
+  </div>
+
+  <!-- Produto 1: Essential Tee -->
+  <div class="pcard" data-p="0">
+    <div class="pc-img">
+      <img class="pimg active" src="images/american-branco.jpg" alt="Essential Tee — Branco">
+      <img class="pimg" src="images/american-preto.jpg" alt="Essential Tee — Preto">
+      <img class="pimg" src="images/american-cinza.jpg" alt="Essential Tee — Cinza">
+      <img class="pimg" src="images/american-marrom.jpg" alt="Essential Tee — Marrom">
+    </div>
+    <div class="pc-body">
+      <div class="pc-top">
+        <div class="pc-num">01</div>
+        <h2 class="pc-name">Essential Tee</h2>
+        <p class="pc-spec">300g · Algodão penteado</p>
+        <span class="pc-badge">sem logo</span>
+        <p class="pc-desc">O básico levado a sério. Algodão pesado que não transparece, não deforma e não perde o caimento. Para durar anos, não temporadas.</p>
+        <div class="pc-colors">
+          <div class="pc-colors-label">Cor: <span id="cn-0">Branco</span></div>
+          <div class="swatches">
+            <div class="sw active" style="background:#f0ebe5" data-c="Branco" onclick="pick(0,0,this)"></div>
+            <div class="sw" style="background:#1a1a1a" data-c="Preto" onclick="pick(0,1,this)"></div>
+            <div class="sw" style="background:#8a8580" data-c="Cinza" onclick="pick(0,2,this)"></div>
+            <div class="sw" style="background:#4a3728" data-c="Marrom" onclick="pick(0,3,this)"></div>
+          </div>
+          <div class="sizes">
+            <span class="sz active" onclick="psz(this,0)">M</span>
+            <span class="sz" onclick="psz(this,0)">G</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-bot">
+        <div class="pc-price">R$ 99</div>
+        <a href="#" class="pc-buy" id="b0">Comprar via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Produto 2: Dropped Shoulder -->
+  <div class="pcard" data-p="1">
+    <div class="pc-img">
+      <img class="pimg active" src="images/dropped-black.jpg" alt="Dropped Shoulder — Preto">
+      <img class="pimg" src="images/dropped-irongray.jpg" alt="Dropped Shoulder — Iron gray">
+      <img class="pimg" src="images/dropped-apricot.jpg" alt="Dropped Shoulder — Apricot">
+      <img class="pimg" src="images/dropped-khaki.jpg" alt="Dropped Shoulder — Khaki">
+    </div>
+    <div class="pc-body">
+      <div class="pc-top">
+        <div class="pc-num">02</div>
+        <h2 class="pc-name">Dropped Shoulder</h2>
+        <p class="pc-spec">200g · Ombro caído · algodão penteado</p>
+        <span class="pc-badge">com logo VÖKA</span>
+        <p class="pc-desc">Corte oversized contemporâneo. O único modelo da linha com o logo VÖKA estampado no peito esquerdo. Caimento diferente, mesmo compromisso com qualidade.</p>
+        <div class="pc-colors">
+          <div class="pc-colors-label">Cor: <span id="cn-1">Preto</span></div>
+          <div class="swatches">
+            <div class="sw active" style="background:#1a1a1a" data-c="Preto" onclick="pick(1,0,this)"></div>
+            <div class="sw" style="background:#6a6560" data-c="Iron gray" onclick="pick(1,1,this)"></div>
+            <div class="sw" style="background:#d4ccc0" data-c="Apricot" onclick="pick(1,2,this)"></div>
+            <div class="sw" style="background:#9a8a6a" data-c="Khaki" onclick="pick(1,3,this)"></div>
+          </div>
+          <div class="sizes">
+            <span class="sz active" onclick="psz(this,1)">M</span>
+            <span class="sz" onclick="psz(this,1)">G</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-bot">
+        <div class="pc-price">R$ 109</div>
+        <a href="#" class="pc-buy" id="b1">Comprar via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Produto 3: VÖKA Heavy -->
+  <div class="pcard" data-p="2">
+    <div class="pc-img">
+      <img class="pimg active" src="images/heavy-burgundy.jpg" alt="VÖKA Heavy — Burgundy">
+      <img class="pimg" src="images/heavy-forestgreen.jpg" alt="VÖKA Heavy — Forest green">
+      <img class="pimg" src="images/heavy-darkgray.jpg" alt="VÖKA Heavy — Dark gray">
+      <img class="pimg" src="images/heavy-tiffany.jpg" alt="VÖKA Heavy — Tiffany">
+      <img class="pimg" src="images/heavy-navy.jpg" alt="VÖKA Heavy — Navy">
+      <img class="pimg" src="images/heavy-coffee.jpg" alt="VÖKA Heavy — Coffee">
+      <img class="pimg" src="images/heavy-pink.jpg" alt="VÖKA Heavy — Pink">
+    </div>
+    <div class="pc-body">
+      <div class="pc-top">
+        <div class="pc-num">03</div>
+        <h2 class="pc-name">VÖKA Heavy</h2>
+        <p class="pc-spec">320g · Algodão Xinjiang · fibra longa</p>
+        <span class="pc-badge premium">peça premium · 15+ cores</span>
+        <p class="pc-desc">Nossa gramatura mais pesada. Algodão Xinjiang de fibra longa — 33 a 39mm por fibra, a mesma categoria do egípcio e do pima. Encorpado, macio, sem bolinhas. A peça que melhora com o tempo.</p>
+        <div class="pc-colors">
+          <div class="pc-colors-label">Cor: <span id="cn-2">Burgundy</span></div>
+          <div class="swatches">
+            <div class="sw active" style="background:#6b2a3a" data-c="Burgundy" onclick="pick(2,0,this)"></div>
+            <div class="sw" style="background:#3a5a3a" data-c="Forest green" onclick="pick(2,1,this)"></div>
+            <div class="sw" style="background:#4a4540" data-c="Dark gray" onclick="pick(2,2,this)"></div>
+            <div class="sw" style="background:#6abcbc" data-c="Tiffany" onclick="pick(2,3,this)"></div>
+            <div class="sw" style="background:#1a2a4a" data-c="Navy" onclick="pick(2,4,this)"></div>
+            <div class="sw" style="background:#6a4a3a" data-c="Coffee" onclick="pick(2,5,this)"></div>
+            <div class="sw" style="background:#d4a0a0" data-c="Pink" onclick="pick(2,6,this)"></div>
+          </div>
+          <div class="sizes">
+            <span class="sz active" onclick="psz(this,2)">M</span>
+            <span class="sz" onclick="psz(this,2)">G</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-bot">
+        <div class="pc-price">R$ 129</div>
+        <a href="#" class="pc-buy" id="b2">Comprar via WhatsApp</a>
+      </div>
+    </div>
   </div>
 </section>
-<div class="banner"><div class="banner-text">Menos é o suficiente.</div><div class="banner-sub">Streetwear essencial — Maringá, PR</div></div>
-<div class="social-strip">
-  <div class="social-item"><div class="social-number">320g</div><div class="social-label">Algodão pesado</div></div>
-  <div class="social-item"><div class="social-number">15+</div><div class="social-label">Cores disponíveis</div></div>
-  <div class="social-item"><div class="social-number">100%</div><div class="social-label">Algodão puro</div></div>
-  <div class="social-item"><div class="social-number">M — L</div><div class="social-label">Unissex oversized</div></div>
-</div>
-<section class="cta-section" id="contact">
-  <div class="cta-title">Seja o primeiro a vestir.</div>
-  <div class="cta-desc">O Drop 01 está chegando. Garanta as primeiras peças direto pelo WhatsApp.</div>
-  <a class="cta-btn" href="https://wa.me/5545998468877?text=Oi!%20Quero%20garantir%20pe%C3%A7as%20do%20Drop%2001%20da%20V%C3%96KA" target="_blank">Falar no WhatsApp</a>
-</section>
-<footer class="footer">
-  <div class="footer-inner">
-    <div><div class="footer-logo">VÖKA</div><div class="footer-tagline">Wear less. Mean more.</div></div>
-    <div class="footer-col"><h4>Navegação</h4><a href="#products">Produtos</a><a href="#heavyweight">VÖKA Heavy</a><a href="#about">Sobre</a><a href="#contact">Contato</a></div>
-    <div class="footer-col"><h4>Contato</h4><a href="https://wa.me/5545998468877">WhatsApp</a><a href="#">Instagram</a></div>
+
+<section class="quality" id="quality">
+  <div class="section-head">
+    <h2 class="section-title">Por que VÖKA.</h2>
+    <span class="section-meta">Qualidade que se explica</span>
   </div>
-  <div class="footer-bottom"><span>© 2026 VÖKA. Todos os direitos reservados.</span><span>Maringá, PR — Brasil</span></div>
+  <div class="q-grid">
+    <div class="q-cell">
+      <div class="q-num">01</div>
+      <div class="q-big">300–320g</div>
+      <div class="q-title">Gramatura real</div>
+      <p class="q-text">O dobro de uma camiseta comum (140–180g de varejo). <strong>Encorpada, opaca, estruturada</strong> — não transparece, não fica colada no corpo.</p>
+    </div>
+    <div class="q-cell" style="transition-delay:.1s">
+      <div class="q-num">02</div>
+      <div class="q-big">Penteado</div>
+      <div class="q-title">Algodão de qualidade</div>
+      <p class="q-text">Fibras curtas <strong>removidas</strong> no processo de penteagem. Resultado: tecido mais macio, uniforme, <strong>sem bolinhas</strong>. Dura muito mais lavagens.</p>
+    </div>
+    <div class="q-cell" style="transition-delay:.2s">
+      <div class="q-num">03</div>
+      <div class="q-big">Xinjiang</div>
+      <div class="q-title">Fibra longa premium</div>
+      <p class="q-text">33–39mm por fibra (algodão comum: 20–25mm). <strong>Mesma categoria do egípcio e do pima.</strong> Exclusivo da linha Heavy 320g.</p>
+    </div>
+    <div class="q-cell" style="transition-delay:.3s">
+      <div class="q-num">04</div>
+      <div class="q-big">Anos.</div>
+      <div class="q-title">Feita para durar</div>
+      <p class="q-text">Não transparece. Não deforma. Não desbota. <strong>O básico bem feito</strong> — sem temporadas, sem substituição.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2 class="cta-title">Seja o primeiro a vestir.</h2>
+  <p class="cta-sub">O Drop 01 está disponível. Garanta as suas peças direto pelo WhatsApp — escolha o modelo, a cor e o tamanho.</p>
+  <a href="https://wa.me/5545998468877?text=Oi!%20Quero%20ver%20as%20pe%C3%A7as%20do%20Drop%2001%20da%20V%C3%96KA." class="cta-btn" target="_blank">Falar no WhatsApp</a>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="fl-brand">
+      <div class="fl-logo">VÖKA</div>
+      <p class="fl-tagline">"Wear less.<br>Mean more."</p>
+    </div>
+    <div class="fl-col">
+      <h4>Contato</h4>
+      <a href="https://wa.me/5545998468877">(45) 9 9846-8877</a>
+      <p>Maringá, Paraná</p>
+    </div>
+    <div class="fl-col">
+      <h4>Coleção</h4>
+      <p>Essential Tee — R$ 99</p>
+      <p>Dropped Shoulder — R$ 109</p>
+      <p>VÖKA Heavy — R$ 129</p>
+    </div>
+    <div class="fl-col">
+      <h4>Sobre</h4>
+      <p>100% Algodão</p>
+      <p>Tamanhos M e G</p>
+      <p>15+ cores disponíveis</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 VÖKA. Todos os direitos reservados.</span>
+    <span>Maringá, Paraná — Brasil</span>
+  </div>
 </footer>
-<a href="https://wa.me/5545998468877?text=Oi!%20Quero%20conhecer%20a%20VÖKA" class="whatsapp-float" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<a href="https://wa.me/5545998468877?text=Oi!%20Quero%20ver%20as%20pe%C3%A7as%20do%20Drop%2001%20da%20V%C3%96KA." class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-// DO26741249794 — Dropped shoulder 200g — COM LOGO VÖKA
-const LOGO_PRODUCT = {
-  name: "VÖKA Tee — Dropped Shoulder",
-  detail: "200 gramas · ombro caído · com logo VÖKA",
-  price: 89,
-  hasLogo: false,
-  colors: [
-    {name:"Preto", hex:"#1a1a1a", img:"images/dropped-black.jpg"},
-    {name:"Iron gray", hex:"#6a6560", img:"images/dropped-irongray.jpg"},
-    {name:"Apricot", hex:"#d4ccc0", img:"images/dropped-apricot.jpg"},
-    {name:"Khaki", hex:"#9a8a6a", img:"images/dropped-khaki.jpg"}
-  ]
-};
+const PD = [
+  {n:'Essential Tee 300g', c:['Branco','Preto','Cinza','Marrom']},
+  {n:'Dropped Shoulder',   c:['Preto','Iron gray','Apricot','Khaki']},
+  {n:'VÖKA Heavy 320g',    c:['Burgundy','Forest green','Dark gray','Tiffany','Navy','Coffee','Pink']}
+];
+const sel = [{c:0,s:'M'},{c:0,s:'M'},{c:0,s:'M'}];
 
-// DO26741249795 — American 300g — SEM LOGO
-const BASIC_PRODUCT = {
-  name: "Essential Tee — 300g",
-  detail: "300 gramas · algodão penteado americano · sem logo",
-  price: 79,
-  hasLogo: false,
-  colors: [
-    {name:"Branco", hex:"#f0ebe5", img:"images/american-branco.jpg"},
-    {name:"Preto", hex:"#1a1a1a", img:"images/american-preto.jpg"},
-    {name:"Senior gray", hex:"#8a8580", img:"images/american-cinza.jpg"},
-    {name:"Dark brown", hex:"#4a3728", img:"images/american-marrom.jpg"}
-  ]
-};
-
-const PRODUCTS = [LOGO_PRODUCT, BASIC_PRODUCT];
-
-// DO26741249793 — Xinjiang 320g — SEM LOGO — PREMIUM
-const HEAVYWEIGHT = {
-  name: "VÖKA Heavy — 320g",
-  detail: "Algodão Xinjiang 320g · edição limitada",
-  price: 109,
-  isPremium: true,
-  hasLogo: false,
-  colors: [
-    {name:"Burgundy", hex:"#6b2a3a", img:"images/heavy-burgundy.jpg"},
-    {name:"Forest green", hex:"#3a5a3a", img:"images/heavy-forestgreen.jpg"},
-    {name:"Dark gray", hex:"#4a4540", img:"images/heavy-darkgray.jpg"},
-    {name:"Tiffany blue", hex:"#6abcbc", img:"images/heavy-tiffany.jpg"},
-    {name:"Navy blue", hex:"#1a2a4a", img:"images/heavy-navy.jpg"},
-    {name:"Klein blue", hex:"#2050a0", img:"images/heavy-kleinblue.jpg"},
-    {name:"Light blue", hex:"#7aaad0", img:"images/heavy-lightblue.jpg"},
-    {name:"Coffee", hex:"#6a4a3a", img:"images/heavy-coffee.jpg"},
-    {name:"Pink", hex:"#d4a0a0", img:"images/heavy-pink.jpg"},
-    {name:"Taro purple", hex:"#8a7098", img:"images/heavy-taropurple.jpg"},
-    {name:"Apricot", hex:"#d4c8b0", img:"images/heavy-apricot.jpg"},
-    {name:"White gray", hex:"#c8c4be", img:"images/heavy-whitegray.jpg"},
-    {name:"Preto", hex:"#1a1a1a", img:"images/heavy-preto.jpg"}
-  ]
-};
-
-function buildCard(p, idx, prefix, container, isPremium) {
-  const c0 = p.colors[0];
-  const card = document.createElement('div');
-  card.className = 'product-card' + (isPremium ? ' premium' : '');
-  card.setAttribute('data-prefix', prefix);
-  
-  const logoHTML = p.hasLogo 
-    ? `<span class="logo-overlay" id="logo-${prefix}-${idx}" style="color:${c0.logoColor || '#f5f0eb'}">VÖKA</span>` 
-    : '';
-  
-  const detailClass = '';
-  const tagHTML = isPremium ? `<div class="premium-tag">320g · Algodão Xinjiang · Premium</div>` : '';
-  
-  card.innerHTML = `
-    <div class="product-visual${detailClass}">
-      ${p.colors.map((c,j) => `<img class="product-img${j===0?' active':''}" data-color="${j}" src="${c.img}" alt="${p.name} — ${c.name}">`).join('')}
-      ${logoHTML}
-    </div>
-    <div class="product-info">
-      <div class="product-name">${p.name}</div>
-      <div class="product-detail">${p.detail}</div>
-      ${tagHTML}
-      <div class="product-price">R$ ${p.price}</div>
-      <div class="color-selector">${p.colors.map((c,j) => 
-        `<div class="color-opt${j===0?' active':''}" data-name="${c.name}" style="background:${c.hex}" onclick="pickColor('${prefix}',${idx},${j})"></div>`
-      ).join('')}</div>
-      <div class="size-selector">
-        <div class="size-opt active" onclick="pickSize(this)" data-size="M">M</div>
-        <div class="size-opt" onclick="pickSize(this)" data-size="L">L</div>
-      </div>
-      <a class="buy-btn" id="buy-${prefix}-${idx}" href="${buyURL(p.name,c0.name,'M')}" target="_blank">Comprar via WhatsApp</a>
-    </div>`;
-  container.appendChild(card);
+function pick(pi, ci, el) {
+  sel[pi].c = ci;
+  const card = el.closest('.pcard');
+  card.querySelectorAll('.pimg').forEach((img,i) => img.classList.toggle('active', i===ci));
+  card.querySelectorAll('.sw').forEach((s,i) => s.classList.toggle('active', i===ci));
+  document.getElementById('cn-'+pi).textContent = el.getAttribute('data-c');
+  upd(pi);
 }
 
-function render() {
-  // Heavyweight (premium) section
-  const hwGrid = document.getElementById('heavyweight-grid');
-  buildCard(HEAVYWEIGHT, 0, 'hw', hwGrid, true);
-  
-  // Essentials section
-  const grid = document.getElementById('product-grid');
-  PRODUCTS.forEach((p, i) => buildCard(p, i, 'prod', grid, false));
-}
-
-function pickColor(prefix, idx, colorIdx) {
-  const allProducts = prefix === 'hw' ? [HEAVYWEIGHT] : PRODUCTS;
-  const p = allProducts[idx];
-  const c = p.colors[colorIdx];
-  const card = document.querySelectorAll(`[data-prefix="${prefix}"]`)[idx];
-  card.querySelectorAll('.product-img').forEach((img,j) => img.classList.toggle('active', j===colorIdx));
-  card.querySelectorAll('.color-opt').forEach((e,j) => e.classList.toggle('active', j===colorIdx));
-  updateBuyLink(prefix, idx);
-}
-
-function pickSize(el) {
-  el.parentElement.querySelectorAll('.size-opt').forEach(s => s.classList.remove('active'));
+function psz(el, pi) {
+  el.parentElement.querySelectorAll('.sz').forEach(s => s.classList.remove('active'));
   el.classList.add('active');
-  const card = el.closest('.product-card');
-  const prefix = card.getAttribute('data-prefix');
-  const idx = [...document.querySelectorAll(`[data-prefix="${prefix}"]`)].indexOf(card);
-  updateBuyLink(prefix, idx);
+  sel[pi].s = el.textContent;
+  upd(pi);
 }
 
-function updateBuyLink(prefix, idx) {
-  const allProducts = prefix === 'hw' ? [HEAVYWEIGHT] : PRODUCTS;
-  const p = allProducts[idx];
-  const card = document.querySelectorAll(`[data-prefix="${prefix}"]`)[idx];
-  const colorName = card.querySelector('.color-opt.active')?.getAttribute('data-name') || '';
-  const size = card.querySelector('.size-opt.active')?.getAttribute('data-size') || 'M';
-  card.querySelector('.buy-btn').href = buyURL(p.name, colorName, size);
+function upd(pi) {
+  const p = PD[pi];
+  const color = p.c[sel[pi].c];
+  const size = sel[pi].s;
+  document.getElementById('b'+pi).href =
+    `https://wa.me/5545998468877?text=${encodeURIComponent(`Oi! Quero comprar: ${p.n}, cor ${color}, tamanho ${size}. (VÖKA Drop 01)`)}`;
 }
 
-function buyURL(name, color, size) {
-  return `https://wa.me/5545998468877?text=${encodeURIComponent(`Oi! Quero comprar: ${name}, cor ${color}, tamanho ${size}. (VÖKA Drop 01)`)}`;
-}
+PD.forEach((_,i) => upd(i));
 
-render();
+// Scroll reveal
+const ob = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08 });
 
-// Nav scroll
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 80));
-
-// Fade-in on scroll
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }});
-}, {threshold:.1});
-document.querySelectorAll('.product-card,.feature,.statement-text').forEach(el => {
-  el.style.opacity='0'; el.style.transform='translateY(20px)'; el.style.transition='opacity .6s ease,transform .6s ease'; obs.observe(el);
-});
+document.querySelectorAll('.pcard, .q-cell').forEach(el => ob.observe(el));
 </script>
 </body>
 </html>
