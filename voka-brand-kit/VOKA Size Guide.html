@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VÖKA — Guia de Tamanhos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a; --charcoal:#2d2926; --stone:#8c8579; --sand:#c4b5a2;
+    --cream:#e8e0d6; --offwhite:#f5f0eb; --line:#ece4d9;
+    --display:'Outfit',sans-serif; --body:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{background:var(--offwhite); color:var(--charcoal); font-family:var(--body); font-weight:300; line-height:1.55; padding:clamp(24px,5vw,72px);}
+  .wrap{max-width:1080px; margin:0 auto;}
+
+  header{padding-bottom:clamp(30px,4vw,46px); border-bottom:1px solid var(--line);}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--stone); margin-bottom:18px; display:flex; align-items:center; gap:12px;}
+  .eyebrow .pm{width:30px; color:var(--charcoal);}
+  h1{font-family:var(--display); font-weight:200; font-size:clamp(34px,6vw,64px); letter-spacing:.02em; color:var(--black); line-height:.98;}
+  .lede{max-width:600px; margin-top:18px; font-size:15px; color:#5e574e; text-wrap:pretty;}
+
+  .layout{display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,3vw,40px); padding-top:clamp(34px,5vw,52px);}
+  @media(max-width:840px){.layout{grid-template-columns:1fr;}}
+  .blocktitle{font-family:var(--mono); font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--stone); margin-bottom:18px; display:flex; align-items:center; gap:14px;}
+  .blocktitle::after{content:""; flex:1; height:1px; background:var(--line);}
+
+  /* ---- size finder ---- */
+  .finder{background:var(--charcoal); color:var(--offwhite); border-radius:8px; padding:clamp(26px,3.5vw,40px); display:flex; flex-direction:column; min-height:440px; position:relative; overflow:hidden;}
+  .finder .par{position:absolute; top:26px; right:28px; width:42px; color:rgba(245,240,235,.22);}
+  .finder h2{font-family:var(--display); font-weight:300; font-size:clamp(22px,2.6vw,28px); letter-spacing:.01em; line-height:1.1;}
+  .finder .desc{font-size:13.5px; color:rgba(245,240,235,.6); margin-top:12px; max-width:320px; text-wrap:pretty;}
+  .steps{display:flex; gap:7px; margin-top:24px;}
+  .steps .dot{width:7px; height:7px; border-radius:50%; background:rgba(245,240,235,.25); transition:all .3s;}
+  .steps .dot.on{background:var(--sand); width:20px; border-radius:99px;}
+
+  .stepbody{margin-top:26px; flex:1; display:flex; flex-direction:column;}
+  .seg{display:flex; gap:8px;}
+  .seg button{flex:1; font-family:var(--mono); font-size:12px; letter-spacing:.04em; padding:12px; border:1px solid rgba(245,240,235,.22); background:transparent; color:rgba(245,240,235,.7); border-radius:6px; cursor:pointer; transition:all .2s; text-transform:uppercase;}
+  .seg button:hover{border-color:rgba(245,240,235,.5);}
+  .seg button.on{background:var(--offwhite); color:var(--charcoal); border-color:var(--offwhite); font-weight:500;}
+
+  .field{margin-top:18px;}
+  .field label{font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(245,240,235,.5); display:block; margin-bottom:9px;}
+  .field .inp{display:flex; align-items:center; gap:10px; border:1px solid rgba(245,240,235,.22); border-radius:6px; padding:0 14px; transition:border-color .2s;}
+  .field .inp:focus-within{border-color:var(--sand);}
+  .field input{flex:1; background:transparent; border:none; outline:none; color:var(--offwhite); font-family:var(--display); font-weight:300; font-size:22px; padding:13px 0; -moz-appearance:textfield;}
+  .field input::-webkit-outer-spin-button,.field input::-webkit-inner-spin-button{-webkit-appearance:none;}
+  .field .unit{font-family:var(--mono); font-size:13px; color:rgba(245,240,235,.5);}
+  .frow{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+
+  .fbtn{margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:14px; padding-top:24px;}
+  .fbtn .back{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(245,240,235,.5); background:none; border:none; cursor:pointer;}
+  .fbtn .back:hover{color:var(--offwhite);}
+  .fbtn .next{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; background:var(--offwhite); color:var(--charcoal); border:none; border-radius:99px; padding:13px 26px; cursor:pointer; transition:transform .15s;}
+  .fbtn .next:hover{transform:translateX(3px);}
+  .fbtn .next:disabled{opacity:.4; cursor:not-allowed; transform:none;}
+
+  /* result */
+  .result{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:6px;}
+  .result .rk{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:rgba(245,240,235,.5);}
+  .result .rsize{font-family:var(--display); font-weight:200; font-size:clamp(72px,13vw,120px); line-height:.9; color:var(--offwhite); margin:6px 0;}
+  .result .rfit{font-size:14px; color:var(--sand); max-width:280px; text-wrap:pretty;}
+  .fitbar{width:100%; max-width:280px; margin-top:22px;}
+  .fitbar .track{height:5px; background:rgba(245,240,235,.18); border-radius:99px; position:relative;}
+  .fitbar .mark{position:absolute; top:50%; width:13px; height:13px; border-radius:50%; background:var(--sand); transform:translate(-50%,-50%); transition:left .5s cubic-bezier(.2,.7,.2,1);}
+  .fitbar .lbls{display:flex; justify-content:space-between; margin-top:9px; font-family:var(--mono); font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:rgba(245,240,235,.4);}
+  .restart{margin-top:24px; font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--charcoal); background:var(--offwhite); border:none; border-radius:99px; padding:12px 24px; cursor:pointer;}
+
+  /* ---- table ---- */
+  .tablecol{display:flex; flex-direction:column;}
+  .tabtog{display:flex; gap:8px; margin-bottom:18px;}
+  .tabtog button{font-family:var(--mono); font-size:11px; letter-spacing:.06em; padding:9px 15px; border:1px solid var(--line); background:#fff; color:var(--stone); border-radius:99px; cursor:pointer; transition:all .2s; text-transform:uppercase;}
+  .tabtog button.on{background:var(--charcoal); color:var(--offwhite); border-color:var(--charcoal);}
+  table{width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:8px; overflow:hidden; font-size:14px;}
+  th,td{padding:15px 12px; text-align:center; border-bottom:1px solid var(--line);}
+  th{font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--stone); font-weight:400; background:var(--offwhite);}
+  td:first-child,th:first-child{text-align:left;}
+  td.size{font-family:var(--display); font-weight:500; font-size:17px; color:var(--black);}
+  tbody tr{transition:background .2s;}
+  tbody tr.hl{background:var(--cream);}
+  tbody tr:last-child td{border-bottom:none;}
+  .unit-note{font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--stone); margin-top:14px; text-transform:uppercase;}
+
+  /* how to measure */
+  .measure{margin-top:clamp(40px,5vw,64px); padding-top:clamp(30px,4vw,44px); border-top:1px solid var(--line);}
+  .mgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; margin-top:24px;}
+  .mcard{background:#fff; border:1px solid var(--line); border-radius:8px; padding:22px 24px; display:flex; gap:16px; align-items:flex-start;}
+  .mcard .ic{flex:none; width:44px; height:44px;}
+  .mcard h4{font-family:var(--display); font-weight:500; font-size:15px; color:var(--black);}
+  .mcard p{font-size:13px; color:#6b645b; margin-top:5px; text-wrap:pretty;}
+
+  footer{margin-top:clamp(40px,5vw,64px); padding-top:30px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:14px 40px; justify-content:space-between;}
+  .foot-note{max-width:580px; font-size:13px; color:#7a7268; text-wrap:pretty;}
+  .foot-note b{color:var(--charcoal); font-weight:500;}
+  .foot-tag{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--stone);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow"><span class="pm" id="hpm"></span> Guia de Tamanhos · Componente de produto</div>
+    <h1>Encontre o seu</h1>
+    <p class="lede">Simples como deve ser. Responda três campos e sugerimos seu tamanho — ou consulte a tabela direto. Inspirado nos melhores provadores virtuais, no nosso jeito.</p>
+  </header>
+
+  <div class="layout">
+    <!-- FINDER -->
+    <div>
+      <div class="blocktitle">Encontre seu tamanho</div>
+      <div class="finder">
+        <span class="par" id="fpar"></span>
+        <h2 id="fTitle">Vamos achar seu caimento ideal</h2>
+        <p class="desc" id="fDesc">Leva 10 segundos. Usamos suas medidas só para o cálculo — nada é salvo.</p>
+        <div class="steps"><span class="dot on" data-s="0"></span><span class="dot" data-s="1"></span><span class="dot" data-s="2"></span></div>
+        <div class="stepbody" id="stepbody"></div>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="tablecol">
+      <div class="blocktitle">Tabela de medidas</div>
+      <div class="tabtog" id="tabtog">
+        <button data-cat="tops" class="on">Superiores · PP–GG</button>
+        <button data-cat="bottoms">Inferiores · 36–46</button>
+      </div>
+      <div id="tableMount"></div>
+      <div class="unit-note">Medidas do corpo · cm</div>
+    </div>
+  </div>
+
+  <!-- HOW TO MEASURE -->
+  <div class="measure">
+    <div class="blocktitle">Como medir</div>
+    <div class="mgrid" id="measureGrid"></div>
+  </div>
+
+  <footer>
+    <p class="foot-note"><b>Nota:</b> a sugestão é uma estimativa para orientar a escolha — o caimento final depende do corte de cada peça (o Moletom é oversized; a Camiseta é regular). Calibraremos com os pilotos. Componente pensado para virar feature do e-commerce.</p>
+    <div class="foot-tag">VÖKA — Size Guide</div>
+  </footer>
+</div>
+
+<script>
+const PARSVG=(c='currentColor')=>`<svg viewBox="0 0 100 60" width="100%"><circle cx="36" cy="30" r="11" fill="${c}"/><circle cx="64" cy="30" r="11" fill="none" stroke="${c}" stroke-width="4"/></svg>`;
+document.getElementById('hpm').innerHTML=PARSVG('#2d2926');
+document.getElementById('fpar').innerHTML=PARSVG('#f5f0eb');
+
+/* ---- size tables (body measures, cm) ---- */
+const TABLES={
+  tops:{ cols:['Tamanho','Peito / Busto','Cintura','Quadril'],
+    rows:[['PP','82 – 89','68 – 74','88 – 94'],['P','90 – 97','75 – 81','95 – 101'],['M','98 – 105','82 – 88','102 – 108'],['G','106 – 113','89 – 95','109 – 115'],['GG','114 – 121','96 – 103','116 – 123']] },
+  bottoms:{ cols:['Tamanho','Cintura','Quadril'],
+    rows:[['36','70 – 74','90 – 94'],['38','75 – 79','95 – 99'],['40','80 – 84','100 – 104'],['42','85 – 89','105 – 109'],['44','90 – 94','110 – 114'],['46','95 – 100','115 – 120']] },
+};
+let curCat='tops', hlSize=null;
+function renderTable(){
+  const T=TABLES[curCat];
+  const head=`<tr>${T.cols.map(c=>`<th>${c}</th>`).join('')}</tr>`;
+  const body=T.rows.map(r=>`<tr data-size="${r[0]}" class="${hlSize===r[0]?'hl':''}"><td class="size">${r[0]}</td>${r.slice(1).map(v=>`<td>${v}</td>`).join('')}</tr>`).join('');
+  document.getElementById('tableMount').innerHTML=`<table><thead>${head}</thead><tbody>${body}</tbody></table>`;
+}
+document.getElementById('tabtog').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;curCat=b.dataset.cat;document.querySelectorAll('#tabtog button').forEach(x=>x.classList.toggle('on',x===b));renderTable();});
+renderTable();
+
+/* ---- size finder ---- */
+const F={gender:null, cat:'tops', height:'', weight:'', age:''};
+let step=0;
+const titles=['Para quem é a peça?','Suas medidas','Seu tamanho ideal'];
+const descs=['Selecione o tipo de modelagem e o gênero da numeração.','Altura, peso e idade — usamos só para estimar.',''];
+
+function setSteps(){document.querySelectorAll('.steps .dot').forEach(d=>d.classList.toggle('on',+d.dataset.s===step));document.getElementById('fTitle').textContent=titles[step];document.getElementById('fDesc').textContent=descs[step];document.getElementById('fDesc').style.display=descs[step]?'block':'none';}
+
+function render(){
+  setSteps();
+  const sb=document.getElementById('stepbody');
+  if(step===0){
+    sb.innerHTML=`
+      <div class="field"><label>Categoria</label>
+        <div class="seg" id="segCat">
+          <button data-cat="tops" class="${F.cat==='tops'?'on':''}">Superiores</button>
+          <button data-cat="bottoms" class="${F.cat==='bottoms'?'on':''}">Inferiores</button>
+        </div></div>
+      <div class="field"><label>Gênero da numeração</label>
+        <div class="seg" id="segGen">
+          <button data-g="fem" class="${F.gender==='fem'?'on':''}">Feminino</button>
+          <button data-g="masc" class="${F.gender==='masc'?'on':''}">Masculino</button>
+          <button data-g="uni" class="${F.gender==='uni'?'on':''}">Unissex</button>
+        </div></div>
+      <div class="fbtn"><span></span><button class="next" id="next" ${F.gender?'':'disabled'}>Continuar →</button></div>`;
+  } else if(step===1){
+    sb.innerHTML=`
+      <div class="field"><label>Altura</label><div class="inp"><input type="number" id="height" inputmode="numeric" placeholder="175" value="${F.height}"><span class="unit">cm</span></div></div>
+      <div class="frow">
+        <div class="field"><label>Peso</label><div class="inp"><input type="number" id="weight" inputmode="numeric" placeholder="72" value="${F.weight}"><span class="unit">kg</span></div></div>
+        <div class="field"><label>Idade</label><div class="inp"><input type="number" id="age" inputmode="numeric" placeholder="30" value="${F.age}"><span class="unit">anos</span></div></div>
+      </div>
+      <div class="fbtn"><button class="back" id="back">← Voltar</button><button class="next" id="next" disabled>Ver tamanho →</button></div>`;
+    const check=()=>{F.height=h.value;F.weight=w.value;F.age=a.value;document.getElementById('next').disabled=!(+h.value>=120&&+w.value>=30);};
+    const h=document.getElementById('height'),w=document.getElementById('weight'),a=document.getElementById('age');
+    [h,w,a].forEach(el=>el.addEventListener('input',check));check();
+  } else {
+    const res=suggest();
+    hlSize=res.size; if(F.cat!==curCat){curCat=F.cat;document.querySelectorAll('#tabtog button').forEach(x=>x.classList.toggle('on',x.dataset.cat===curCat));}
+    renderTable();
+    const pct=res.pos;
+    sb.innerHTML=`
+      <div class="result">
+        <div class="rk">Recomendamos o tamanho</div>
+        <div class="rsize">${res.size}</div>
+        <div class="rfit">${res.fit}</div>
+        <div class="fitbar"><div class="track"><div class="mark" style="left:${pct}%"></div></div>
+          <div class="lbls"><span>Justo</span><span>Ideal</span><span>Solto</span></div></div>
+        <button class="restart" id="restart">Refazer</button>
+      </div>`;
+  }
+  sb.addEventListener('click',handle);
+}
+function handle(e){
+  const b=e.target.closest('button'); if(!b)return;
+  if(b.dataset.cat){F.cat=b.dataset.cat;document.querySelectorAll('#segCat button').forEach(x=>x.classList.toggle('on',x===b));}
+  else if(b.dataset.g){F.gender=b.dataset.g;document.querySelectorAll('#segGen button').forEach(x=>x.classList.toggle('on',x===b));const n=document.getElementById('next');if(n)n.disabled=false;}
+  else if(b.id==='next'){step++;render();}
+  else if(b.id==='back'){step--;render();}
+  else if(b.id==='restart'){step=0;hlSize=null;renderTable();render();}
+}
+
+/* heuristic size suggestion (demo) */
+function suggest(){
+  const h=+F.height, w=+F.weight, age=+F.age||30;
+  const genAdj = F.gender==='masc'? 5 : F.gender==='fem'? -3 : 0;
+  const ageAdj = age>48? 2 : age<20? -1 : 0;
+  // index roughly tracks body girth
+  const idx = w + (h-170)*0.18 + genAdj + ageAdj;
+  let size, pos;
+  if(F.cat==='tops'){
+    const bands=[['PP',56],['P',66],['M',77],['G',89],['GG',999]];
+    let i=bands.findIndex(b=>idx<=b[1]); if(i<0)i=4; size=bands[i][0];
+    const lo=i===0?44:bands[i-1][1], hi=bands[i][1]===999?100:bands[i][1];
+    pos=Math.max(8,Math.min(92, ((idx-lo)/(hi-lo))*100));
+  } else {
+    const bands=[['36',58],['38',67],['40',76],['42',85],['44',94],['46',999]];
+    let i=bands.findIndex(b=>idx<=b[1]); if(i<0)i=5; size=bands[i][0];
+    const lo=i===0?48:bands[i-1][1], hi=bands[i][1]===999?105:bands[i][1];
+    pos=Math.max(8,Math.min(92, ((idx-lo)/(hi-lo))*100));
+  }
+  let fit;
+  if(pos<33) fit='Esse tamanho deve cair mais justo. Se prefere folga, suba um.';
+  else if(pos>67) fit='Esse tamanho deve cair mais solto — ótimo se você curte oversized.';
+  else fit='Caimento equilibrado: o ponto ideal para o seu corpo.';
+  return {size,pos,fit};
+}
+render();
+
+/* how to measure */
+function micon(kind){
+  const s='fill="none" stroke="#2d2926" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"';
+  if(kind==='chest') return `<svg viewBox="0 0 44 44"><circle cx="22" cy="10" r="5" ${s}/><path d="M12 22 Q22 28 32 22" ${s}/><path d="M10 18 L34 18" stroke="#a0998b" stroke-width="1.4" stroke-dasharray="3 3"/><path d="M14 30 L14 38 M30 30 L30 38" ${s}/></svg>`;
+  if(kind==='waist') return `<svg viewBox="0 0 44 44"><path d="M14 8 Q12 22 14 36 M30 8 Q32 22 30 36" ${s}/><path d="M10 22 L34 22" stroke="#a0998b" stroke-width="1.4" stroke-dasharray="3 3"/></svg>`;
+  return `<svg viewBox="0 0 44 44"><path d="M14 8 L14 20 Q10 30 16 38 M30 8 L30 20 Q34 30 28 38" ${s}/><path d="M9 24 L35 24" stroke="#a0998b" stroke-width="1.4" stroke-dasharray="3 3"/></svg>`;
+}
+const MEAS=[
+  ['chest','Peito / Busto','Passe a fita na parte mais larga do peito, sob as axilas, mantendo-a paralela ao chão.'],
+  ['waist','Cintura','Meça na parte mais estreita do tronco, geralmente na altura do umbigo, sem apertar.'],
+  ['hip','Quadril','Em pé, pés juntos, contorne a parte mais larga do quadril com a fita reta.'],
+];
+document.getElementById('measureGrid').innerHTML=MEAS.map(([k,t,d])=>`<div class="mcard"><div class="ic">${micon(k)}</div><div><h4>${t}</h4><p>${d}</p></div></div>`).join('');
+</script>
+</body>
+</html>

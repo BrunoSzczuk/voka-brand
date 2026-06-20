@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VÖKA — O Par · Sistema dos Dois Pontos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a; --charcoal:#2d2926; --stone:#8c8579; --sand:#c4b5a2;
+    --cream:#e8e0d6; --offwhite:#f5f0eb; --warm-gray:#b5ada3;
+    --terracotta:#a0522d;
+    --display:'Outfit',sans-serif; --body:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{background:var(--offwhite); color:var(--charcoal); font-family:var(--body); font-weight:300; line-height:1.6; padding:clamp(28px,5vw,80px);}
+  .wrap{max-width:1140px;margin:0 auto;}
+
+  header{text-align:center; padding-bottom:clamp(34px,5vw,56px); border-bottom:1px solid var(--cream);}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.42em; text-transform:uppercase; color:var(--stone); margin-bottom:24px;}
+  .h-dots{display:flex; gap:22px; justify-content:center; margin-bottom:26px;}
+  .h-dots span{width:26px; height:26px; border-radius:50%;}
+  .h-dots span:first-child{background:var(--charcoal);}
+  .h-dots span:last-child{border:4px solid var(--charcoal);}
+  .title{font-family:var(--display); font-weight:300; font-size:clamp(36px,6vw,64px); letter-spacing:.04em; color:var(--black);}
+  .title b{font-weight:500;}
+  .lede{max-width:620px; margin:22px auto 0; font-size:clamp(15px,1.5vw,17px); color:#5e574e; text-wrap:pretty;}
+
+  .section-label{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--terracotta); padding:clamp(44px,6vw,68px) 0 22px; display:flex; align-items:center; gap:16px;}
+  .section-label::after{content:""; flex:1; height:1px; background:var(--cream);}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(232px,1fr)); gap:18px;}
+  .card{background:#fff; border:1px solid #ece4d9; border-radius:4px; overflow:hidden; transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;}
+  .card:hover{transform:translateY(-4px); box-shadow:0 16px 36px -22px rgba(45,41,38,.4);}
+  .stage{position:relative; aspect-ratio:1/.82; display:flex; align-items:center; justify-content:center; background:var(--offwhite); border-bottom:1px solid #ece4d9;}
+  .num{position:absolute; top:13px; left:15px; font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--sand);}
+  .mark{width:96px; height:96px; color:var(--charcoal); display:block;}
+  .caption{padding:15px 18px 19px;}
+  .cap-name{font-family:var(--display); font-weight:500; font-size:16px; color:var(--black);}
+  .cap-desc{margin-top:5px; font-size:13px; color:#6b645b; text-wrap:pretty;}
+
+  /* applications */
+  .apps{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:18px;}
+  @media(max-width:820px){ .apps{grid-template-columns:1fr 1fr;} .apps .app-hero{grid-column:span 2;} }
+  @media(max-width:520px){ .apps{grid-template-columns:1fr;} .apps .app-hero{grid-column:span 1;} }
+  .app{position:relative; border-radius:4px; overflow:hidden; min-height:240px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; padding:32px; border:1px solid #ece4d9; background:#fff;}
+  .app .a-label{position:absolute; top:13px; left:15px; font-family:var(--mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--sand);}
+  .app.dark{background:var(--charcoal); border-color:var(--charcoal);}
+  .app.dark .a-label{color:var(--stone);}
+  .app-hero{background:var(--charcoal); border-color:var(--charcoal);}
+  .app-hero .a-label{color:var(--stone);}
+
+  .sig-dots{display:flex; gap:26px;}
+  .sig-dots span{width:30px; height:30px; border-radius:50%;}
+  .sig-dots .solid{background:var(--terracotta);}
+  .sig-dots .ring{border:4px solid var(--terracotta);}
+  .sig-wm{font-family:var(--display); font-weight:300; font-size:36px; letter-spacing:.3em; color:var(--offwhite); padding-left:.3em;}
+
+  .patch{width:118px; height:118px; border-radius:50%; background:var(--offwhite); display:flex; align-items:center; justify-content:center; gap:16px; box-shadow:0 8px 24px -10px rgba(0,0,0,.5);}
+  .patch span{width:20px; height:20px; border-radius:50%;}
+  .patch .solid{background:var(--charcoal);} .patch .ring{border:3px solid var(--charcoal);}
+  .patch-cap{font-family:var(--mono); font-size:9px; letter-spacing:.2em; color:var(--stone); text-transform:uppercase;}
+
+  .pattern{position:absolute; inset:0;}
+  .pat-cap{position:relative; font-family:var(--mono); font-size:9px; letter-spacing:.2em; color:var(--charcoal); text-transform:uppercase; background:rgba(245,240,235,.85); padding:6px 12px; border-radius:99px;}
+
+  footer{margin-top:clamp(46px,6vw,72px); padding-top:36px; border-top:1px solid var(--cream); display:flex; flex-wrap:wrap; gap:18px 40px; justify-content:space-between; align-items:flex-start;}
+  .foot-note{max-width:560px; font-size:14px; color:#6b645b; text-wrap:pretty;}
+  .foot-note b{color:var(--charcoal); font-weight:500;}
+  .foot-tag{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--stone);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">O Par · Sistema dos Dois Pontos</div>
+    <div class="h-dots"><span></span><span></span></div>
+    <div class="title">A assinatura <b>destacável</b></div>
+    <p class="lede">Os dois pontos do Ö saem do wordmark e viram a marca. Pouquíssimas marcas usam "dois pontos" como signo — por isso ele é instantaneamente VÖKA. Doze variações do mesmo gesto, seguidas de como ele vive aplicado.</p>
+  </header>
+
+  <div class="section-label">12 Variações do símbolo</div>
+  <div class="grid" id="grid"></div>
+
+  <div class="section-label">A assinatura em uso</div>
+  <div class="apps">
+    <div class="app app-hero">
+      <span class="a-label">Assinatura principal</span>
+      <div class="sig-dots"><span class="solid"></span><span class="ring"></span></div>
+      <div class="sig-wm">VÖKA</div>
+    </div>
+    <div class="app">
+      <span class="a-label">Patch · bordado</span>
+      <div class="patch"><span class="solid"></span><span class="ring"></span></div>
+      <div class="patch-cap">Gola · Autenticidade</div>
+    </div>
+    <div class="app dark" style="overflow:hidden">
+      <span class="a-label">Padrão · estampa</span>
+      <svg class="pattern" aria-hidden="true"><defs>
+        <pattern id="vp" width="64" height="64" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+          <circle cx="16" cy="22" r="5.5" fill="#8c8579"/>
+          <circle cx="34" cy="22" r="5.5" fill="none" stroke="#8c8579" stroke-width="2"/>
+        </pattern>
+      </defs><rect width="100%" height="100%" fill="url(#vp)"/></svg>
+      <span class="pat-cap">Forro · Lining</span>
+    </div>
+  </div>
+
+  <footer>
+    <p class="foot-note"><b>Próximo passo:</b> me diga 1–2 variações favoritas do símbolo. Eu fecho a construção geométrica (grid, raio dos pontos, distância), defino as cores oficiais e mostro aplicado na peça e na hang tag.</p>
+    <div class="foot-tag">VÖKA — O Par</div>
+  </footer>
+
+</div>
+
+<script>
+const C='currentColor';
+const marks=[
+  { n:'Par', d:'O original — cheio + vazado. Dualidade e equilíbrio.',
+    svg:`<circle cx="36" cy="50" r="11" fill="${C}"/><circle cx="64" cy="50" r="11" fill="none" stroke="${C}" stroke-width="4"/>` },
+  { n:'Gêmeos', d:'Dois pontos idênticos e sólidos. Máxima simplicidade.',
+    svg:`<circle cx="35" cy="50" r="11" fill="${C}"/><circle cx="65" cy="50" r="11" fill="${C}"/>` },
+  { n:'Vértice', d:'Pontos sobre o V. Une o Ö e a inicial da marca.',
+    svg:`<circle cx="40" cy="28" r="6.5" fill="${C}"/><circle cx="60" cy="28" r="6.5" fill="${C}"/><path d="M30 44 L50 73 L70 44" fill="none" stroke="${C}" stroke-width="9" stroke-linejoin="miter"/>` },
+  { n:'Linha', d:'Dois pontos sobre uma base — a diérese abstraída.',
+    svg:`<circle cx="32" cy="42" r="9" fill="${C}"/><circle cx="68" cy="42" r="9" fill="${C}"/><rect x="26" y="64" width="48" height="5" rx="2.5" fill="${C}"/>` },
+  { n:'Elo', d:'Pontos unidos por uma ponte fina. Conexão e par.',
+    svg:`<circle cx="34" cy="50" r="11" fill="${C}"/><circle cx="66" cy="50" r="11" fill="${C}"/><rect x="34" y="47.5" width="32" height="5" fill="${C}"/>` },
+  { n:'Órbita', d:'Os pontos contidos num anel. Vira selo e favicon.',
+    svg:`<circle cx="50" cy="50" r="31" fill="none" stroke="${C}" stroke-width="3"/><circle cx="42" cy="50" r="6.5" fill="${C}"/><circle cx="58" cy="50" r="6.5" fill="none" stroke="${C}" stroke-width="2.5"/>` },
+  { n:'Eclipse', d:'Pontos que se tocam. Crescente e movimento.',
+    svg:`<circle cx="44" cy="50" r="13" fill="${C}"/><circle cx="60" cy="50" r="13" fill="none" stroke="${C}" stroke-width="4"/>` },
+  { n:'Inclinado', d:'Eixo diagonal. Dá dinamismo e atitude esportiva.',
+    svg:`<circle cx="38" cy="62" r="11" fill="${C}"/><circle cx="62" cy="38" r="11" fill="none" stroke="${C}" stroke-width="4"/>` },
+  { n:'Escala', d:'Hierarquia: um grande, um pequeno. Ritmo e foco.',
+    svg:`<circle cx="42" cy="54" r="15" fill="${C}"/><circle cx="68" cy="42" r="7.5" fill="${C}"/>` },
+  { n:'Coluna', d:'Pontos empilhados — leitura de pausa, dois-pontos.',
+    svg:`<circle cx="50" cy="35" r="11" fill="${C}"/><circle cx="50" cy="65" r="11" fill="none" stroke="${C}" stroke-width="4"/>` },
+  { n:'Quadra', d:'Pontos quadrados. Versão geométrica e técnica.',
+    svg:`<rect x="26" y="40" width="20" height="20" rx="3" fill="${C}"/><rect x="54" y="40" width="20" height="20" rx="3" fill="none" stroke="${C}" stroke-width="4"/>` },
+  { n:'Moldura', d:'Pontos dentro de um quadro arredondado. Patch tecido.',
+    svg:`<rect x="20" y="20" width="60" height="60" rx="14" fill="none" stroke="${C}" stroke-width="3"/><circle cx="42" cy="50" r="6.5" fill="${C}"/><circle cx="58" cy="50" r="6.5" fill="${C}"/>` },
+];
+
+document.getElementById('grid').innerHTML = marks.map((m,i)=>`
+  <article class="card">
+    <div class="stage">
+      <span class="num">${String(i+1).padStart(2,'0')}</span>
+      <svg class="mark" viewBox="0 0 100 100" aria-label="${m.n}">${m.svg}</svg>
+    </div>
+    <div class="caption">
+      <div class="cap-name">${m.n}</div>
+      <p class="cap-desc">${m.d}</p>
+    </div>
+  </article>`).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VÖKA — Sell Sheets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+  :root{
+    --black:#0a0a0a; --charcoal:#2d2926; --stone:#8c8579; --sand:#c4b5a2;
+    --cream:#e8e0d6; --offwhite:#f5f0eb;
+    --display:'Outfit',sans-serif; --body:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{background:#d9d2c7; min-width:100%; min-height:100vh; padding:56px; box-sizing:border-box; width:max-content;}
+  .page-head{font-family:var(--mono); color:#6b645b; margin-bottom:40px; max-width:900px;}
+  .page-head .t{font-family:var(--display); font-weight:300; font-size:34px; letter-spacing:.04em; color:#2d2926; margin-bottom:12px;}
+  .page-head p{font-size:13px; letter-spacing:.04em; line-height:1.7; text-transform:none;}
+  .row{display:flex; gap:48px; align-items:flex-start;}
+  .frame-wrap{flex:none;}
+  .frame-label{font-family:var(--mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#6b645b; margin-bottom:14px; display:flex; gap:10px; align-items:baseline;}
+  .frame-label b{color:#2d2926; font-weight:500;}
+  .scaler{width:454px; height:567px; overflow:hidden;}    /* 1080*0.42 x 1350*0.42 */
+  .sheet{
+    width:1080px; height:1350px; transform:scale(.42); transform-origin:top left;
+    background:var(--offwhite); padding:84px; display:flex; flex-direction:column;
+    box-shadow:0 30px 80px -30px rgba(0,0,0,.4);
+  }
+  .sh-head{display:flex; align-items:center; justify-content:space-between;}
+  .sh-head .left{display:flex; align-items:center; gap:24px;}
+  .sh-head .par{width:64px; color:var(--charcoal);}
+  .sh-head .wm{font-family:var(--display); font-weight:400; font-size:34px; letter-spacing:.3em; padding-left:.3em; color:var(--charcoal);}
+  .sh-head .ref{font-family:var(--mono); font-size:20px; letter-spacing:.1em; color:var(--stone);}
+  image-slot{display:block; width:100%; flex:1; margin:64px 0; --slot-bg:#e6ddd1;}
+  .sh-foot{}
+  .sh-name{font-family:var(--display); font-weight:300; font-size:74px; letter-spacing:.01em; color:var(--black); line-height:1;}
+  .sh-desc{font-family:var(--body); font-weight:300; font-size:30px; line-height:1.45; color:#5e574e; margin-top:24px; max-width:90%; text-wrap:pretty;}
+  .sh-line{height:1px; background:var(--cream); margin:42px 0 36px;}
+  .sh-bottom{display:flex; align-items:flex-end; justify-content:space-between;}
+  .sh-price{font-family:var(--display); font-weight:500; font-size:72px; color:var(--black); line-height:1;}
+  .sh-price small{font-family:var(--mono); font-weight:400; font-size:26px; color:var(--stone); letter-spacing:.04em;}
+  .sh-meta{text-align:right; font-family:var(--mono); font-size:22px; letter-spacing:.08em; color:var(--stone); line-height:1.8;}
+  .sh-tag{position:absolute;}
+  .sheet .tag{font-family:var(--display); font-weight:300; font-size:24px; letter-spacing:.32em; text-transform:uppercase; color:var(--stone); padding-left:.32em; margin-top:30px;}
+</style>
+</head>
+<body>
+  <div class="page-head">
+    <div class="t">VÖKA · Sell Sheets</div>
+    <p>Um one-pager por produto (1080×1350, formato 4:5 pronto para direct/WhatsApp). Arraste a foto real de cada peça no slot — ela fica salva. Edite nome, descrição e preço direto no texto. Para enviar: tire um print do card ou me peça os PNGs.</p>
+  </div>
+  <div class="row" id="row"></div>
+
+<script>
+const PAR=(c='#2d2926')=>`<svg viewBox="0 0 100 60" width="100%"><circle cx="36" cy="30" r="11" fill="${c}"/><circle cx="64" cy="30" r="11" fill="none" stroke="${c}" stroke-width="4"/></svg>`;
+const PRODUCTS=[
+  ['moletom','Moletom Essential','VK-0420','Algodão pesado 480g, corte oversized, gola e punhos canelados. Par bordado tom-sobre-tom no peito.','R$ 389','P · M · G · GG'],
+  ['camiseta','Camiseta Core','VK-0210','Malha penteada 220g, gola dupla reforçada, caimento reto atemporal. Par no peito esquerdo.','R$ 159','P · M · G · GG'],
+  ['camisa','Camisa Linho','VK-0330','Linho lavado, botões de madrepérola, caimento solto. Par discreto na barra.','R$ 449','P · M · G · GG'],
+  ['manga-longa','Manga Longa','VK-0515','Algodão canelado 300g, gola careca, segunda pele. Par no punho esquerdo.','R$ 259','P · M · G · GG'],
+  ['calca','Calça Utility','VK-0640','Sarja com elastano, bolsos cargo, caimento reto. Etiqueta no cós + par na coxa.','R$ 329','36 · 38 · 40 · 42 · 44 · 46'],
+  ['shorts','Shorts Court','VK-0725','Tactel leve com forro, cordão encerado, secagem rápida. Par bordado na barra.','R$ 189','P · M · G · GG'],
+  ['meias','Meias Par','VK-0810','Algodão egípcio, cano médio, costura plana. O par bordado no tornozelo — em ambos os pés.','R$ 59','35–38 · 39–42 · 43–46'],
+];
+document.getElementById('row').innerHTML = PRODUCTS.map(([id,name,ref,desc,price,sizes],i)=>`
+  <div class="frame-wrap">
+    <div class="frame-label"><b>${String(i+1).padStart(2,'0')}</b> ${name}</div>
+    <div class="scaler">
+      <div class="sheet">
+        <div class="sh-head">
+          <div class="left"><span class="par">${PAR()}</span><span class="wm">VÖKA</span></div>
+          <span class="ref">${ref}</span>
+        </div>
+        <image-slot id="ss-${id}" shape="rounded" radius="6" placeholder="Arraste a foto do produto"></image-slot>
+        <div class="sh-foot">
+          <div class="sh-name">${name}</div>
+          <div class="sh-desc">${desc}</div>
+          <div class="sh-line"></div>
+          <div class="sh-bottom">
+            <div class="sh-price">${price}</div>
+            <div class="sh-meta">TAMANHOS<br>${sizes}</div>
+          </div>
+          <div class="tag">Vista o par.</div>
+        </div>
+      </div>
+    </div>
+  </div>`).join('');
+</script>
+</body>
+</html>

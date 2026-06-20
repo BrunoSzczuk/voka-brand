@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VÖKA — Brand Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a; --charcoal:#2d2926; --stone:#8c8579; --sand:#c4b5a2;
+    --cream:#e8e0d6; --offwhite:#f5f0eb;
+    --display:'Outfit',sans-serif; --body:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{background:var(--offwhite); color:var(--charcoal); font-family:var(--body); font-weight:300; line-height:1.6; padding:clamp(28px,5vw,72px); min-height:100vh;}
+  .wrap{max-width:1080px; margin:0 auto;}
+
+  header{display:flex; flex-direction:column; align-items:center; text-align:center; padding:clamp(40px,7vw,96px) 0 clamp(48px,7vw,88px); border-bottom:1px solid var(--cream);}
+  .pm{width:96px; color:var(--charcoal); margin-bottom:40px;}
+  .big{font-family:var(--display); font-weight:200; font-size:clamp(60px,15vw,156px); letter-spacing:.14em; line-height:.86; padding-left:.14em; color:var(--black);}
+  .sub{margin-top:30px; font-family:var(--mono); font-size:12px; letter-spacing:.4em; text-transform:uppercase; color:var(--stone);}
+  .tag{margin-top:16px; font-family:var(--display); font-weight:300; font-size:clamp(18px,2.4vw,24px); letter-spacing:.04em; color:#5e574e;}
+
+  .sec-label{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--stone); padding:clamp(44px,6vw,68px) 0 22px; display:flex; align-items:center; gap:16px;}
+  .sec-label::after{content:""; flex:1; height:1px; background:var(--cream);}
+
+  .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:18px;}
+  a.card{display:flex; flex-direction:column; background:#fff; border:1px solid #ece4d9; border-radius:5px; overflow:hidden; text-decoration:none; color:inherit; transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;}
+  a.card:hover{transform:translateY(-5px); box-shadow:0 22px 48px -26px rgba(45,41,38,.45);}
+  .card .vis{aspect-ratio:16/10; position:relative; display:flex; align-items:center; justify-content:center; background:var(--offwhite); border-bottom:1px solid #ece4d9; overflow:hidden;}
+  .card .vis.dark{background:var(--charcoal);}
+  .card .vis.cream{background:var(--cream);}
+  .card .num{position:absolute; top:14px; left:16px; font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--sand);}
+  .card .meta{padding:20px 22px 24px;}
+  .card .meta h3{font-family:var(--display); font-weight:500; font-size:19px; color:var(--black); display:flex; align-items:center; gap:9px;}
+  .card .meta p{margin-top:7px; font-size:13.5px; color:#6b645b; text-wrap:pretty;}
+  .card .meta .arrow{margin-left:auto; color:var(--sand); transition:transform .3s, color .3s;}
+  a.card:hover .arrow{transform:translateX(4px); color:var(--charcoal);}
+
+  .par{display:block;}
+  .wm{font-family:var(--display); font-weight:300; letter-spacing:.3em; padding-left:.3em;}
+
+  /* mini mockups inside vis */
+  .mini-guide{display:flex; gap:10px; align-items:center;}
+  .mini-sheet{width:96px; height:120px; background:#fff; border:1px solid var(--cream); border-radius:3px; display:flex; flex-direction:column; padding:12px; gap:8px;}
+  .mini-sheet .r{height:8px; background:var(--cream); border-radius:2px;}
+  .mini-row{display:flex; gap:9px;}
+  .mini-ig{width:66px; height:66px; border-radius:4px; display:flex; align-items:center; justify-content:center;}
+  .mini-st{width:42px; height:74px; border-radius:4px; display:flex; align-items:center; justify-content:center;}
+
+  .arch{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px;}
+  a.chip{display:flex; align-items:center; gap:13px; padding:16px 18px; background:#fff; border:1px solid #ece4d9; border-radius:4px; text-decoration:none; color:inherit; transition:border-color .25s, transform .25s;}
+  a.chip:hover{border-color:var(--sand); transform:translateY(-2px);}
+  a.chip .n{font-family:var(--mono); font-size:11px; color:var(--sand);}
+  a.chip .t{font-family:var(--display); font-weight:500; font-size:14px; color:var(--black);}
+
+  footer{margin-top:clamp(48px,7vw,80px); padding-top:34px; border-top:1px solid var(--cream); display:flex; flex-wrap:wrap; gap:16px 40px; justify-content:space-between; align-items:center;}
+  .foot-tag{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--stone);}
+  .foot-note{font-size:13px; color:#7a7268;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="par pm" id="hpm"></span>
+    <div class="big">VÖKA</div>
+    <div class="sub">Brand Kit · O Par</div>
+    <div class="tag">Vista o par.</div>
+  </header>
+
+  <div class="sec-label">Entregáveis finais</div>
+  <div class="cards">
+    <a class="card" href="VOKA Brand Guide.html">
+      <div class="vis dark"><span class="num">01</span>
+        <div class="mini-guide"><span class="par" data-par style="width:54px;color:var(--offwhite)"></span><span class="wm" style="font-size:26px;color:var(--offwhite)">VÖKA</span></div>
+      </div>
+      <div class="meta"><h3>Guia de Marca <span class="arrow">→</span></h3>
+        <p>Sistema completo: símbolo, construção, paleta, tipografia, vestuário, etiquetas, embalagem e social. Com Tweaks de atmosfera, peso e respiro.</p></div>
+    </a>
+    <a class="card" href="VOKA Sell Sheets.html">
+      <div class="vis cream"><span class="num">02</span>
+        <div class="mini-sheet"><div class="mini-row" style="justify-content:space-between;align-items:center"><span class="par" data-par style="width:18px;color:var(--charcoal)"></span></div><div style="flex:1;background:var(--offwhite);border-radius:2px"></div><div class="r" style="width:70%"></div><div class="r" style="width:40%;height:6px"></div></div>
+      </div>
+      <div class="meta"><h3>Sell Sheets <span class="arrow">→</span></h3>
+        <p>One-pager por produto (1080×1350) com foto, nome, descrição e preço — pronto para direct e WhatsApp. 7 peças da linha.</p></div>
+    </a>
+    <a class="card" href="VOKA Social Kit.html">
+      <div class="vis"><span class="num">03</span>
+        <div class="mini-row">
+          <div class="mini-ig" style="background:var(--charcoal)"><span class="par" data-par style="width:30px;color:var(--offwhite)"></span></div>
+          <div class="mini-ig" style="background:var(--offwhite);border:1px solid var(--cream)"><span class="par" data-par style="width:26px;color:var(--charcoal)"></span></div>
+          <div class="mini-st" style="background:var(--cream)"><span class="par" data-par style="width:20px;color:var(--charcoal)"></span></div>
+        </div>
+      </div>
+      <div class="meta"><h3>Social Kit <span class="arrow">→</span></h3>
+        <p>Templates em tamanho real — Feed 1080² e Stories 1080×1920, com slots para foto. Marca, produto, frase e detalhe.</p></div>
+    </a>
+    <a class="card" href="VOKA Tech Packs.html">
+      <div class="vis"><span class="num">04</span>
+        <div class="mini-sheet" style="width:108px;height:122px;gap:6px"><div class="mini-row" style="justify-content:space-between;align-items:center"><span class="par" data-par style="width:16px;color:var(--charcoal)"></span><div class="r" style="width:22px;height:5px"></div></div><div style="flex:1;border:1px solid var(--cream);border-radius:2px;display:flex;align-items:center;justify-content:center"><span class="par" data-par style="width:34px;color:var(--stone)"></span></div><div class="r" style="width:90%;height:5px"></div><div class="r" style="width:60%;height:5px"></div></div>
+      </div>
+      <div class="meta"><h3>Tech Packs <span class="arrow">→</span></h3>
+        <p>Fichas técnicas bilíngues (PT/EN) para fábrica: desenho técnico, medidas graduadas, materiais, construção e fichas de etiqueta. Pronto pra PDF.</p></div>
+    </a>
+    <a class="card" href="VOKA Garment Mockups.html">
+      <div class="vis"><span class="num">05</span>
+        <div class="mini-row" style="align-items:flex-end;gap:14px">
+          <svg viewBox="0 0 80 90" width="52"><path d="M28,12 L20,16 L12,40 L18,42 L24,26 L23,72 L57,72 L56,26 L62,42 L68,40 L60,16 L52,12 Q40,22 28,12 Z" fill="#fff" stroke="#d8cdba" stroke-width="1.4"/><circle cx="33" cy="30" r="2.4" fill="#2d2926"/><circle cx="40" cy="30" r="2.4" fill="none" stroke="#2d2926" stroke-width="1"/></svg>
+          <svg viewBox="0 0 80 90" width="44"><path d="M30,10 L52,10 L54,42 L50,84 L40,84 L40,50 L32,84 L26,84 L28,42 Z" fill="#2d2926" stroke="#1c1a18" stroke-width="1.2"/><circle cx="35" cy="26" r="2.2" fill="#f5f0eb"/><circle cx="41" cy="26" r="2.2" fill="none" stroke="#f5f0eb" stroke-width="0.9"/></svg>
+        </div>
+      </div>
+      <div class="meta"><h3>Prancha de Revisão <span class="arrow">→</span></h3>
+        <p>Mockups interativos das peças com a marca. Troque a cor do tecido, alterne tom-sobre-tom/contraste e frente/costas — para avaliar corte e posição com o time.</p></div>
+    </a>
+    <a class="card" href="VOKA Size Guide.html">
+      <div class="vis cream"><span class="num">06</span>
+        <div class="mini-sheet" style="width:118px;height:122px;gap:5px;padding:14px"><div class="r" style="width:40%;height:6px;background:var(--charcoal)"></div><div class="mini-row" style="gap:5px;margin-top:2px">${''}<div class="r" style="width:30%;height:5px"></div><div class="r" style="width:30%;height:5px"></div><div class="r" style="width:30%;height:5px"></div></div><div class="r" style="width:90%;height:5px"></div><div class="r" style="width:90%;height:5px"></div><div class="r" style="width:90%;height:5px;background:var(--sand)"></div></div>
+      </div>
+      <div class="meta"><h3>Guia de Tamanhos <span class="arrow">→</span></h3>
+        <p>Tabela simplificada + "Encontre seu tamanho" interativo (altura/peso/idade → sugestão). Componente pronto para virar feature do e-commerce.</p></div>
+    </a>
+    <a class="card" href="VOKA Firefly Kit.html">
+      <div class="vis dark"><span class="num">07</span>
+        <div style="display:flex;gap:12px;align-items:center"><span class="par" data-par style="width:46px;color:var(--offwhite)"></span><span style="font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--sand)">IA</span></div>
+      </div>
+      <div class="meta"><h3>Firefly Kit <span class="arrow">→</span></h3>
+        <p>Como gerar fotos realistas das peças com IA mantendo a marca fiel: fluxo, prompts por peça e o símbolo em alta para overlay.</p></div>
+    </a>
+  </div>
+
+  <div class="sec-label">Processo · arquivo de exploração</div>
+  <div class="arch">
+    <a class="chip" href="explorations/01 — 12 Logos.html"><span class="n">01</span><span class="t">12 Logos</span></a>
+    <a class="chip" href="explorations/02 — 12 Desenvolvidos.html"><span class="n">02</span><span class="t">12 Desenvolvidos</span></a>
+    <a class="chip" href="explorations/03 — 4 Finalistas.html"><span class="n">03</span><span class="t">4 Finalistas</span></a>
+    <a class="chip" href="explorations/04 — O Par.html"><span class="n">04</span><span class="t">O Par · escolhido</span></a>
+  </div>
+
+  <footer>
+    <div class="foot-tag">VÖKA — Brand Kit · v1 · 2026</div>
+    <div class="foot-note">Identidade monocromática · símbolo O Par</div>
+  </footer>
+
+</div>
+<script>
+const PAR=(c='currentColor')=>`<svg viewBox="0 0 100 60" width="100%" preserveAspectRatio="xMidYMid meet"><circle cx="36" cy="30" r="11" fill="${c}"/><circle cx="64" cy="30" r="11" fill="none" stroke="${c}" stroke-width="4"/></svg>`;
+document.querySelectorAll('[data-par]').forEach(el=>el.innerHTML=PAR());
+document.getElementById('hpm').innerHTML=PAR();
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VÖKA — Firefly Kit · Geração de Imagens IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a; --charcoal:#2d2926; --stone:#8c8579; --sand:#c4b5a2;
+    --cream:#e8e0d6; --offwhite:#f5f0eb; --line:#ece4d9;
+    --display:'Outfit',sans-serif; --body:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{background:var(--offwhite); color:var(--charcoal); font-family:var(--body); font-weight:300; line-height:1.6; padding:clamp(24px,5vw,72px);}
+  .wrap{max-width:880px; margin:0 auto;}
+
+  header{padding-bottom:clamp(30px,4vw,46px); border-bottom:1px solid var(--line);}
+  .eyebrow{font-family:var(--mono); font-size:11px; letter-spacing:.32em; text-transform:uppercase; color:var(--stone); margin-bottom:18px; display:flex; align-items:center; gap:12px;}
+  .eyebrow .pm{width:30px; color:var(--charcoal);}
+  h1{font-family:var(--display); font-weight:200; font-size:clamp(32px,5.5vw,58px); letter-spacing:.02em; color:var(--black); line-height:1;}
+  .lede{max-width:620px; margin-top:18px; font-size:15px; color:#5e574e; text-wrap:pretty;}
+
+  h2{font-family:var(--display); font-weight:400; font-size:clamp(20px,2.6vw,26px); color:var(--black); margin:clamp(38px,5vw,56px) 0 6px; letter-spacing:.01em;}
+  .secnum{font-family:var(--mono); font-size:11px; letter-spacing:.18em; color:var(--sand); text-transform:uppercase;}
+  p.body{font-size:14.5px; color:#5e574e; margin-top:12px; max-width:640px; text-wrap:pretty;}
+  p.body b{color:var(--charcoal); font-weight:500;}
+
+  /* workflow steps */
+  .flow{display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:14px; margin-top:22px;}
+  .fstep{background:#fff; border:1px solid var(--line); border-radius:7px; padding:20px 22px;}
+  .fstep .n{font-family:var(--mono); font-size:11px; color:var(--sand); letter-spacing:.1em;}
+  .fstep h4{font-family:var(--display); font-weight:500; font-size:15px; color:var(--black); margin-top:10px;}
+  .fstep p{font-size:12.5px; color:#6b645b; margin-top:6px; text-wrap:pretty;}
+
+  /* asset chips */
+  .assets{display:flex; flex-wrap:wrap; gap:14px; margin-top:22px;}
+  .asset{display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line); border-radius:7px; padding:14px 18px; text-decoration:none; color:inherit; transition:border-color .2s, transform .2s;}
+  .asset:hover{border-color:var(--sand); transform:translateY(-2px);}
+  .asset .chip{width:54px; height:34px; border-radius:4px; display:flex; align-items:center; justify-content:center;}
+  .asset .nm{font-family:var(--display); font-weight:500; font-size:13.5px; color:var(--black);}
+  .asset .pth{font-family:var(--mono); font-size:10.5px; color:var(--stone); margin-top:2px;}
+
+  /* constraints block */
+  .constraint{background:var(--charcoal); color:var(--offwhite); border-radius:8px; padding:24px 26px; margin-top:22px; position:relative;}
+  .constraint .lab{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--sand); margin-bottom:12px;}
+  .constraint code{font-family:var(--mono); font-size:13px; line-height:1.75; color:#e7e0d6; display:block; white-space:pre-wrap;}
+  .copy{position:absolute; top:18px; right:18px; font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; background:rgba(245,240,235,.12); color:var(--offwhite); border:1px solid rgba(245,240,235,.22); border-radius:99px; padding:7px 13px; cursor:pointer; transition:background .2s;}
+  .copy:hover{background:rgba(245,240,235,.22);}
+  .copy.done{background:var(--sand); color:var(--charcoal); border-color:var(--sand);}
+
+  /* prompt cards */
+  .prompt{background:#fff; border:1px solid var(--line); border-radius:8px; padding:22px 24px; margin-top:16px; position:relative;}
+  .prompt .ptop{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:14px;}
+  .prompt h3{font-family:var(--display); font-weight:500; font-size:18px; color:var(--black);}
+  .prompt .ref{font-family:var(--mono); font-size:11px; color:var(--sand); letter-spacing:.06em;}
+  .prompt .plang{font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--stone); margin:12px 0 7px;}
+  .prompt .ptext{font-family:var(--mono); font-size:12.5px; line-height:1.7; color:#3f3a35; background:var(--offwhite); border:1px solid var(--line); border-radius:6px; padding:14px 16px; white-space:pre-wrap;}
+  .prompt .place{margin-top:13px; display:flex; align-items:center; gap:9px; font-size:12.5px; color:#6b645b;}
+  .prompt .place .d{width:8px; height:8px; border-radius:50%; background:var(--charcoal); flex:none;}
+  .prompt .copy2{position:absolute; top:20px; right:22px; font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; background:var(--offwhite); color:var(--charcoal); border:1px solid var(--line); border-radius:99px; padding:7px 13px; cursor:pointer;}
+  .prompt .copy2.done{background:var(--charcoal); color:var(--offwhite); border-color:var(--charcoal);}
+
+  .neg{margin-top:18px; background:var(--cream); border-radius:7px; padding:18px 20px; font-size:13px; color:#5e574e;}
+  .neg b{color:var(--charcoal); font-weight:500;}
+  .neg code{font-family:var(--mono); font-size:12px; color:var(--charcoal);}
+
+  footer{margin-top:clamp(40px,5vw,60px); padding-top:30px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; gap:14px 40px; justify-content:space-between;}
+  .foot-note{max-width:580px; font-size:13px; color:#7a7268; text-wrap:pretty;}
+  .foot-note b{color:var(--charcoal); font-weight:500;}
+  .foot-tag{font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--stone);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow"><span class="pm" id="hpm"></span> Firefly Kit · Imagens com IA generativa</div>
+    <h1>Gerar fotos das peças</h1>
+    <p class="lede">Como produzir imagens realistas das roupas VÖKA com IA (Adobe Firefly — commercial-safe) mantendo a marca correta. A regra de ouro: <b>a IA gera a peça; a marca entra por cima</b> com o nosso símbolo em alta.</p>
+  </header>
+
+  <h2><span class="secnum">01 · Fluxo</span><br>Como funciona</h2>
+  <p class="body">A IA não desenha o nosso símbolo com precisão. Então geramos a <b>foto-base da peça lisa</b> (sem logo) e depois aplicamos o <b>O Par</b> em alta como overlay — assim a marca fica sempre fiel, nítida e na posição certa.</p>
+  <div class="flow">
+    <div class="fstep"><div class="n">01</div><h4>Gere a peça</h4><p>Cole o prompt no Firefly (Texto→Imagem). Peça a roupa lisa, sem estampa nem logo.</p></div>
+    <div class="fstep"><div class="n">02</div><h4>Escolha o take</h4><p>Selecione a variação com melhor caimento, luz e cor dentro da paleta.</p></div>
+    <div class="fstep"><div class="n">03</div><h4>Aplique a marca</h4><p>Sobreponha o PNG do símbolo (abaixo) na posição definida no tech pack.</p></div>
+    <div class="fstep"><div class="n">04</div><h4>Monte no Kit</h4><p>Use nos slots dos Sell Sheets e Social Kit — já prontos para receber a imagem.</p></div>
+  </div>
+
+  <h2><span class="secnum">02 · Ativos</span><br>Símbolo em alta para overlay</h2>
+  <p class="body">PNGs transparentes 2000px. Use charcoal sobre peça clara, off-white sobre peça escura.</p>
+  <div class="assets" id="assets"></div>
+
+  <h2><span class="secnum">03 · Estilo</span><br>Bloco de marca (cole em todo prompt)</h2>
+  <p class="body">Adicione este trecho ao final de qualquer prompt para manter o look VÖKA — luz suave, fundo neutro quente, estética premium e monocromática.</p>
+  <div class="constraint">
+    <div class="lab">Style block · PT/EN</div>
+    <button class="copy" data-copy="style">Copiar</button>
+    <code id="styleBlock">premium minimalist editorial product photography, soft diffused natural light, warm neutral seamless background (off-white / sand / charcoal), matte premium cotton fabric, subtle realistic fabric folds and texture, monochromatic palette, no logos, no prints, no graphics, high detail, 50mm, shallow depth of field, muted tones, quiet luxury</code>
+  </div>
+
+  <h2><span class="secnum">04 · Prompts</span><br>Por peça</h2>
+  <p class="body">Cole o prompt + o bloco de estilo acima. Cada um pede a peça <b>lisa</b>; a marca entra no passo 03.</p>
+  <div id="prompts"></div>
+
+  <div class="neg">
+    <b>Negative prompt (se a ferramenta permitir):</b> <code>logo, text, brand, print, graphic, embroidery, busy background, oversaturated, harsh shadows, plastic look, wrinkled tag, mannequin seams</code>
+  </div>
+
+  <footer>
+    <p class="foot-note"><b>Direitos:</b> o Firefly é treinado em conteúdo licenciado (uso comercial seguro). Ainda assim, revise cada imagem antes de publicar. Quando tiver os takes aprovados, me mande que eu monto nos Sell Sheets e no Social Kit.</p>
+    <div class="foot-tag">VÖKA — Firefly Kit</div>
+  </footer>
+</div>
+
+<script>
+const PARSVG=(c='currentColor')=>`<svg viewBox="0 0 100 60" width="100%"><circle cx="36" cy="30" r="11" fill="${c}"/><circle cx="64" cy="30" r="11" fill="none" stroke="${c}" stroke-width="4"/></svg>`;
+document.getElementById('hpm').innerHTML=PARSVG('#2d2926');
+
+const ASSETS=[
+  ['Símbolo · Charcoal','brand-assets/voka-par-charcoal.png','#f5f0eb','#2d2926'],
+  ['Símbolo · Off-white','brand-assets/voka-par-offwhite.png','#2d2926','#f5f0eb'],
+  ['Símbolo · Preto','brand-assets/voka-par-black.png','#f5f0eb','#0a0a0a'],
+  ['Lockup · Charcoal','brand-assets/voka-lockup-charcoal.png','#f5f0eb','#2d2926'],
+  ['Lockup · Off-white','brand-assets/voka-lockup-offwhite.png','#2d2926','#f5f0eb'],
+];
+document.getElementById('assets').innerHTML=ASSETS.map(([nm,path,bg,fg])=>`
+  <a class="asset" href="${path}" download><span class="chip" style="background:${bg}"><span style="width:30px">${PARSVG(fg)}</span></span><span><span class="nm">${nm}</span><span class="pth">${path}</span></span></a>`).join('');
+
+const PROMPTS=[
+  ['Moletom Essential','VK-0420','Heavyweight oversized crewneck sweatshirt in off-white premium cotton fleece, ribbed collar cuffs and hem, folded flat-lay on warm seamless background','Peito esq. · 18 cm da gola'],
+  ['Camiseta Core','VK-0210','Regular-fit plain t-shirt in sand cotton jersey, double-stitched crew collar, clean drape on invisible mannequin, front view','Peito esq. · 16 cm da gola'],
+  ['Manga Longa','VK-0515','Long-sleeve heavy cotton tee in charcoal, ribbed crew collar and cuffs, worn on a model cropped at the neck, natural pose','Punho esquerdo'],
+  ['Calça Utility','VK-0640','Straight-leg utility cargo trousers in charcoal cotton twill, matte graphite hardware, waxed drawcord, full-length flat-lay','Coxa frontal dir.'],
+  ['Shorts Court','VK-0725','Mid-length court shorts in sand cotton twill, elastic waistband with waxed drawcord, folded flat-lay, top-down','Barra frontal esq.'],
+  ['Meias Par','VK-0810','Pair of crew socks in off-white premium combed cotton, ribbed cuff, clean studio flat-lay side by side','Tornozelo · ambos os pés'],
+];
+document.getElementById('prompts').innerHTML=PROMPTS.map(([nm,ref,txt,place],i)=>`
+  <div class="prompt">
+    <button class="copy2" data-copy="p${i}">Copiar</button>
+    <div class="ptop"><h3>${nm}</h3><span class="ref">${ref}</span></div>
+    <div class="plang">Prompt · EN (recomendado p/ Firefly)</div>
+    <div class="ptext" id="p${i}">${txt}</div>
+    <div class="place"><span class="d"></span>Posição da marca (passo 03): <b style="color:#2d2926;font-weight:500;margin-left:4px">${place}</b></div>
+  </div>`).join('');
+
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-copy]'); if(!b)return;
+  const key=b.dataset.copy;
+  let txt = key==='style' ? document.getElementById('styleBlock').textContent
+          : document.getElementById(key).textContent + '. ' + document.getElementById('styleBlock').textContent;
+  navigator.clipboard.writeText(txt).then(()=>{ b.classList.add('done'); const o=b.textContent; b.textContent='Copiado ✓'; setTimeout(()=>{b.classList.remove('done');b.textContent=o;},1400); });
+});
+</script>
+</body>
+</html>

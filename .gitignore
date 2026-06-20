@@ -1,1 +1,9 @@
-Nothing should be ignored based on the provided file changes, as they only include source/config files (.gitignore, index.html) and a documentation file (README.md).
+# Design sync — staged converter scripts, build output, local machine state
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+
+# Node
+node_modules/
+voka-brand-kit/node_modules/

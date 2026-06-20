@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VÖKA — Social Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+  :root{
+    --black:#0a0a0a; --charcoal:#2d2926; --stone:#8c8579; --sand:#c4b5a2;
+    --cream:#e8e0d6; --offwhite:#f5f0eb;
+    --display:'Outfit',sans-serif; --body:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-font-smoothing:antialiased;}
+  body{background:#d9d2c7; min-width:100%; min-height:100vh; padding:56px; box-sizing:border-box; width:max-content;}
+  .page-head{font-family:var(--mono); color:#6b645b; margin-bottom:40px; max-width:900px;}
+  .page-head .t{font-family:var(--display); font-weight:300; font-size:34px; letter-spacing:.04em; color:#2d2926; margin-bottom:12px;}
+  .page-head p{font-size:13px; letter-spacing:.04em; line-height:1.7;}
+  .group-label{font-family:var(--mono); font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:#2d2926; margin:8px 0 18px; display:flex; align-items:center; gap:14px;}
+  .group-label::after{content:""; width:200px; height:1px; background:#bfb6a8;}
+  .row{display:flex; gap:40px; align-items:flex-start; margin-bottom:52px;}
+  .frame-wrap{flex:none;}
+  .frame-label{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6b645b; margin-bottom:13px;}
+
+  /* scalers */
+  .sc-feed{width:432px; height:432px; overflow:hidden;}       /* 1080*0.4 */
+  .sc-story{width:243px; height:432px; overflow:hidden;}      /* 1080*0.225 x 1920*0.225 */
+  .feed{width:1080px; height:1080px; transform:scale(.4); transform-origin:top left; box-shadow:0 24px 60px -28px rgba(0,0,0,.45);}
+  .story{width:1080px; height:1920px; transform:scale(.225); transform-origin:top left; box-shadow:0 24px 60px -28px rgba(0,0,0,.45);}
+
+  .canvas{position:relative; width:100%; height:100%; display:flex; flex-direction:column; padding:96px; overflow:hidden;}
+  .canvas.warm{background:var(--offwhite);} .canvas.dark{background:var(--charcoal);} .canvas.cream{background:var(--cream);}
+  .c-light{color:var(--charcoal);} .c-dark{color:var(--offwhite);}
+
+  .par{width:80px; display:block;}
+  .wm{font-family:var(--display); font-weight:400; letter-spacing:.34em; padding-left:.34em;}
+  .handle{font-family:var(--mono); letter-spacing:.16em;}
+  image-slot{display:block; --slot-bg:#e6ddd1;}
+
+  .hl{font-family:var(--display); font-weight:200; line-height:.98; letter-spacing:.02em;}
+  .kicker{font-family:var(--mono); letter-spacing:.3em; text-transform:uppercase;}
+  .tag{font-family:var(--display); font-weight:300; letter-spacing:.32em; text-transform:uppercase; padding-left:.32em;}
+
+  .topbar{display:flex; align-items:center; justify-content:space-between;}
+</style>
+</head>
+<body>
+  <div class="page-head">
+    <div class="t">VÖKA · Social Kit</div>
+    <p>Templates em tamanho real — Feed 1080×1080 e Stories 1080×1920. Arraste a foto no slot (fica salva), edite os textos direto. Para publicar: tire um print do frame ou me peça os PNGs exportados.</p>
+  </div>
+
+  <div class="group-label">Feed · 1080 × 1080</div>
+  <div class="row" id="feed-row"></div>
+
+  <div class="group-label">Stories · 1080 × 1920</div>
+  <div class="row" id="story-row"></div>
+
+<script>
+const PAR=(c)=>`<svg viewBox="0 0 100 60" width="100%"><circle cx="36" cy="30" r="11" fill="${c}"/><circle cx="64" cy="30" r="11" fill="none" stroke="${c}" stroke-width="4"/></svg>`;
+const DK='#f5f0eb', LT='#2d2926';
+
+/* ---------- FEED ---------- */
+const FEED=[
+  {label:'Marca · institucional', html:`
+    <div class="canvas dark c-dark" style="align-items:center;justify-content:center;gap:54px">
+      <span class="par" style="width:200px">${PAR(DK)}</span>
+      <span class="wm" style="font-size:40px">VÖKA</span>
+      <span class="tag" style="font-size:22px;color:var(--sand);margin-top:8px">Vista o par.</span>
+    </div>`},
+  {label:'Produto · foto', html:`
+    <div class="canvas warm c-light">
+      <div class="topbar"><span class="par" style="width:62px">${PAR(LT)}</span><span class="handle" style="font-size:20px;color:var(--stone)">@VOKA</span></div>
+      <image-slot id="fd-prod" shape="rounded" radius="8" style="flex:1;width:100%;margin:64px 0" placeholder="Arraste a foto do produto"></image-slot>
+      <div style="display:flex;align-items:flex-end;justify-content:space-between">
+        <div><div class="kicker" style="font-size:18px;color:var(--stone);margin-bottom:14px">Nova coleção</div>
+        <div class="hl" style="font-size:64px">Moletom<br>Essential</div></div>
+        <div class="wm" style="font-size:34px">R$ 389</div>
+      </div>
+    </div>`},
+  {label:'Frase · manifesto', html:`
+    <div class="canvas dark c-dark" style="justify-content:space-between">
+      <span class="par" style="width:62px">${PAR(DK)}</span>
+      <div class="hl" style="font-size:108px">Vista<br>o par.</div>
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <span class="wm" style="font-size:26px">VÖKA</span>
+        <span class="handle" style="font-size:20px;color:var(--sand)">@VOKA</span>
+      </div>
+    </div>`},
+  {label:'Detalhe · ofício', html:`
+    <div class="canvas cream c-light" style="padding:0">
+      <image-slot id="fd-detail" shape="rect" style="position:absolute;inset:0;width:100%;height:100%" placeholder="Arraste foto de detalhe (textura/bordado)"></image-slot>
+      <div style="position:absolute;inset:0;padding:96px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,rgba(45,41,38,.55),transparent 55%)">
+        <div class="hl c-dark" style="font-size:58px">Marcado<br>no detalhe</div>
+        <span class="tag c-dark" style="font-size:18px;margin-top:24px">Vista o par.</span>
+      </div>
+    </div>`},
+];
+
+/* ---------- STORY ---------- */
+const STORY=[
+  {label:'Lançamento · produto', html:`
+    <div class="canvas warm c-light" style="padding:120px 96px">
+      <div class="topbar"><span class="par" style="width:70px">${PAR(LT)}</span><span class="handle" style="font-size:24px;color:var(--stone)">@VOKA</span></div>
+      <image-slot id="st-prod" shape="rounded" radius="10" style="flex:1;width:100%;margin:72px 0" placeholder="Arraste a foto do produto"></image-slot>
+      <div class="kicker" style="font-size:22px;color:var(--stone);margin-bottom:20px">Disponível agora</div>
+      <div class="hl" style="font-size:84px">Moletom<br>Essential</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:40px">
+        <span class="wm" style="font-size:48px">R$ 389</span>
+        <span class="handle" style="font-size:24px;color:var(--stone)">Arraste ↑</span>
+      </div>
+    </div>`},
+  {label:'Drop · teaser', html:`
+    <div class="canvas dark c-dark" style="align-items:center;justify-content:center;gap:64px;text-align:center">
+      <span class="par" style="width:180px">${PAR(DK)}</span>
+      <div class="hl" style="font-size:120px">Drop<br>01</div>
+      <div class="kicker" style="font-size:26px;color:var(--sand)">20 · 06 · 2026</div>
+      <span class="tag" style="font-size:22px;color:var(--sand);position:absolute;bottom:120px">Vista o par.</span>
+    </div>`},
+  {label:'Frase + foto', html:`
+    <div class="canvas cream c-light" style="padding:0">
+      <image-slot id="st-img" shape="rect" style="position:absolute;inset:0;width:100%;height:100%" placeholder="Arraste foto (lifestyle)"></image-slot>
+      <div style="position:absolute;inset:0;padding:120px 96px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(to bottom,rgba(45,41,38,.45),transparent 30%,transparent 60%,rgba(45,41,38,.6))">
+        <span class="par c-dark" style="width:70px">${PAR(DK)}</span>
+        <div><div class="hl c-dark" style="font-size:88px">Carregue<br>a marca</div>
+        <span class="tag c-dark" style="font-size:20px;margin-top:28px">Vista o par.</span></div>
+      </div>
+    </div>`},
+];
+
+document.getElementById('feed-row').innerHTML = FEED.map(f=>`
+  <div class="frame-wrap"><div class="frame-label">${f.label}</div>
+    <div class="sc-feed"><div class="feed">${f.html}</div></div></div>`).join('');
+document.getElementById('story-row').innerHTML = STORY.map(s=>`
+  <div class="frame-wrap"><div class="frame-label">${s.label}</div>
+    <div class="sc-story"><div class="story">${s.html}</div></div></div>`).join('');
+</script>
+</body>
+</html>

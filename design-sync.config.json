@@ -1,0 +1,18 @@
+{
+  "projectId": "4cfbf838-11f0-4083-9920-d3d01c48e58a",
+  "shape": "package",
+  "pkg": "voka-brand-kit",
+  "globalName": "VokaBrandKit",
+  "cssEntry": "src/styles/voka.css",
+  "runtimeFontPrefixes": ["Outfit", "DM Sans"],
+  "previewArgs": {
+    "WovenLabel":      { "subtext": "essentials", "width": 72 },
+    "HangTag":         { "size": "M", "width": 80 },
+    "TshirtMockup":    { "width": 200 },
+    "ZipBagPackaging": { "style": "frosted", "width": 140 },
+    "BrandGuidelines": { "category": "all" },
+    "ProductCard":     { "name": "Heavy Tee", "price": "R$ 189" },
+    "PriceTag":        { "price": "189", "currency": "R$", "label": "Coleção 2026" },
+    "SizeSelector":    { "sizes": ["XS", "S", "M", "L", "XL"], "defaultSelected": "M" }
+  }
+}

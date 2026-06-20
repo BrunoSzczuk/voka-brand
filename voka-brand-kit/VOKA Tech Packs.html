@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VÖKA — Tech Packs · Fichas Técnicas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0a; --charcoal:#2d2926; --stone:#8c8579; --sand:#c4b5a2;
+    --cream:#e8e0d6; --offwhite:#f5f0eb; --line:#ece4d9;
+    --display:'Outfit',sans-serif; --body:'DM Sans',sans-serif; --mono:'DM Mono',monospace;
+    --nav:250px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-font-smoothing:antialiased; scroll-behavior:smooth;}
+  body{background:var(--offwhite); color:var(--charcoal); font-family:var(--body); font-weight:300; line-height:1.55;}
+
+  /* nav */
+  nav.rail{position:fixed; top:0; left:0; width:var(--nav); height:100vh; padding:38px 28px; border-right:1px solid var(--line); background:var(--offwhite); overflow-y:auto; z-index:20; display:flex; flex-direction:column;}
+  .rail .brand{display:flex; align-items:center; gap:12px; margin-bottom:14px;}
+  .rail .brand .pm{width:40px; color:var(--charcoal);}
+  .rail .brand .wm{font-family:var(--display); font-weight:400; font-size:18px; letter-spacing:.26em; padding-left:.26em;}
+  .rail .kind{font-family:var(--mono); font-size:9.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--sand); margin-bottom:30px;}
+  .rail a{display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--stone); text-decoration:none; padding:7px 0; transition:color .2s;}
+  .rail a .n{color:var(--sand); margin-right:9px;}
+  .rail a:hover, .rail a.active{color:var(--black);}
+  .rail a.active .n{color:var(--charcoal);}
+  .rail .sep{height:1px; background:var(--line); margin:14px 0;}
+  .rail .foot{margin-top:auto; padding-top:22px; font-family:var(--mono); font-size:9px; letter-spacing:.13em; color:var(--sand); text-transform:uppercase;}
+
+  main{margin-left:var(--nav);}
+  .sec{padding:clamp(48px,6vw,84px) clamp(28px,5vw,80px); border-bottom:1px solid var(--line); max-width:1160px;}
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:10px; flex-wrap:wrap;}
+  .sec-num{font-family:var(--mono); font-size:12px; color:var(--sand); letter-spacing:.1em;}
+  .sec-title{font-family:var(--display); font-weight:300; font-size:clamp(26px,3.4vw,40px); letter-spacing:.01em; color:var(--black);}
+  .sec-title .en{font-size:.5em; color:var(--stone); letter-spacing:.04em; margin-left:10px;}
+  .sec-intro{max-width:640px; font-size:14.5px; color:#5e574e; margin:18px 0 36px; text-wrap:pretty;}
+
+  /* cover */
+  .cover{min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:80px clamp(28px,5vw,80px); border-bottom:1px solid var(--line);}
+  .cover .pm{width:96px; color:var(--charcoal); margin-bottom:40px;}
+  .cover h1{font-family:var(--display); font-weight:200; font-size:clamp(44px,8vw,104px); letter-spacing:.06em; line-height:.92; color:var(--black);}
+  .cover .meta{margin-top:40px; display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:24px 40px; max-width:760px; border-top:1px solid var(--line); padding-top:30px;}
+  .cover .meta div .k{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--stone); margin-bottom:7px;}
+  .cover .meta div .v{font-family:var(--display); font-weight:400; font-size:17px; color:var(--black);}
+
+  /* materials / legend */
+  .panels{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px;}
+  .mpanel{background:#fff; border:1px solid var(--line); border-radius:5px; padding:22px 24px;}
+  .mpanel .t{font-family:var(--display); font-weight:500; font-size:16px; color:var(--black);}
+  .mpanel .en{font-size:12px; color:var(--stone); margin-top:2px;}
+  .mpanel .d{font-size:13px; color:#6b645b; margin-top:12px; text-wrap:pretty;}
+  .mpanel .g{font-family:var(--mono); font-size:12px; color:var(--charcoal); margin-top:14px; letter-spacing:.04em; border-top:1px solid var(--line); padding-top:12px;}
+
+  .legend{display:grid; grid-template-columns:1fr 1fr; gap:8px 36px; max-width:780px;}
+  .legend .li{display:flex; align-items:center; gap:12px; padding:9px 0; border-bottom:1px solid var(--line); font-size:13.5px; color:#5e574e;}
+  .legend .li b{font-family:var(--display); color:var(--black); font-weight:500;}
+  .dotmk{flex:none; width:22px; height:22px; border-radius:50%; background:var(--charcoal); color:#fff; font-family:var(--mono); font-size:11px; display:flex; align-items:center; justify-content:center;}
+
+  /* tech pack piece */
+  .tp-top{display:grid; grid-template-columns:1.15fr .85fr; gap:24px; margin-bottom:30px;}
+  @media(max-width:820px){.tp-top{grid-template-columns:1fr;}}
+  .flats{background:#fff; border:1px solid var(--line); border-radius:5px; padding:24px; position:relative; display:flex; gap:10px; justify-content:space-around; align-items:center;}
+  .flats .fl{display:flex; flex-direction:column; align-items:center; gap:12px;}
+  .flats .fl svg{width:100%; max-width:200px; height:auto;}
+  .flats .fl .cap{font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--stone);}
+  .flats .badge{position:absolute; top:14px; left:16px; font-family:var(--mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--sand);}
+
+  .tp-side{display:flex; flex-direction:column; gap:16px;}
+  .infobox{background:#fff; border:1px solid var(--line); border-radius:5px; padding:18px 20px;}
+  .infobox .h{font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--stone); margin-bottom:12px; display:flex; justify-content:space-between;}
+  .infobox .h .ref{color:var(--sand);}
+  .infobox p{font-size:13px; color:#5e574e; margin-bottom:6px;}
+  .infobox p b{font-family:var(--display); font-weight:500; color:var(--black);}
+  .infobox .en{color:var(--stone); font-size:11.5px;}
+
+  table{width:100%; border-collapse:collapse; font-size:13px; background:#fff; border:1px solid var(--line); border-radius:5px; overflow:hidden;}
+  caption{text-align:left; font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--stone); padding:0 0 12px;}
+  th, td{padding:11px 12px; text-align:center; border-bottom:1px solid var(--line);}
+  th{font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--charcoal); background:var(--offwhite); font-weight:400;}
+  td:first-child, th:first-child{text-align:left;}
+  .pom-pt{font-family:var(--body); color:var(--black); font-weight:400;}
+  .pom-en{font-size:11px; color:var(--stone);}
+  .pom-let{display:inline-flex; width:18px; height:18px; border-radius:50%; background:var(--charcoal); color:#fff; font-family:var(--mono); font-size:10px; align-items:center; justify-content:center; margin-right:9px; vertical-align:middle;}
+  tbody tr:last-child td{border-bottom:none;}
+  .tol{font-family:var(--mono); font-size:11px; color:var(--stone);}
+
+  .twocol{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:24px;}
+  @media(max-width:760px){.twocol{grid-template-columns:1fr;}}
+  .blocktitle{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--stone); margin-bottom:14px;}
+  .bomtable td:first-child{font-weight:400; color:var(--black);}
+  .notes{list-style:none;}
+  .notes li{padding:10px 0; border-bottom:1px solid var(--line); font-size:13px; color:#5e574e; display:flex; gap:12px;}
+  .notes li .nn{font-family:var(--mono); font-size:11px; color:var(--sand); flex:none;}
+  .notes li .en{display:block; color:var(--stone); font-size:11.5px; margin-top:2px;}
+
+  /* label / hangtag spec */
+  .spec-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media(max-width:820px){.spec-grid{grid-template-columns:1fr;}}
+  .specvis{background:#fff; border:1px solid var(--line); border-radius:5px; padding:30px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; position:relative; min-height:280px;}
+  .specvis .badge{position:absolute; top:14px; left:16px; font-family:var(--mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--sand);}
+  .woven{width:200px; height:62px; background:var(--offwhite); border-radius:2px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; box-shadow:inset 0 0 0 3px #fff, inset 0 0 0 4px var(--cream); position:relative;}
+  .woven .par{width:32px; color:var(--charcoal);}
+  .woven .wm{font-family:var(--display); font-weight:300; font-size:13px; letter-spacing:.3em; padding-left:.3em; color:var(--charcoal);}
+  .htag{width:130px; height:200px; background:var(--charcoal); border-radius:6px; position:relative; display:flex; flex-direction:column; align-items:center; padding:26px 0; color:var(--offwhite);}
+  .htag::before{content:""; position:absolute; top:16px; width:12px; height:12px; border-radius:50%; border:2px solid var(--stone);}
+  .htag .par{width:48px; margin-top:30px;}
+  .htag .wm{font-family:var(--display); font-weight:300; font-size:14px; letter-spacing:.28em; padding-left:.28em; margin-top:14px;}
+  .htag .pr{margin-top:auto; font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--sand);}
+  .dimnote{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--stone); text-transform:uppercase;}
+
+  .note{margin-top:24px; font-size:13px; color:#7a7268; max-width:680px; text-wrap:pretty;}
+  .note b{color:var(--charcoal); font-weight:500;}
+
+  /* print */
+  .printbtn{position:fixed; right:22px; bottom:22px; z-index:30; font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; background:var(--charcoal); color:var(--offwhite); border:none; border-radius:99px; padding:13px 22px; cursor:pointer; box-shadow:0 10px 26px -10px rgba(0,0,0,.5);}
+  .printbtn:hover{background:var(--black);}
+
+  @media(max-width:880px){
+    :root{--nav:0px;}
+    nav.rail{position:static; width:auto; height:auto; flex-direction:row; flex-wrap:wrap; gap:4px 14px; align-items:center; padding:16px 20px;}
+    nav.rail .brand{margin-bottom:0; margin-right:12px;} nav.rail .kind, nav.rail .sep, nav.rail .foot{display:none;}
+    main{margin-left:0;}
+  }
+  @media print{
+    nav.rail, .printbtn{display:none !important;}
+    main{margin-left:0;}
+    body{background:#fff;}
+    .sec, .cover{border:none; max-width:none; padding:14mm 12mm; break-before:page; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .cover{break-before:auto; min-height:auto;}
+    .flats, .infobox, table, .mpanel, .specvis{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="rail">
+  <div class="brand"><span class="pm" data-par></span><span class="wm">VÖKA</span></div>
+  <div class="kind">Tech Packs · FW26</div>
+  <a href="#capa"><span class="n">—</span>Capa / Cover</a>
+  <a href="#legenda"><span class="n">00</span>Como ler / Legend</a>
+  <a href="#materiais"><span class="n">01</span>Materiais / Materials</a>
+  <div class="sep"></div>
+  <a href="#moletom"><span class="n">02</span>Moletom Essential</a>
+  <a href="#camiseta"><span class="n">03</span>Camiseta Core</a>
+  <a href="#manga"><span class="n">04</span>Manga Longa</a>
+  <a href="#calca"><span class="n">05</span>Calça Utility</a>
+  <a href="#shorts"><span class="n">06</span>Shorts Court</a>
+  <a href="#meias"><span class="n">07</span>Meias Par</a>
+  <div class="sep"></div>
+  <a href="#etiqueta"><span class="n">08</span>Etiqueta / Label</a>
+  <a href="#hangtag"><span class="n">09</span>Hang Tag</a>
+  <div class="foot">Ficha Técnica · v1<br>Confidencial</div>
+</nav>
+
+<main>
+  <section class="cover" id="capa">
+    <span class="pm" data-par style="color:var(--charcoal)"></span>
+    <h1>Tech Packs<br>Coleção FW26</h1>
+    <div class="meta">
+      <div><div class="k">Marca / Brand</div><div class="v">VÖKA</div></div>
+      <div><div class="k">Símbolo / Mark</div><div class="v">O Par</div></div>
+      <div><div class="k">Peças / Styles</div><div class="v">6 + etiquetas</div></div>
+      <div><div class="k">Medidas / Units</div><div class="v">cm</div></div>
+      <div><div class="k">Idioma / Language</div><div class="v">PT / EN</div></div>
+      <div><div class="k">Status</div><div class="v">Para orçamento / RFQ</div></div>
+    </div>
+    <p class="note" style="margin-top:30px"><b>Nota ao fornecedor:</b> medidas e materiais são referência inicial para cotação de custo e desenvolvimento de piloto. Composição premium 100% algodão; gramaturas em revisão. / <span class="en"><b>Supplier note:</b> measurements and materials are an initial reference for costing and proto development. Premium 100% cotton; weights under review.</span></p>
+  </section>
+
+  <!-- LEGENDA -->
+  <section class="sec" id="legenda">
+    <div class="sec-head"><span class="sec-num">00</span><h2 class="sec-title">Como ler <span class="en">How to read</span></h2></div>
+    <p class="sec-intro">Cada peça traz desenho técnico (frente/costas), tabela de pontos de medida graduada por tamanho, ficha de materiais, posição da marca e notas de construção. Os pontos marcados no desenho (letras) correspondem às linhas da tabela.</p>
+    <div class="legend" id="legend"></div>
+    <p class="note"><b>Tolerância padrão / Standard tolerance:</b> ±1,0 cm para larguras e comprimentos; ±0,5 cm para detalhes (gola, punho, barra). <span class="en">±1.0 cm widths/lengths; ±0.5 cm details.</span></p>
+  </section>
+
+  <!-- MATERIAIS -->
+  <section class="sec" id="materiais">
+    <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Materiais <span class="en">Materials</span></h2></div>
+    <p class="sec-intro">Base têxtil única — algodão premium de fibra longa — em três gramaturas conforme a peça. Acabamentos e aviamentos compartilhados garantem consistência entre estilos.</p>
+    <div class="panels" id="materials"></div>
+  </section>
+
+  <div id="pieces"></div>
+
+  <!-- ETIQUETA -->
+  <section class="sec" id="etiqueta">
+    <div class="sec-head"><span class="sec-num">08</span><h2 class="sec-title">Etiqueta de gola <span class="en">Woven collar label</span></h2></div>
+    <p class="sec-intro">Etiqueta tecida damask, dobra central (center-fold), costurada na gola interna. Apenas o símbolo O Par + wordmark — sem informação de composição (essa vai em etiqueta de cuidado separada, lateral).</p>
+    <div class="spec-grid">
+      <div class="specvis"><span class="badge">Arte / Artwork · 1:1 ref</span>
+        <div class="woven"><span class="par" data-par></span><span class="wm">VÖKA</span></div>
+        <span class="dimnote">3,0 × 4,0 cm (dobrada / folded)</span>
+      </div>
+      <div class="tp-side">
+        <div class="infobox"><div class="h"><span>Especificação / Spec</span><span class="ref">VK-LBL-01</span></div>
+          <p><b>Tipo / Type:</b> Tecida damask <span class="en">· Woven damask</span></p>
+          <p><b>Dobra / Fold:</b> Central <span class="en">· Center-fold</span></p>
+          <p><b>Dimensão / Size:</b> 3,0 × 4,0 cm dobrada <span class="en">· folded</span></p>
+          <p><b>Cores do fio / Yarn:</b> Charcoal #2d2926 + Off-white #f5f0eb</p>
+          <p><b>Fonte / Font:</b> Outfit (wordmark)</p>
+          <p><b>Aplicação / Apply:</b> Centralizada na gola traseira interna <span class="en">· center back inner neck</span></p>
+        </div>
+        <div class="infobox"><div class="h"><span>Etiqueta de cuidado / Care label</span><span class="ref">VK-LBL-02</span></div>
+          <p><b>Tipo / Type:</b> Cetim impresso <span class="en">· Printed satin</span></p>
+          <p><b>Conteúdo / Content:</b> Composição, país, instruções de lavagem, tamanho <span class="en">· fiber, origin, wash care, size</span></p>
+          <p><b>Posição / Position:</b> Costura lateral esquerda interna, 10 cm acima da barra <span class="en">· inner left side seam, 10 cm above hem</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HANG TAG -->
+  <section class="sec" id="hangtag" style="border-bottom:none">
+    <div class="sec-head"><span class="sec-num">09</span><h2 class="sec-title">Hang Tag</h2></div>
+    <p class="sec-intro">Etiqueta pendurada de papelão premium, presa por cordão encerado no aviamento principal. Frente com o símbolo; verso com referência, tamanho, composição e QR opcional.</p>
+    <div class="spec-grid">
+      <div class="specvis"><span class="badge">Mockup · frente / costas</span>
+        <div style="display:flex; gap:22px; align-items:center">
+          <div class="htag"><span class="par" data-par></span><span class="wm">VÖKA</span><span class="pr">VK-0420</span></div>
+          <div class="htag" style="background:var(--offwhite); color:var(--charcoal)"><span style="font-family:var(--mono); font-size:9px; letter-spacing:.16em; color:var(--stone); margin-top:34px; text-align:center; line-height:2">REF · VK-0420<br>TAM · M<br>100% ALGODÃO<br>R$ 389,00</span><span class="pr" style="color:var(--stone)">[ QR ]</span></div>
+        </div>
+        <span class="dimnote">4,5 × 9,0 cm</span>
+      </div>
+      <div class="tp-side">
+        <div class="infobox"><div class="h"><span>Especificação / Spec</span><span class="ref">VK-HT-01</span></div>
+          <p><b>Dimensão / Size:</b> 4,5 × 9,0 cm</p>
+          <p><b>Papel / Stock:</b> Cartão algodão 350 g, sem revestimento <span class="en">· uncoated cotton board 350gsm</span></p>
+          <p><b>Impressão / Print:</b> 1 cor (charcoal), frente e verso <span class="en">· 1-color both sides</span></p>
+          <p><b>Acabamento / Finish:</b> Hot-stamp fosco no símbolo (opcional) <span class="en">· matte foil on mark (optional)</span></p>
+          <p><b>Furo / Hole:</b> Ø 4 mm, 8 mm do topo, centralizado</p>
+          <p><b>Cordão / String:</b> Algodão encerado natural, 12 cm <span class="en">· waxed cotton, natural</span></p>
+        </div>
+        <div class="infobox"><div class="h"><span>Aplicação / Application</span></div>
+          <p>Preso ao aviamento principal (gola para tops, cós para bottoms) com lacre ou alfinete-bandeira. <span class="en">Attached to main trim — collar for tops, waistband for bottoms — with loop pin or seal.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<button class="printbtn" onclick="window.print()">Imprimir / PDF</button>
+
+<script>
+/* ---------- mark ---------- */
+const PAR=(c='currentColor')=>`<svg viewBox="0 0 100 60" width="100%" preserveAspectRatio="xMidYMid meet"><circle cx="36" cy="30" r="11" fill="${c}"/><circle cx="64" cy="30" r="11" fill="none" stroke="${c}" stroke-width="4"/></svg>`;
+document.querySelectorAll('[data-par]').forEach(el=>{ el.innerHTML = PAR(); });
+
+/* ---------- technical flats ---------- */
+const S='#2d2926';
+function cd(x,y,L){return `<g><circle cx="${x}" cy="${y}" r="8.5" fill="${S}"/><text x="${x}" y="${y+3.4}" text-anchor="middle" font-family="DM Mono,monospace" font-size="10" fill="#fff">${L}</text></g>`;}
+const SW='fill="none" stroke="'+S+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"';
+const SWthin='fill="none" stroke="'+S+'" stroke-width="1" stroke-dasharray="3 3"';
+
+function topLong(back){ // viewBox 240x290
+  const neck = back
+    ? `<path d="M100,54 Q120,62 140,54" ${SW}/>`
+    : `<path d="M100,54 Q120,70 140,54" ${SW}/><path d="M99,57 Q120,71 141,57" fill="none" stroke="${S}" stroke-width="1"/>`;
+  const cuffs = `<path d="M41,176 L59,178" ${SW}/><path d="M199,176 L181,178" ${SW}/>`;
+  const hemrib = `<path d="M85,232 L155,232" fill="none" stroke="${S}" stroke-width="1"/>`;
+  const marks = back ? '' : cd(92,108,'A')+cd(150,170,'B')+cd(120,252,'C')+cd(86,55,'D')+cd(176,120,'E')+cd(50,178,'F')+cd(110,52,'G')+cd(120,72,'H')+cd(140,234,'I');
+  return `<svg viewBox="0 0 240 290">
+    <path d="M100,54 L84,54 L52,70 L40,180 L58,182 L86,96 L84,250 L156,250 L156,96 L182,182 L200,180 L188,70 L156,54 L140,54 Q120,68 100,54 Z" ${SW}/>
+    ${neck}${cuffs}${hemrib}${marks}</svg>`;
+}
+function topShort(back){ // viewBox 240x290
+  const neck = back
+    ? `<path d="M100,54 Q120,62 140,54" ${SW}/>`
+    : `<path d="M100,54 Q120,70 140,54" ${SW}/><path d="M99,57 Q120,71 141,57" fill="none" stroke="${S}" stroke-width="1"/>`;
+  const sleeveHem = `<path d="M58,104 L64,112" ${SW}/><path d="M182,104 L176,112" ${SW}/>`;
+  const marks = back ? '' : cd(92,116,'A')+cd(150,180,'B')+cd(120,252,'C')+cd(86,55,'D')+cd(172,88,'E')+cd(66,108,'F')+cd(110,52,'G')+cd(120,72,'H')+cd(140,238,'I');
+  return `<svg viewBox="0 0 240 290">
+    <path d="M100,54 L84,54 L54,68 L60,110 L86,102 L84,250 L156,250 L156,102 L180,110 L186,68 L156,54 L140,54 Q120,68 100,54 Z" ${SW}/>
+    ${neck}${sleeveHem}${marks}</svg>`;
+}
+function pants(back){ // viewBox 200x310
+  const waist=`<path d="M50,58 L150,58" fill="none" stroke="${S}" stroke-width="1"/>`;
+  const pockets = back
+    ? `<rect x="62" y="74" width="32" height="30" rx="2" ${SW}/><rect x="106" y="74" width="32" height="30" rx="2" ${SW}/>`
+    : `<rect x="54" y="150" width="34" height="46" rx="2" ${SW}/><rect x="112" y="150" width="34" height="46" rx="2" ${SW}/><path d="M54,150 L72,140 L88,150" ${SW}/><path d="M112,150 L130,140 L146,150" ${SW}/>`;
+  const marks = back
+    ? cd(100,66,'A')+cd(100,150,'D')+cd(174,200,'I')
+    : cd(60,48,'A')+cd(150,100,'B')+cd(110,120,'C')+cd(64,150,'E')+cd(64,220,'F')+cd(60,288,'G')+cd(108,210,'H');
+  return `<svg viewBox="0 0 200 310">
+    <path d="M50,40 L150,40 L150,288 L118,288 L100,168 L82,288 L50,288 Z" ${SW}/>
+    ${waist}${pockets}${marks}</svg>`;
+}
+function shorts(back){ // viewBox 200x210
+  const waist=`<path d="M50,58 L150,58" fill="none" stroke="${S}" stroke-width="1"/>`;
+  const pocket = back ? `<rect x="106" y="74" width="32" height="28" rx="2" ${SW}/>` : `<path d="M54,62 L54,96 L78,96" ${SW}/><path d="M146,62 L146,96 L122,96" ${SW}/>`;
+  const marks = back
+    ? cd(100,66,'A')+cd(60,100,'B')
+    : cd(60,48,'A')+cd(150,84,'B')+cd(110,112,'C')+cd(64,120,'D')+cd(60,168,'E')+cd(108,150,'F');
+  return `<svg viewBox="0 0 200 210">
+    <path d="M50,40 L150,40 L150,176 L118,176 L100,120 L82,176 L50,176 Z" ${SW}/>
+    ${waist}${pocket}${marks}</svg>`;
+}
+function socks(){ // viewBox 170x200 (single)
+  const cuff=`<path d="M62,42 L104,42" fill="none" stroke="${S}" stroke-width="1"/><path d="M62,36 L104,36" fill="none" stroke="${S}" stroke-width="1"/>`;
+  const marks = cd(83,40,'A')+cd(70,90,'B')+cd(128,150,'C');
+  return `<svg viewBox="0 0 170 200">
+    <path d="M62,28 L104,28 L104,108 L150,128 Q160,140 150,151 L120,158 L78,152 Q66,151 66,138 L62,108 Z" ${SW}/>
+    ${cuff}<path d="M66,130 Q86,138 96,128" ${SWthin}/>${marks}</svg>`;
+}
+
+/* ---------- legend ---------- */
+const LEG=[
+  ['A','Largura','Width (½)'],['B','Comprimento','Length'],['C','Barra / Cós','Hem / Waist'],
+  ['D','Ombro / Quadril','Shoulder / Hip'],['E','Manga / Coxa','Sleeve / Thigh'],['F','Boca','Opening'],
+  ['G','Gola / Boca perna','Neck / Leg opening'],['H','Prof. gola / Entreperna','Neck drop / Inseam'],['I','Ribana / Lateral','Rib / Outseam'],
+];
+document.getElementById('legend').innerHTML = LEG.map(([l,pt,en])=>`<div class="li"><span class="dotmk">${l}</span><span><b>${pt}</b> · ${en}</span></div>`).join('');
+
+/* ---------- materials ---------- */
+const MAT=[
+  ['Jersey 200 g','220g cotton jersey','Malha penteada fio 30/1, fibra longa Xinjiang. Toque seco, caimento estruturado.','Camiseta · Manga Longa (base)'],
+  ['Moletom 320 g','320gsm fleece','Moletom flanelado por dentro, não-peluciado por fora. Encorpado, estável.','Moletom Essential'],
+  ['Sarja 300 g','300gsm twill','Sarja 100% algodão com leve gramatura, resistente para utility.','Calça Utility · Shorts Court'],
+  ['Ribana','Rib trim','Ribana 2×1 de algodão, mesma tonalidade do corpo, para golas, punhos e barras.','Golas · Punhos'],
+  ['Linha','Sewing thread','Linha 100% algodão / core 60/3, tom-sobre-tom. Pesponto contrastante só onde indicado.','Todas as peças'],
+  ['Aviamentos','Trims','Cordão encerado, ilhós e botões em metal escovado grafite ou madrepérola fosca.','Calça · Camisa'],
+];
+document.getElementById('materials').innerHTML = MAT.map(([t,en,d,use])=>`
+  <div class="mpanel"><div class="t">${t}</div><div class="en">${en}</div><div class="d">${d}</div><div class="g">${use}</div></div>`).join('');
+
+/* ---------- pieces data ---------- */
+const PIECES=[
+  { id:'moletom', num:'02', name:'Moletom Essential', en:'Crewneck Sweatshirt', ref:'VK-0420',
+    fit:'Oversized', gsm:'320 g · moletom', sizes:['PP','P','M','G','GG'],
+    flatF:topLong(false), flatB:topLong(true), type:'top',
+    pom:[
+      ['A','Largura do peito','Chest width ½','56','59','62','65','68'],
+      ['B','Comprimento (HPS)','Body length','68','70','72','74','76'],
+      ['C','Largura da barra','Bottom width','54','57','60','63','66'],
+      ['D','Ombro caído','Drop shoulder','52','54','56','58','60'],
+      ['E','Comp. da manga','Sleeve length','56','57','58','59','60'],
+      ['F','Boca da manga (punho)','Cuff opening','9','9.5','10','10.5','11'],
+      ['G','Largura da gola','Neck width','18','18.5','19','19.5','20'],
+      ['H','Prof. gola frente','Front neck drop','9','9','9.5','9.5','10'],
+      ['I','Ribana (gola/punho/barra)','Rib height','6','6','6','6','6'],
+    ],
+    bom:[['Corpo / Body','Moletom 320 g','100% algodão Xinjiang'],['Gola/Punho/Barra','Ribana 2×1','Tom-sobre-tom'],['Linha / Thread','Algodão 60/3','Tom-sobre-tom'],['Marca / Mark','Bordado O Par','Peito esq., 18 cm da gola']],
+    mark:'Par bordado tom-sobre-tom no peito esquerdo, 18 cm abaixo da gola. / O Par embroidered tonal, left chest, 18 cm below HPS.',
+    notes:[['Gola, punhos e barra em ribana com 6 cm, costura overlock + galoneira.','Crewneck collar, cuffs and hem in 6 cm rib, overlock + coverstitch.'],
+           ['Reforço de meia-lua interno na gola traseira.','Half-moon yoke reinforcement at inner back neck.'],
+           ['Costuras laterais fechadas; sem costura no ombro caído aparente.','Closed side seams; clean drop-shoulder.']] },
+
+  { id:'camiseta', num:'03', name:'Camiseta Core', en:'T-Shirt', ref:'VK-0210',
+    fit:'Regular', gsm:'200 g · jersey', sizes:['PP','P','M','G','GG'],
+    flatF:topShort(false), flatB:topShort(true), type:'top',
+    pom:[
+      ['A','Largura do peito','Chest width ½','48','51','54','57','60'],
+      ['B','Comprimento (HPS)','Body length','67','69','71','73','75'],
+      ['C','Largura da barra','Bottom width','47','50','53','56','59'],
+      ['D','Ombro a ombro','Shoulder','42','44','46','48','50'],
+      ['E','Comp. da manga','Sleeve length','20','21','22','23','24'],
+      ['F','Boca da manga','Sleeve opening','16','17','18','19','20'],
+      ['G','Largura da gola','Neck width','17','17.5','18','18.5','19'],
+      ['H','Prof. gola frente','Front neck drop','8','8','8.5','8.5','9'],
+      ['I','Ribana da gola','Neck rib','2','2','2','2','2'],
+    ],
+    bom:[['Corpo / Body','Jersey 200 g','100% algodão Xinjiang'],['Gola / Collar','Ribana 2×1, 2 cm','Tom-sobre-tom'],['Linha / Thread','Algodão 60/3','Tom-sobre-tom'],['Marca / Mark','Bordado O Par','Peito esq., 16 cm da gola']],
+    mark:'Par bordado pequeno no peito esquerdo, 16 cm abaixo da gola. / Small O Par embroidered, left chest, 16 cm below HPS.',
+    notes:[['Gola careca em ribana 2 cm com fita de reforço na gola traseira.','Crewneck 2 cm rib with back-neck tape.'],
+           ['Barra e mangas com bainha dupla 2,5 cm em galoneira.','Hem and sleeves 2.5 cm double-needle coverstitch.'],
+           ['Caimento reto, sem fendas laterais.','Straight fit, no side vents.']] },
+
+  { id:'manga', num:'04', name:'Manga Longa', en:'Long Sleeve Tee', ref:'VK-0515',
+    fit:'Regular', gsm:'300 g · jersey', sizes:['PP','P','M','G','GG'],
+    flatF:topLong(false), flatB:topLong(true), type:'top',
+    pom:[
+      ['A','Largura do peito','Chest width ½','50','53','56','59','62'],
+      ['B','Comprimento (HPS)','Body length','68','70','72','74','76'],
+      ['C','Largura da barra','Bottom width','49','52','55','58','61'],
+      ['D','Ombro a ombro','Shoulder','43','45','47','49','51'],
+      ['E','Comp. da manga','Sleeve length','60','61','62','63','64'],
+      ['F','Boca da manga (punho)','Cuff opening','9','9.5','10','10.5','11'],
+      ['G','Largura da gola','Neck width','17','17.5','18','18.5','19'],
+      ['H','Prof. gola frente','Front neck drop','8','8','8.5','8.5','9'],
+      ['I','Ribana gola/punho','Rib height','3','3','3','3','3'],
+    ],
+    bom:[['Corpo / Body','Jersey 300 g','100% algodão Xinjiang'],['Gola/Punho','Ribana 2×1','Tom-sobre-tom'],['Linha / Thread','Algodão 60/3','Tom-sobre-tom'],['Marca / Mark','Bordado O Par','Punho esquerdo']],
+    mark:'Par bordado no punho esquerdo, centralizado na ribana. / O Par embroidered on left cuff, centered on rib.',
+    notes:[['Gola e punhos em ribana 3 cm.','Collar and cuffs in 3 cm rib.'],
+           ['Barra reta com bainha dupla 2,5 cm.','Straight hem, 2.5 cm double-needle.'],
+           ['Manga montada com avanço de 1 cm na cabeça.','Set-in sleeve, 1 cm sleeve-cap ease.']] },
+
+  { id:'calca', num:'05', name:'Calça Utility', en:'Utility Pants', ref:'VK-0640',
+    fit:'Reto / Straight', gsm:'300 g · sarja', sizes:['38','40','42','44','46'],
+    flatF:pants(false), flatB:pants(true), type:'pant',
+    pom:[
+      ['A','Cintura (relaxada) ½','Waist relaxed ½','39','41','43','45','47'],
+      ['B','Quadril ½','Hip ½','52','54','56','58','60'],
+      ['C','Gancho frontal','Front rise','27','28','29','30','31'],
+      ['D','Gancho traseiro','Back rise','38','39','40','41','42'],
+      ['E','Coxa ½','Thigh ½','32','33','34','35','36'],
+      ['F','Joelho ½','Knee ½','23','24','25','26','27'],
+      ['G','Boca da perna ½','Leg opening ½','18','18.5','19','19.5','20'],
+      ['H','Entreperna','Inseam','76','77','78','79','80'],
+      ['I','Lateral (outseam)','Outseam','102','104','106','108','110'],
+    ],
+    bom:[['Corpo / Body','Sarja 300 g','100% algodão'],['Cós / Waistband','Sarja + elástico interno parcial','—'],['Aviamentos / Trims','Botão metal grafite + ilhós cordão','Escovado fosco'],['Linha / Thread','Core 60/3','Tom-sobre-tom'],['Marca / Mark','Bordado O Par','Coxa frontal direita + etiqueta no cós']],
+    mark:'Par bordado na coxa frontal direita (12 cm do cós) + etiqueta tecida no cós traseiro. / O Par embroidered right front thigh (12 cm from waistband) + woven label at back waistband.',
+    notes:[['Bolsos cargo laterais com lapela e barra de reforço.','Side cargo pockets with flap and bartack.'],
+           ['Cordão encerado com ilhós metálico no cós.','Waxed drawcord with metal eyelets at waistband.'],
+           ['Barra com bainha 3 cm; passantes 5 cm.','3 cm hem; 5 cm belt loops.']] },
+
+  { id:'shorts', num:'06', name:'Shorts Court', en:'Shorts', ref:'VK-0725',
+    fit:'Reto / Straight', gsm:'300 g · sarja', sizes:['38','40','42','44','46'],
+    flatF:shorts(false), flatB:shorts(true), type:'short',
+    pom:[
+      ['A','Cintura (relaxada) ½','Waist relaxed ½','39','41','43','45','47'],
+      ['B','Quadril ½','Hip ½','52','54','56','58','60'],
+      ['C','Gancho frontal','Front rise','27','28','29','30','31'],
+      ['D','Coxa ½','Thigh ½','32','33','34','35','36'],
+      ['E','Boca da perna ½','Leg opening ½','27','28','29','30','31'],
+      ['F','Entreperna','Inseam','18','19','20','21','22'],
+    ],
+    bom:[['Corpo / Body','Sarja 300 g','100% algodão'],['Cós / Waistband','Elástico + cordão','—'],['Aviamentos / Trims','Cordão encerado + ilhós','Grafite fosco'],['Linha / Thread','Core 60/3','Tom-sobre-tom'],['Marca / Mark','Bordado O Par','Barra frontal esquerda']],
+    mark:'Par bordado na barra frontal esquerda, 4 cm da bainha. / O Par embroidered left front hem, 4 cm from edge.',
+    notes:[['Cós com elástico total + cordão encerado.','Full elastic waistband + waxed drawcord.'],
+           ['Bolsos laterais embutidos; um bolso traseiro com lapela.','Inset side pockets; one back flap pocket.'],
+           ['Barra com bainha 2,5 cm.','2.5 cm hem.']] },
+
+  { id:'meias', num:'07', name:'Meias Par', en:'Socks', ref:'VK-0810',
+    fit:'Cano médio / Crew', gsm:'Algodão egípcio', sizes:['35–38','39–42','43–46'],
+    comp:'80% algodão / 17% poliamida / 3% elastano <span class="en">· cotton blend</span>',
+    flatF:socks(), flatB:null, type:'sock',
+    pom:[
+      ['A','Altura do cano','Cuff height','7','7.5','8'],
+      ['B','Comprimento total','Leg length','22','24','26'],
+      ['C','Comprimento do pé','Foot length','23','25','27'],
+    ],
+    bom:[['Corpo / Body','Algodão egípcio penteado','80% algodão / 17% poli / 3% elastano'],['Cano / Cuff','Ribana elástica','Costura plana'],['Marca / Mark','Bordado/jacquard O Par','Tornozelo, ambos os pés']],
+    mark:'Par em jacquard no tornozelo externo — em ambos os pés do par. / O Par knit-in at outer ankle — on both socks.',
+    notes:[['Costura plana na ponta (hand-linked toe).','Hand-linked flat toe seam.'],
+           ['Calcanhar reforçado em Y.','Y-reinforced heel.'],
+           ['Cano com ribana elástica anti-deslize.','Ribbed non-slip cuff.']] },
+];
+
+function tableHTML(p){
+  const head = `<tr><th>Ponto / Point</th>${p.sizes.map(s=>`<th>${s}</th>`).join('')}<th>Tol.</th></tr>`;
+  const rows = p.pom.map(r=>{
+    const [l,pt,en,...vals]=r;
+    return `<tr><td><span class="pom-let">${l}</span><span class="pom-pt">${pt}</span><div class="pom-en" style="margin-left:27px">${en}</div></td>${vals.map(v=>`<td>${v}</td>`).join('')}<td class="tol">±${l==='I'||p.type==='sock'?'0.5':'1.0'}</td></tr>`;
+  }).join('');
+  return `<table><caption>Pontos de medida · cm / Points of measure</caption><thead>${head}</thead><tbody>${rows}</tbody></table>`;
+}
+function pieceHTML(p){
+  const backFl = p.flatB ? `<div class="fl"><div class="cap">Costas / Back</div>${p.flatB}</div>` : '';
+  return `
+  <section class="sec" id="${p.id}">
+    <div class="sec-head"><span class="sec-num">${p.num}</span><h2 class="sec-title">${p.name} <span class="en">${p.en}</span></h2></div>
+    <div class="tp-top">
+      <div class="flats"><span class="badge">Desenho técnico / Flat · ${p.ref}</span>
+        <div class="fl"><div class="cap">Frente / Front</div>${p.flatF}</div>
+        ${backFl}
+      </div>
+      <div class="tp-side">
+        <div class="infobox"><div class="h"><span>Resumo / Summary</span><span class="ref">${p.ref}</span></div>
+          <p><b>Modelagem / Fit:</b> ${p.fit}</p>
+          <p><b>Material:</b> ${p.gsm}</p>
+          <p><b>Grade / Sizes:</b> ${p.sizes.join(' · ')}</p>
+          <p><b>Composição / Comp.:</b> ${p.comp || '100% algodão premium <span class="en">· premium cotton</span>'}</p>
+        </div>
+        <div class="infobox"><div class="h"><span>Posição da marca / Mark placement</span></div>
+          <p>${p.mark}</p>
+        </div>
+      </div>
+    </div>
+    ${tableHTML(p)}
+    <div class="twocol">
+      <div>
+        <div class="blocktitle">Ficha de materiais / Bill of materials</div>
+        <table class="bomtable"><thead><tr><th>Parte / Part</th><th>Material</th><th>Spec</th></tr></thead>
+        <tbody>${p.bom.map(b=>`<tr><td>${b[0]}</td><td>${b[1]}</td><td class="tol">${b[2]}</td></tr>`).join('')}</tbody></table>
+      </div>
+      <div>
+        <div class="blocktitle">Construção / Construction</div>
+        <ul class="notes">${p.notes.map((n,i)=>`<li><span class="nn">${String(i+1).padStart(2,'0')}</span><span>${n[0]}<span class="en">${n[1]}</span></span></li>`).join('')}</ul>
+      </div>
+    </div>
+  </section>`;
+}
+document.getElementById('pieces').innerHTML = PIECES.map(pieceHTML).join('');
+
+/* scroll-spy */
+const links=[...document.querySelectorAll('.rail a')];
+const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+const obs=new IntersectionObserver((es)=>{es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.remove('active')); const a=map.get(e.target.id); if(a)a.classList.add('active'); }});},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('main section[id]').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
